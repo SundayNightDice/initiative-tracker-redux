@@ -1,18 +1,26 @@
-var path = require('path');
-
 module.exports = {
-  entry: './src/entry.js',
+  entry: "./src/app.js",
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: "bundle.js"
   },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
-	loader: 'babel-loader',
-	include: path.join(__dirname, 'src')
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          cacheDirectory: true,
+          presets: ['react', 'es2015']
+        }
+      },
+      {
+        test: /\.less$/,
+        loader: 'style!css!less?noIeCompat'
       }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.less']
   }
-}
+};
