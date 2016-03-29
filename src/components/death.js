@@ -1,4 +1,5 @@
 import React from 'react';
+import ThreeChanceButtons from './threeChanceButtons';
 
 export default class Death extends React.Component {
 
@@ -16,36 +17,16 @@ export default class Death extends React.Component {
     return (
       <div>
         <h2>Death Saving Throws</h2>
-        <p>
-          <span>Successes:</span>
-          <input type="checkbox"
-           disabled={saves !== 0}
-           checked={saves === 0 ? this.props.turn.deathSave : true}
-           onChange={this.props.onDeathSave} />
-          <input type="checkbox"
-            disabled={saves !== 1}
-            checked={saves === 1 ? this.props.turn.deathSave : saves > 1}
-            onChange={this.props.onDeathSave} />
-          <input type="checkbox"
-            disabled={saves !== 2}
-            checked={saves === 2 ? this.props.turn.deathSave : false }
-            onChange={this.props.onDeathSave} />
-        </p>
-        <p>
-          <span>Failures:</span>
-          <input type="checkbox"
-            disabled={fails !== 0}
-            checked={fails === 0 ? this.props.turn.deathFail : true}
-            onChange={this.props.onDeathFail} />
-          <input type="checkbox"
-            disabled={fails !== 1}
-            checked={fails === 1 ? this.props.turn.deathFail : fails > 1}
-            onChange={this.props.onDeathFail} />
-          <input type="checkbox"
-            disabled={fails !== 2}
-            checked={fails === 2 ? this.props.turn.deathFail : false}
-            onChange={this.props.onDeathFail} />
-        </p>
+        <ThreeChanceButtons
+          title='Successes:'
+          value={saves}
+          checked={this.props.turn.deathSave}
+          onChange={this.props.onDeathSave} />
+        <ThreeChanceButtons
+          title='Failures:'
+          value={fails}
+          checked={this.props.turn.deathFail}
+          onChange={this.props.onDeathFail} />
       </div>
     );
   }

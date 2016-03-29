@@ -1,5 +1,6 @@
 import React from 'react';
 import Death from './death';
+import TargetValueSelector from './targetValueSelector';
 
 export default class TurnOptions extends React.Component {
 
@@ -13,7 +14,7 @@ export default class TurnOptions extends React.Component {
         <h1>{turnText}</h1>
         {
           currentPlayer.hp > 0 ?
-          this._renderDamageSection(currentPlayerName) :
+          this._renderTurnOptions(currentPlayerName) :
           <Death player={currentPlayer}
             turn={this.props.turn}
             onDeathSave={this.props.onDeathSave}
@@ -24,63 +25,39 @@ export default class TurnOptions extends React.Component {
     );
   }
 
-  _renderDamageSection(currentPlayerName) {
+  _renderTurnOptions(currentPlayerName) {
+    const targets = this.props.combatants.filter(combatant => combatant.name !== currentPlayerName);
     return (
-      <section>
-        <h2>Damage</h2>
-        <label>
-          <span>Attack:</span>
-          <select
-            value={this.props.turn.target}
-            onChange={this.props.onTargetSelected}>
-            { this.props.combatants
-              .filter(combatant => combatant.name !== currentPlayerName)
-              .map(combatant =>
-                <option value={combatant.name}>
-                  {combatant.name}
-                </option>
-              )
-            }
-          </select>
-        </label>
-        <label>
-          <span>For:</span>
-          <input
-            type="number"
-            min="0"
-            max="100"
+      <div>
+        <section>
+          <TargetValueSelector title="Damage"
+            target={this.props.turn.target}
+            targets={targets}
+            onTargetSelected={this.props.onTargetSelected}
             value={this.props.turn.damage}
             onChange={this.props.onDamageChange} />
-        </label>
-        <div>
-          <span>
-            <input
-              type="checkbox"
-              onChange={this.props.onToggleApplyCondition}
-              checked={this.props.turn.applyConditions} />
-            <label>
-              Apply condition
-            </label>
-          </span>
           <div>
-            {this.props.conditions.map(condition =>
-              <span>
-                <input
-                  key={condition}
-                  type="checkbox"
-                  disabled={!this.props.turn.applyConditions}
-                  onChange={e => this.props.onToggleCondition(condition, e.target.checked)} />
-                <label>
-                  {condition}
-                </label>
-              </span>
-            )}
+            <span>
+              <input type="checkbox"
+                onChange={this.props.onToggleApplyCondition}
+                checked={this.props.turn.applyConditions} />
+              <label>Apply condition</label>
+            </span>
+            <div>
+              {this.props.conditions.map(condition =>
+                <span>
+                  <input key={condition}
+                    type="checkbox"
+                    disabled={!this.props.turn.applyConditions}
+                    onChange={e => this.props.onToggleCondition(condition, e.target.checked)} />
+                  <label>{condition}</label>
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-        <button onClick={this.props.onApplyDamage}>
-          Apply Damage
-        </button>
-      </section>
+          <button onClick={this.props.onApplyDamage}>Apply Damage</button>
+        </section>
+      </div>
     );
   }
 }
