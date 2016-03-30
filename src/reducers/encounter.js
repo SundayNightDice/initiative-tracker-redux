@@ -1,8 +1,9 @@
 import immutable from 'immutable';
 import Combatant from './../models/combatant';
+import EncounterModel from './../models/encounterModel';
 import Turn from './../models/turn';
 
-const defaultState = {
+const defaultState = new EncounterModel({
   combatants: new immutable.List([
     new Combatant({ name: "Orc", type: 'enemy', hp: 15, initiativeBonus: 1, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Bugbear", type: 'enemy', hp: 45, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
@@ -32,20 +33,16 @@ const defaultState = {
   round: 1,
   currentPlayer: 0,
   turn: new Turn()
-};
+});
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'SET_TARGET':
-      return Object.assign({}, state, { turn: state.turn.set('target', action.value) });
+      return state.setIn(['turn', 'target'], action.value);
     case 'CHANGE_DAMAGE':
-      return Object.assign({}, state, { turn: state.turn.set('damage', action.value) });
+      return state.setIn(['turn', 'damage'], action.value);
     case 'TOGGLE_APPLY_CONDITION':
-      return Object.assign(
-        {},
-        state,
-        { turn: state.turn.set('applyConditions', action.checked) }
-      );
+      return state.setIn(['turn', 'applyConditions'], action.checked);
     case 'TOGGLE_CONDITION':
       // todo
       return state;
@@ -54,44 +51,31 @@ export default function encounter(state = defaultState, action) {
       const index = state.combatants.indexOf(item);
       const newItem = item.set('hp', Math.max(0, item.hp - state.turn.damage));
 
-      return Object.assign(
-        {},
-        state,
-        {
-          combatants: state.combatants.set(index, newItem),
-          turn: new Turn()
-        }
-      );
+      return state
+        .set('combatants', state.combatants.set(index, newItem))
+        .set('turn', new Turn());
     case 'DEATH_SAVE':
-      return Object.assign({}, state, { turn: state.turn.set('deathSave', action.value) });
+      return state.setIn(['turn', 'deathSave'], action.value);
     case 'DEATH_FAIL':
-      return Object.assign({}, state, { turn: state.turn.set('deathFail', action.value) });
+      return state.setIn(['turn', 'deathFail'], action.value);
     case 'END_TURN':
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
       const nextIndex = state.currentPlayer + 1 === state.combatants.size ? 0 : state.currentPlayer + 1;
       const round = nextIndex == 0 ? state.round + 1 : state.round;
+      const nextState = state
+        .set('round', round)
+        .set('currentPlayer', nextIndex)
+        .set('turn', new Turn());
 
       if (state.turn.deathSave) {
-        return Object.assign({}, state, {
-          combatants: state.combatants.set(state.currentPlayer, player.set('deathSaves', player.deathSaves + 1)),
-          round: round,
-          currentPlayer: nextIndex,
-          turn: new Turn()
-        });
+        return nextState
+          .setIn(['combatants', state.currentPlayer, 'deathSaves'], player.deathSaves + 1);
       } else if (state.turn.deathFail) {
-        return Object.assign({}, state, {
-          combatants: state.combatants.set(state.currentPlayer, player.set('deathFails', player.deathFails + 1)),
-          round: round,
-          currentPlayer: nextIndex,
-          turn: new Turn()
-        });
+        return nextState
+          .setIn(['combatants', state.currentPlayer, 'deathFails'], player.deathFails + 1);
       } else {
-        return Object.assign({}, state, {
-          round: round,
-          currentPlayer: nextIndex,
-          turn: new Turn()
-        });
+        return nextState;
       }
     default:
       return state;
