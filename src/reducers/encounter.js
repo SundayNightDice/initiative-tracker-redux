@@ -38,15 +38,15 @@ const defaultState = new EncounterModel({
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'SET_TARGET':
-      return state.setIn(['turn', 'target'], action.value);
-    case 'CHANGE_DAMAGE':
+      return state.setIn(['turn', 'target'], action.target);
+    case 'SET_DAMAGE':
       return state.setIn(['turn', 'damage'], action.value);
     case 'TOGGLE_APPLY_CONDITION':
       return state.setIn(['turn', 'applyConditions'], action.checked);
     case 'TOGGLE_CONDITION':
       // todo
       return state;
-    case 'APPLY_DAMAGE':
+    case 'DEAL_DAMAGE':
       const item = state.combatants.find(x => x.name === state.turn.target);
       const index = state.combatants.indexOf(item);
       const newItem = item.set('hp', Math.max(0, item.hp - state.turn.damage));

@@ -6,17 +6,26 @@ import EncounterList from './components/encounterList';
 import TurnOptions from './components/turnOptions';
 import '../styles/style.less';
 
+import dealDamage from './actions/dealDamage';
+import deathFail from './actions/deathFail';
+import deathSave from './actions/deathSave';
+import endTurn from './actions/endTurn';
+import setDamage from './actions/setDamage';
+import setTarget from './actions/setTarget';
+import toggleApplyCondition from './actions/toggleApplyCondition';
+import toggleCondition from './actions/toggleCondition';
+
 const store = createStore(rootReducer);
 const root = document.getElementById('root');
 
 function render() {
   const state = store.getState().encounter;
   ReactDOM.render(
-      <div>
-        <header>
-          <span>D&D Initiative Tracker</span>
-          <span>{'Round ' + state.round}</span>
-        </header>
+    <div>
+      <header>
+        <span>D&D Initiative Tracker</span>
+        <span>{'Round ' + state.round}</span>
+      </header>
       <div id="contents">
         <EncounterList
           combatants={state.combatants}
@@ -26,17 +35,17 @@ function render() {
           combatants={state.combatants}
           conditions={state.conditions}
           turn={state.turn}
-          onTargetSelected={e => store.dispatch({ type: 'SET_TARGET', value: e.target.value})}
-          onToggleApplyCondition={e => store.dispatch({ type: 'TOGGLE_APPLY_CONDITION', checked: e.target.checked })}
-          onToggleCondition={(condition, checked) => store.dispatch({ type: 'TOGGLE_CONDITION', condition: condition, checked: checked})}
-          onDamageChange={e => store.dispatch({ type: 'CHANGE_DAMAGE', value: e.target.value})}
-          onApplyDamage={e => store.dispatch({ type: 'APPLY_DAMAGE', value: e.value})}
-          onDeathSave={e => store.dispatch({ type: 'DEATH_SAVE', value: e.target.value })}
-          onDeathFail={e => store.dispatch({ type: 'DEATH_FAIL', value: e.target.value })}
-          onEndTurn={e => store.dispatch({ type: 'END_TURN' })}
+          onTargetSelected={e => store.dispatch(setTarget(e.target.value))}
+          onToggleApplyCondition={e => store.dispatch(toggleApplyCondition(e.target.checked))}
+          onToggleCondition={(condition, checked) => store.dispatch(toggleCondition(condition, checked))}
+          onDamageChange={e => store.dispatch(setDamage(e.target.value))}
+          onApplyDamage={e => store.dispatch(dealDamage())}
+          onDeathSave={e => store.dispatch(deathSave(e.target.value))}
+          onDeathFail={e => store.dispatch(deathFail(e.target.value))}
+          onEndTurn={e => store.dispatch(endTurn())}
           />
       </div>
-      </div>,
+    </div>,
     root
   );
 }
