@@ -15,7 +15,8 @@ export default class EncounterList extends React.Component {
                 {combatant.name + ' - '+ combatant.hp}
                 <Status hp={combatant.hp}
                   deathSaves={combatant.deathSaves}
-                  deathFails={combatant.deathFails} />
+                  deathFails={combatant.deathFails}
+                  type={combatant.type} />
             </li>
           )}
         </ul>

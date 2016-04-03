@@ -10,7 +10,7 @@ export default class Death extends React.Component {
     if (saves === 3) {
       return <p>Stable</p>;
     }
-    if (fails === 3) {
+    if (fails === 3 || this.props.player.type === 'enemy') {
       return <p>Dead</p>;
     }
 

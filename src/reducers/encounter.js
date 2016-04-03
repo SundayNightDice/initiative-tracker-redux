@@ -8,7 +8,7 @@ const defaultState = new EncounterModel({
   combatants: new immutable.List([
     new Combatant({ name: "Orc", type: 'enemy', hp: 15, initiativeBonus: 1, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Bugbear", type: 'enemy', hp: 45, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Bella", type: 'player', hp: 24, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
+    new Combatant({ name: "Bella", type: 'player', hp: 0, initiativeBonus: 3, deathSaves: 0, deathFails: 3, conditions: [] }),
     new Combatant({ name: "Cedric", type: 'player', hp: 25, initiativeBonus: 4, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Fargrim", type: 'player', hp: 30, initiativeBonus: 2, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Kasimir", type: 'player', hp: 18, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
@@ -49,8 +49,8 @@ export default function encounter(state = defaultState, action) {
     case 'END_TURN':
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
-      const nextIndex = state.currentPlayer + 1 === state.combatants.size ? 0 : state.currentPlayer + 1;
-      const round = nextIndex == 0 ? state.round + 1 : state.round;
+      const nextIndex = nextTurnIndex(state.combatants, state.currentPlayer);
+      const round = nextIndex === 0 ? state.round + 1 : state.round;
       const nextState = state
         .set('round', round)
         .set('currentPlayer', nextIndex)
@@ -70,3 +70,20 @@ export default function encounter(state = defaultState, action) {
       return state.set('turn', turn);
   }
 };
+
+function nextTurnIndex(combatants, currentPlayerIndex) {
+  const size = combatants.size;
+  const increment = (i) => i + 1 === size ? 0 : i + 1;
+
+  for (let i = increment(currentPlayerIndex); i !== currentPlayerIndex; i = increment(i)) {
+    const combatant = combatants.get(i);
+
+    if (
+      (combatant.type === 'enemy' && combatant.hp > 0) ||
+      (combatant.type === 'player' && combatant.deathFails < 3)) {
+        return i;
+      }
+  }
+
+  return -1; // All enemies defeated!
+}
