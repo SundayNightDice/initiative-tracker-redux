@@ -1,4 +1,5 @@
 import immutable from 'immutable';
+import turnReducer from './turn';
 import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
 import Turn from './../models/turn';
@@ -37,15 +38,6 @@ const defaultState = new EncounterModel({
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
-    case 'SET_TARGET':
-      return state.setIn(['turn', 'target'], action.target);
-    case 'SET_DAMAGE':
-      return state.setIn(['turn', 'damage'], action.value);
-    case 'TOGGLE_APPLY_CONDITION':
-      return state.setIn(['turn', 'applyConditions'], action.checked);
-    case 'TOGGLE_CONDITION':
-      // todo
-      return state;
     case 'DEAL_DAMAGE':
       const item = state.combatants.find(x => x.name === state.turn.target);
       const index = state.combatants.indexOf(item);
@@ -53,11 +45,7 @@ export default function encounter(state = defaultState, action) {
 
       return state
         .set('combatants', state.combatants.set(index, newItem))
-        .set('turn', new Turn());
-    case 'DEATH_SAVE':
-      return state.setIn(['turn', 'deathSave'], action.value);
-    case 'DEATH_FAIL':
-      return state.setIn(['turn', 'deathFail'], action.value);
+        .set('turn', turnReducer(state.turn, action));
     case 'END_TURN':
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
@@ -66,7 +54,7 @@ export default function encounter(state = defaultState, action) {
       const nextState = state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn());
+        .set('turn', turnReducer(state.turn, action));
 
       if (state.turn.deathSave) {
         return nextState
@@ -78,6 +66,7 @@ export default function encounter(state = defaultState, action) {
         return nextState;
       }
     default:
-      return state;
+      const turn = turnReducer(state.turn, action);
+      return state.set('turn', turn);
   }
 };
