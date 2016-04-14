@@ -55,7 +55,9 @@ export default class TurnOptions extends React.Component {
               )}
             </div>
           </div>
-          <button onClick={this.props.onApplyDamage}>Apply Damage</button>
+          <button
+            onClick={this.props.onApplyDamage}
+            disabled={this.props.turn.damage === 0 || !this.props.turn.target}>Apply Damage</button>
         </section>
       </div>
     );
