@@ -8,7 +8,7 @@ const defaultState = new EncounterModel({
   combatants: new immutable.List([
     new Combatant({ name: "Orc", type: 'enemy', hp: 15, initiativeBonus: 1, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Bugbear", type: 'enemy', hp: 45, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Bella", type: 'player', hp: 0, initiativeBonus: 3, deathSaves: 0, deathFails: 3, conditions: [] }),
+    new Combatant({ name: "Bella", type: 'player', hp: 24, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Cedric", type: 'player', hp: 25, initiativeBonus: 4, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Fargrim", type: 'player', hp: 30, initiativeBonus: 2, deathSaves: 0, deathFails: 0, conditions: [] }),
     new Combatant({ name: "Kasimir", type: 'player', hp: 18, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
@@ -41,7 +41,9 @@ export default function encounter(state = defaultState, action) {
     case 'DEAL_DAMAGE':
       const item = state.combatants.find(x => x.name === state.turn.target);
       const index = state.combatants.indexOf(item);
-      const newItem = item.set('hp', Math.max(0, item.hp - state.turn.damage));
+      const newItem = item.hp > 0 ?
+        item.set('hp', Math.max(0, item.hp - state.turn.damage)) :
+        item.set('deathFails', item.deathFails + 1);
 
       return state
         .set('combatants', state.combatants.set(index, newItem))
