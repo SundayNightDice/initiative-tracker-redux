@@ -8,6 +8,7 @@ export default class TurnOptions extends React.Component {
     const currentPlayer = this.props.combatants.get(this.props.currentPlayer);
     const currentPlayerName = currentPlayer.name;
     const turnText = 'It\'s ' + currentPlayerName + '\'s turn!';
+    const canEndTurn = currentPlayer.hp > 0 || (this.props.turn.deathSave || this.props.turn.deathFail);
 
     return (
       <div id="turnOptions">
@@ -20,7 +21,9 @@ export default class TurnOptions extends React.Component {
             onDeathSave={this.props.onDeathSave}
             onDeathFail={this.props.onDeathFail} />
         }
-        <button onClick={this.props.onEndTurn}>End Turn</button>
+        <button
+          onClick={this.props.onEndTurn}
+          disabled={!canEndTurn}>End Turn</button>
       </div>
     );
   }
