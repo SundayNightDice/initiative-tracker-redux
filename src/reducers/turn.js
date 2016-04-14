@@ -15,9 +15,13 @@ export default function reducer(state = defaultState, action) {
     case 'TOGGLE_CONDITION':
       return state; //TODO
     case 'DEATH_SAVE':
-      return state.set('deathSave', action.value);
+      return state
+        .set('deathSave', action.value)
+        .set('deathFail', false);
     case 'DEATH_FAIL':
-      return state.set('deathFail', action.value);
+      return state
+        .set('deathFail', action.value)
+        .set('deathSave', false);
     case 'END_TURN':
       return new Turn();
     default:

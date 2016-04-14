@@ -27,8 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked)),
     onDamageChange: (e) => dispatch(setDamage(e.target.value)),
     onApplyDamage: (e) => dispatch(dealDamage()),
-    onDeathSave: (e) => dispatch(deathSave(e.target.value)),
-    onDeathFail: (e) => dispatch(deathFail(e.target.value)),
+    onDeathSave: (e) => dispatch(deathSave(e.target.checked)),
+    onDeathFail: (e) => dispatch(deathFail(e.target.checked)),
     onEndTurn: (e) => dispatch(endTurn())
   };
 };

@@ -9,15 +9,15 @@ export default class ThreeChanceButtons extends React.Component {
         <input type="checkbox"
           disabled={this.props.value !== 0}
           checked={this.props.value === 0 ? this.props.checked : true}
-          onChange={this.props.onChange} />
+          onClick={this.props.onChange} />
         <input type="checkbox"
           disabled={this.props.value !== 1}
           checked={this.props.value === 1 ? this.props.checked : this.props.value > 1}
-          onChange={this.props.onChange} />
+          onClick={this.props.onChange} />
         <input type="checkbox"
           disabled={this.props.value !== 2}
           checked={this.props.value === 2 ? this.props.checked : false}
-          onChange={this.props.onChange} />
+          onClick={this.props.onChange} />
       </p>
     );
   }
