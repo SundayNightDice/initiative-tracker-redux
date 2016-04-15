@@ -31,13 +31,19 @@ const defaultState = new EncounterModel({
     'Stunned',
     'Unconscious'
   ]),
-  round: 1,
-  currentPlayer: 0,
-  turn: new Turn()
+  round: 0,
+  currentPlayer: -1,
+  turn: null
 });
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
+    case 'START_ENCOUNTER':
+    const firstPlayerName = state.combatants.get(0).name;
+    return state
+      .set('round', 1)
+      .set('currentPlayer', 0)
+      .set('turn', new Turn(state.combatants.filter(item => item.name !== firstPlayerName)));
     case 'DEAL_DAMAGE':
       const item = state.combatants.find(x => x.name === state.turn.target);
       const index = state.combatants.indexOf(item);
@@ -47,16 +53,17 @@ export default function encounter(state = defaultState, action) {
 
       return state
         .set('combatants', state.combatants.set(index, newItem))
-        .set('turn', turnReducer(state.turn, action));
+        .set('turn', new Turn(state.turn.targets, state.turn.target));
     case 'END_TURN':
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
       const nextIndex = nextTurnIndex(state.combatants, state.currentPlayer);
+      const nextPlayer = state.combatants.get(nextIndex);
       const round = nextIndex === 0 ? state.round + 1 : state.round;
       const nextState = state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', turnReducer(state.turn, action));
+        .set('turn', new Turn(state.combatants.filter(item => item.name !== nextPlayer.name)));
 
       if (state.turn.deathSave) {
         return nextState

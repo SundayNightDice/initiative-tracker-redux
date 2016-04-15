@@ -1,6 +1,6 @@
 import Turn from './../models/turn';
 
-const defaultState = new Turn();
+const defaultState = null;
 
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
@@ -8,8 +8,6 @@ export default function reducer(state = defaultState, action) {
       return state.set('target', action.target);
     case 'SET_DAMAGE':
       return state.set('damage', action.value);
-    case 'DEAL_DAMAGE':
-      return new Turn();
     case 'TOGGLE_APPLY_CONDITION':
       return state.set('applyConditions', action.checked);
     case 'TOGGLE_CONDITION':
@@ -22,8 +20,6 @@ export default function reducer(state = defaultState, action) {
       return state
         .set('deathFail', action.value)
         .set('deathSave', false);
-    case 'END_TURN':
-      return new Turn();
     default:
       return state;
   }

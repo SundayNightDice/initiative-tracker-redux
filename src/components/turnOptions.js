@@ -5,9 +5,16 @@ import TargetValueSelector from './targetValueSelector';
 export default class TurnOptions extends React.Component {
 
   render() {
+    if (this.props.turn) {
+      return this._renderTurnOptions();
+    } else {
+      return <div id="turnOptions"></div>;
+    }
+  }
+
+  _renderTurnOptions() {
     const currentPlayer = this.props.combatants.get(this.props.currentPlayer);
-    const currentPlayerName = currentPlayer.name;
-    const turnText = 'It\'s ' + currentPlayerName + '\'s turn!';
+    const turnText = 'It\'s ' + currentPlayer.name + '\'s turn!';
     const canEndTurn = currentPlayer.hp > 0 || (this.props.turn.deathSave || this.props.turn.deathFail);
 
     return (
@@ -15,11 +22,11 @@ export default class TurnOptions extends React.Component {
         <h1>{turnText}</h1>
         {
           currentPlayer.hp > 0 ?
-          this._renderTurnOptions(currentPlayerName) :
-          <Death player={currentPlayer}
-            turn={this.props.turn}
-            onDeathSave={this.props.onDeathSave}
-            onDeathFail={this.props.onDeathFail} />
+            this._renderActiveOptions(currentPlayer.name) :
+            <Death player={currentPlayer}
+              turn={this.props.turn}
+              onDeathSave={this.props.onDeathSave}
+              onDeathFail={this.props.onDeathFail} />
         }
         <button
           onClick={this.props.onEndTurn}
@@ -28,14 +35,13 @@ export default class TurnOptions extends React.Component {
     );
   }
 
-  _renderTurnOptions(currentPlayerName) {
-    const targets = this.props.combatants.filter(combatant => combatant.name !== currentPlayerName);
+  _renderActiveOptions(currentPlayerName) {
     return (
       <div>
         <section>
           <TargetValueSelector title="Damage"
             target={this.props.turn.target}
-            targets={targets}
+            targets={this.props.turn.targets}
             onTargetSelected={this.props.onTargetSelected}
             value={this.props.turn.damage}
             onChange={this.props.onDamageChange} />

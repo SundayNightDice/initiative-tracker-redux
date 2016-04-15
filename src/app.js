@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import rootReducer from './reducers/rootReducer';
 import App from './components/app';
+import startEncounter from './actions/startEncounter';
 
 import '../styles/style.less';
 
@@ -16,3 +17,6 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+
+console.log('dispatching');
+store.dispatch(startEncounter());
