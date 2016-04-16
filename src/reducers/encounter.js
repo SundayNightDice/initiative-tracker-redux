@@ -75,9 +75,13 @@ export default function encounter(state = defaultState, action) {
 function dealDamage(state) {
   const item = state.combatants.find(x => x.name === state.turn.damageTarget);
   const index = state.combatants.indexOf(item);
+  const remainingHp = Math.max(0, item.hp - state.turn.damage);
+  const leftoverHp = Math.min(0, item.hp - state.turn.damage) * -1;
   const newItem = item.hp > 0 ?
-    item.set('hp', Math.max(0, item.hp - state.turn.damage)) :
-    item.set('deathFails', item.deathFails + 1);
+    item
+      .set('hp', remainingHp)
+      .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
+    item.set('deathFails', state.turn.damage < item.maxHp ? item.deathFails + 1 : 3);
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
