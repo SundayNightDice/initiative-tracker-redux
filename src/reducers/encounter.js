@@ -88,7 +88,9 @@ function dealHealing(state) {
   const item = state.combatants.find(x => x.name === state.turn.healingTarget);
   const index = state.combatants.indexOf(item);
   const newItem = item
-    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing));
+    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing))
+    .set('deathSaves', 0)
+    .set('deathFails', 0);
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
