@@ -18,5 +18,4 @@ render(
   document.getElementById('root')
 );
 
-console.log('dispatching');
 store.dispatch(startEncounter());

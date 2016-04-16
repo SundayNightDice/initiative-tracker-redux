@@ -11,5 +11,15 @@ const _Combatant = {
 };
 
 export default class Combatant extends immutable.Record(_Combatant) {
-
+  constructor(name, type, hp, initiativeBonus) {
+    super({
+      name: name,
+      type: type,
+      hp: hp,
+      initiativeBonus: initiativeBonus,
+      deathSaves: 0,
+      deathFails: 0,
+      conditions: []
+    });
+  }
 }

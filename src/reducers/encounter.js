@@ -6,13 +6,13 @@ import Turn from './../models/turn';
 
 const defaultState = new EncounterModel({
   combatants: new immutable.List([
-    new Combatant({ name: "Orc", type: 'enemy', hp: 15, initiativeBonus: 1, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Bugbear", type: 'enemy', hp: 45, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Bella", type: 'player', hp: 24, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Cedric", type: 'player', hp: 25, initiativeBonus: 4, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Fargrim", type: 'player', hp: 30, initiativeBonus: 2, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Kasimir", type: 'player', hp: 18, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] }),
-    new Combatant({ name: "Sibilant Caius", type: 'player', hp: 16, initiativeBonus: 3, deathSaves: 0, deathFails: 0, conditions: [] })
+    new Combatant('Orc', 'enemy', 15, 1),
+    new Combatant('Bugbear', 'enemy', 45, 3),
+    new Combatant('Bella', 'player', 24, 3),
+    new Combatant('Cedric', 'player', 25, 4),
+    new Combatant('Fargrim', 'player', 30, 2),
+    new Combatant('Kasimir', 'player', 18, 3),
+    new Combatant('Sibilant Caius', 'player', 16, 3)
   ]),
   conditions: new immutable.List([
     'Blinded',
@@ -39,11 +39,10 @@ const defaultState = new EncounterModel({
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'START_ENCOUNTER':
-    const firstPlayerName = state.combatants.get(0).name;
     return state
       .set('round', 1)
       .set('currentPlayer', 0)
-      .set('turn', new Turn(state.combatants.filter(item => item.name !== firstPlayerName)));
+      .set('turn', new Turn(targetsForPlayer(state.combatants, 0)));
     case 'DEAL_DAMAGE':
       const item = state.combatants.find(x => x.name === state.turn.target);
       const index = state.combatants.indexOf(item);
@@ -58,12 +57,11 @@ export default function encounter(state = defaultState, action) {
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
       const nextIndex = nextTurnIndex(state.combatants, state.currentPlayer);
-      const nextPlayer = state.combatants.get(nextIndex);
       const round = nextIndex === 0 ? state.round + 1 : state.round;
       const nextState = state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(state.combatants.filter(item => item.name !== nextPlayer.name)));
+        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex)));
 
       if (state.turn.deathSave) {
         return nextState
@@ -79,6 +77,11 @@ export default function encounter(state = defaultState, action) {
       return state.set('turn', turn);
   }
 };
+
+function targetsForPlayer(combatants, index) {
+  const player = combatants.get(index);
+  return combatants.filter(c => c.name !== player.name);
+}
 
 function nextTurnIndex(combatants, currentPlayerIndex) {
   const size = combatants.size;

@@ -12,7 +12,6 @@ const _Turn = {
 
 export default class Turn extends immutable.Record(_Turn) {
   constructor(targets, target) {
-    console.log(targets);
     super({
       targets: targets,
       target: target || targets.get(0).name,
