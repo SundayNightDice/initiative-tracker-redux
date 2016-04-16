@@ -39,20 +39,14 @@ const defaultState = new EncounterModel({
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'START_ENCOUNTER':
-    return state
-      .set('round', 1)
-      .set('currentPlayer', 0)
-      .set('turn', new Turn(targetsForPlayer(state.combatants, 0)));
-    case 'DEAL_DAMAGE':
-      const item = state.combatants.find(x => x.name === state.turn.target);
-      const index = state.combatants.indexOf(item);
-      const newItem = item.hp > 0 ?
-        item.set('hp', Math.max(0, item.hp - state.turn.damage)) :
-        item.set('deathFails', item.deathFails + 1);
-
       return state
-        .set('combatants', state.combatants.set(index, newItem))
-        .set('turn', new Turn(state.turn.targets, state.turn.target));
+        .set('round', 1)
+        .set('currentPlayer', 0)
+        .set('turn', new Turn(targetsForPlayer(state.combatants, 0)));
+    case 'DEAL_DAMAGE':
+      return dealDamage(state);
+    case 'DEAL_HEALING':
+      return dealHealing(state);
     case 'END_TURN':
       // Assumes that the combatants array is sorted by initiative.
       const player = state.combatants.get(state.currentPlayer);
@@ -77,6 +71,29 @@ export default function encounter(state = defaultState, action) {
       return state.set('turn', turn);
   }
 };
+
+function dealDamage(state) {
+  const item = state.combatants.find(x => x.name === state.turn.damageTarget);
+  const index = state.combatants.indexOf(item);
+  const newItem = item.hp > 0 ?
+    item.set('hp', Math.max(0, item.hp - state.turn.damage)) :
+    item.set('deathFails', item.deathFails + 1);
+
+  return state
+    .set('combatants', state.combatants.set(index, newItem))
+    .set('turn', new Turn(state.turn.targets, state.turn.damageTarget));
+}
+
+function dealHealing(state) {
+  const item = state.combatants.find(x => x.name === state.turn.healingTarget);
+  const index = state.combatants.indexOf(item);
+  const newItem = item
+    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing));
+
+  return state
+    .set('combatants', state.combatants.set(index, newItem))
+    .set('turn', new Turn(state.turn.targets, state.turn.healingTarget));
+}
 
 function targetsForPlayer(combatants, index) {
   const player = combatants.get(index);
