@@ -130,7 +130,7 @@ function applyDeathSavingThrows(player, turn) {
 
 function nextTurnIndex(combatants, currentPlayerIndex) {
   const size = combatants.size;
-  const increment = (i) => i + 1 === size ? 0 : i + 1;
+  const increment = (i) => (i + 1) % size;
 
   for (let i = increment(currentPlayerIndex); i !== currentPlayerIndex; i = increment(i)) {
     const combatant = combatants.get(i);
