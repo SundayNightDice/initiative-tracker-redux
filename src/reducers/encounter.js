@@ -76,7 +76,7 @@ function dealDamage(state) {
   const item = state.combatants.find(x => x.name === state.turn.damageTarget);
   const index = state.combatants.indexOf(item);
   const remainingHp = Math.max(0, item.hp - state.turn.damage);
-  const leftoverHp = Math.min(0, item.hp - state.turn.damage) * -1;
+  const leftoverHp = Math.abs(Math.min(0, item.hp - state.turn.damage));
   const newItem = item.hp > 0 ?
     item
       .set('hp', remainingHp)
@@ -103,7 +103,9 @@ function dealHealing(state) {
 
 function targetsForPlayer(combatants, index) {
   const player = combatants.get(index);
-  return combatants.filter(c => c.name !== player.name);
+  return combatants
+    .filter(c => c.name !== player.name)
+    .filter(c => c.type === 'enemy' ? c.hp > 0 : c.deathFails < 3);
 }
 
 function nextTurnIndex(combatants, currentPlayerIndex) {
