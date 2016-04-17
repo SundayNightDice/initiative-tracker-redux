@@ -6,10 +6,10 @@ export default class TargetValueSelector extends React.Component {
     return (
       <div>
         <h2>{this.props.title}</h2>
-        <select value={this.props.target}
+        <select value={this.props.model.target}
           onChange={this.props.onTargetSelected}>
           {
-            this.props.targets.map(t =>
+            this.props.model.targets.map(t =>
               <option value={t.name}>{t.name}</option>
             )
           }
@@ -18,7 +18,7 @@ export default class TargetValueSelector extends React.Component {
         <input type="number"
           min="0"
           max="100"
-          value={this.props.value}
+          value={this.props.model.value}
           onChange={this.props.onChange} />
       </div>
     )

@@ -1,12 +1,9 @@
 import immutable from 'immutable';
+import Target from './target';
 
 const _Turn = {
-  damageTargets: [],
-  healingTargets: [],
-  damageTarget: null,
-  damage: 0,
-  healingTarget: null,
-  healing: 0,
+  damage: null,
+  healing: null,
   conditions: [],
   applyConditions: false,
   deathSave: false,
@@ -14,14 +11,10 @@ const _Turn = {
 };
 
 export default class Turn extends immutable.Record(_Turn) {
-  constructor(targets, healingTargets, damageTarget, healingTarget) {
+  constructor(damageTargets, healingTargets, damageTarget, healingTarget) {
     super({
-      damageTargets: targets,
-      healingTargets: healingTargets,
-      damageTarget: damageTarget || targets.get(0).name,
-      damage: 0,
-      healingTarget: healingTarget || healingTargets.get(0).name,
-      healing: 0,
+      damage: new Target(damageTargets, damageTarget),
+      healing: new Target(healingTargets, healingTarget),
       conditions: [],
       applyConditions: false,
       deathSave: false,

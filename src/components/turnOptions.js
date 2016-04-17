@@ -40,10 +40,8 @@ export default class TurnOptions extends React.Component {
       <div>
         <section>
           <TargetValueSelector title="Damage"
-            target={this.props.turn.damageTarget}
-            targets={this.props.turn.damageTargets}
+            model={this.props.turn.damage}
             onTargetSelected={this.props.onDamageTargetSelected}
-            value={this.props.turn.damage}
             onChange={this.props.onDamageChange} />
           <div>
             <span>
@@ -66,18 +64,16 @@ export default class TurnOptions extends React.Component {
           </div>
           <button
             onClick={this.props.onApplyDamage}
-            disabled={this.props.turn.damage === 0 || !this.props.turn.damageTarget}>Apply Damage</button>
+            disabled={this.props.turn.damage.value === 0 || !this.props.turn.damage.target}>Apply Damage</button>
         </section>
         <section>
           <TargetValueSelector title="Healing"
-            target={this.props.turn.healTarget}
-            targets={this.props.turn.healingTargets}
+            model={this.props.turn.healing}
             onTargetSelected={this.props.onHealTargetSelected}
-            value={this.props.turn.healing}
             onChange={this.props.onHealChange} />
           <button
             onClick={this.props.onApplyHealing}
-            disabled={this.props.turn.healing === 0 || !this.props.turn.healingTarget}>Apply Healing</button>
+            disabled={this.props.turn.healing.value === 0 || !this.props.turn.healing.target}>Apply Healing</button>
         </section>
       </div>
     );

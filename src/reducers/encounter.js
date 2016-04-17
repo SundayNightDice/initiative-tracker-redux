@@ -73,46 +73,44 @@ export default function encounter(state = defaultState, action) {
 };
 
 function dealDamage(state) {
-  const item = state.combatants.find(x => x.name === state.turn.damageTarget);
+  const item = state.combatants.find(x => x.name === state.turn.damage.target);
   const index = state.combatants.indexOf(item);
-  const remainingHp = Math.max(0, item.hp - state.turn.damage);
-  const leftoverHp = Math.abs(Math.min(0, item.hp - state.turn.damage));
+  const remainingHp = Math.max(0, item.hp - state.turn.damage.value);
+  const leftoverHp = Math.abs(Math.min(0, item.hp - state.turn.damage.value));
   const newItem = item.hp > 0 ?
     item
       .set('hp', remainingHp)
       .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
-    item.set('deathFails', state.turn.damage < item.maxHp ? item.deathFails + 1 : 3);
+    item.set('deathFails', state.turn.damage.value < item.maxHp ? item.deathFails + 1 : 3);
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
-    .set('turn', new Turn(state.turn.damageTargets, state.turn.healingTargets, state.turn.damageTarget, state.turn.healingTarget));
+    .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
 }
 
 function dealHealing(state) {
-  const item = state.combatants.find(x => x.name === state.turn.healingTarget);
+  const item = state.combatants.find(x => x.name === state.turn.healing.target);
   const index = state.combatants.indexOf(item);
   const newItem = item
-    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing))
+    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing.value))
     .set('deathSaves', 0)
     .set('deathFails', 0);
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
-    .set('turn', new Turn(state.turn.damageTargets, state.turn.healingTargets, state.turn.damageTarget, state.turn.healingTarget));
+    .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
 }
 
 function targetsForPlayer(combatants, index) {
   const player = combatants.get(index);
-  return combatants
-    .filter(c => c.name !== player.name)
-    .filter(isDead);
+  return combatants.filter(c => c.name !== player.name && isAlive(c));
 }
 
 function healingTargets(combatants) {
-  return combatants.filter(isDead);
+  return combatants.filter(isAlive);
 }
 
-function isDead(combatant) {
+function isAlive(combatant) {
   return combatant.type === 'enemy' ?
     combatant.hp > 0 :
     combatant.deathFails < 3;
@@ -125,9 +123,7 @@ function nextTurnIndex(combatants, currentPlayerIndex) {
   for (let i = increment(currentPlayerIndex); i !== currentPlayerIndex; i = increment(i)) {
     const combatant = combatants.get(i);
 
-    if (
-      (combatant.type === 'enemy' && combatant.hp > 0) ||
-      (combatant.type === 'player' && combatant.deathFails < 3)) {
+    if (isAlive(combatant)) {
         return i;
       }
   }
