@@ -6,6 +6,7 @@ import dealDamage from './../actions/dealDamage';
 import dealHealing from './../actions/dealHealing';
 import deathFail from './../actions/deathFail';
 import deathSave from './../actions/deathSave';
+import criticalSave from './../actions/criticalSave';
 import endTurn from './../actions/endTurn';
 import setDamage from './../actions/setDamage';
 import setHealing from './../actions/setHealing';
@@ -35,6 +36,7 @@ const mapDispatchToProps = (dispatch) => {
     onApplyHealing: (e) => dispatch(dealHealing()),
     onDeathSave: (e) => dispatch(deathSave(e.target.checked)),
     onDeathFail: (e) => dispatch(deathFail(e.target.checked)),
+    onCriticalSave: (e) => dispatch(criticalSave(e.target.checked)),
     onEndTurn: (e) => dispatch(endTurn())
   };
 };

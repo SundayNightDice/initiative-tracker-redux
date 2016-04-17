@@ -26,7 +26,8 @@ export default class TurnOptions extends React.Component {
             <Death player={currentPlayer}
               turn={this.props.turn}
               onDeathSave={this.props.onDeathSave}
-              onDeathFail={this.props.onDeathFail} />
+              onDeathFail={this.props.onDeathFail}
+              onCriticalSave={this.props.onCriticalSave} />
         }
         <button
           onClick={this.props.onEndTurn}

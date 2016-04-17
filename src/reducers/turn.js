@@ -24,6 +24,8 @@ export default function reducer(state = defaultState, action) {
       return state
         .set('deathFail', action.value)
         .set('deathSave', false);
+    case 'CRITICAL_SAVE':
+      return state.set('criticalSave', action.value);
     default:
       return state;
   }

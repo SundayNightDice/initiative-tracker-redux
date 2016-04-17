@@ -12,7 +12,7 @@ export default class EncounterList extends React.Component {
             <li
               className={combatant.name === currentPlayerName ? 'turn': ''}
               key={combatant.name}>
-                {combatant.name + ' - '+ combatant.hp}
+                {combatant.name + ' - '+ combatant.hp + ' HP'}
                 <Status hp={combatant.hp}
                   deathSaves={combatant.deathSaves}
                   deathFails={combatant.deathFails}

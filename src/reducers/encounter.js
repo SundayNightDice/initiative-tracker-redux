@@ -52,20 +52,11 @@ export default function encounter(state = defaultState, action) {
       const player = state.combatants.get(state.currentPlayer);
       const nextIndex = nextTurnIndex(state.combatants, state.currentPlayer);
       const round = nextIndex === 0 ? state.round + 1 : state.round;
-      const nextState = state
+      return state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex), healingTargets(state.combatants)));
-
-      if (state.turn.deathSave) {
-        return nextState
-          .setIn(['combatants', state.currentPlayer, 'deathSaves'], player.deathSaves + 1);
-      } else if (state.turn.deathFail) {
-        return nextState
-          .setIn(['combatants', state.currentPlayer, 'deathFails'], player.deathFails + 1);
-      } else {
-        return nextState;
-      }
+        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex), healingTargets(state.combatants)))
+        .setIn(['combatants', state.currentPlayer], applyDeathSavingThrows(player, state.turn));
     default:
       const turn = turnReducer(state.turn, action);
       return state.set('turn', turn);
@@ -114,6 +105,24 @@ function isAlive(combatant) {
   return combatant.type === 'enemy' ?
     combatant.hp > 0 :
     combatant.deathFails < 3;
+}
+
+function applyDeathSavingThrows(player, turn) {
+  if (turn.deathSave) {
+    if (turn.criticalSave) {
+      return player
+        .set('hp', 1)
+        .set('deathSaves', 0)
+        .set('deathFails', 0);
+    } else {
+      return player.set('deathSaves', player.deathSaves + 1);
+    }
+  } else if (turn.deathFail) {
+    const fails = turn.criticalSave ? 2 : 1;
+    return player.set('deathFails', player.deathFails + fails);
+  } else {
+    return player;
+  }
 }
 
 function nextTurnIndex(combatants, currentPlayerIndex) {

@@ -7,7 +7,8 @@ const _Turn = {
   conditions: [],
   applyConditions: false,
   deathSave: false,
-  deathFail: false
+  deathFail: false,
+  criticalSave: false
 };
 
 export default class Turn extends immutable.Record(_Turn) {
@@ -18,7 +19,8 @@ export default class Turn extends immutable.Record(_Turn) {
       conditions: [],
       applyConditions: false,
       deathSave: false,
-      deathFail: false
+      deathFail: false,
+      criticalSave: false
     });
   }
 }

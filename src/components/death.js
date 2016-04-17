@@ -17,6 +17,10 @@ export default class Death extends React.Component {
     return (
       <div>
         <h2>Death Saving Throws</h2>
+        <label>Is Critical?</label>
+        <input type="checkbox"
+          checked={this.props.turn.criticalSave}
+          onClick={this.props.onCriticalSave} />
         <ThreeChanceButtons
           title='Successes:'
           value={saves}
