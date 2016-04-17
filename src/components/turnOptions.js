@@ -41,7 +41,7 @@ export default class TurnOptions extends React.Component {
         <section>
           <TargetValueSelector title="Damage"
             target={this.props.turn.damageTarget}
-            targets={this.props.turn.targets}
+            targets={this.props.turn.damageTargets}
             onTargetSelected={this.props.onDamageTargetSelected}
             value={this.props.turn.damage}
             onChange={this.props.onDamageChange} />
@@ -71,7 +71,7 @@ export default class TurnOptions extends React.Component {
         <section>
           <TargetValueSelector title="Healing"
             target={this.props.turn.healTarget}
-            targets={this.props.turn.targets}
+            targets={this.props.turn.healingTargets}
             onTargetSelected={this.props.onHealTargetSelected}
             value={this.props.turn.healing}
             onChange={this.props.onHealChange} />

@@ -42,7 +42,7 @@ export default function encounter(state = defaultState, action) {
       return state
         .set('round', 1)
         .set('currentPlayer', 0)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, 0)));
+        .set('turn', new Turn(targetsForPlayer(state.combatants, 0), healingTargets(state.combatants)));
     case 'DEAL_DAMAGE':
       return dealDamage(state);
     case 'DEAL_HEALING':
@@ -55,7 +55,7 @@ export default function encounter(state = defaultState, action) {
       const nextState = state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex)));
+        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex), healingTargets(state.combatants)));
 
       if (state.turn.deathSave) {
         return nextState
@@ -85,7 +85,7 @@ function dealDamage(state) {
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
-    .set('turn', new Turn(state.turn.targets, state.turn.damageTarget));
+    .set('turn', new Turn(state.turn.damageTargets, state.turn.healingTargets, state.turn.damageTarget, state.turn.healingTarget));
 }
 
 function dealHealing(state) {
@@ -98,14 +98,24 @@ function dealHealing(state) {
 
   return state
     .set('combatants', state.combatants.set(index, newItem))
-    .set('turn', new Turn(state.turn.targets, state.turn.healingTarget));
+    .set('turn', new Turn(state.turn.damageTargets, state.turn.healingTargets, state.turn.damageTarget, state.turn.healingTarget));
 }
 
 function targetsForPlayer(combatants, index) {
   const player = combatants.get(index);
   return combatants
     .filter(c => c.name !== player.name)
-    .filter(c => c.type === 'enemy' ? c.hp > 0 : c.deathFails < 3);
+    .filter(isDead);
+}
+
+function healingTargets(combatants) {
+  return combatants.filter(isDead);
+}
+
+function isDead(combatant) {
+  return combatant.type === 'enemy' ?
+    combatant.hp > 0 :
+    combatant.deathFails < 3;
 }
 
 function nextTurnIndex(combatants, currentPlayerIndex) {
