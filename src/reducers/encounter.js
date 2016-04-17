@@ -33,7 +33,8 @@ const defaultState = new EncounterModel({
   ]),
   round: 0,
   currentPlayer: -1,
-  turn: null
+  turn: null,
+  status: "pending"
 });
 
 export default function encounter(state = defaultState, action) {
@@ -42,7 +43,8 @@ export default function encounter(state = defaultState, action) {
       return state
         .set('round', 1)
         .set('currentPlayer', 0)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, 0), healingTargets(state.combatants)));
+        .set('turn', new Turn(targetsForPlayer(state.combatants, 0), healingTargets(state.combatants)))
+        .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state);
     case 'DEAL_HEALING':
@@ -56,7 +58,8 @@ export default function encounter(state = defaultState, action) {
         .set('round', round)
         .set('currentPlayer', nextIndex)
         .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex), healingTargets(state.combatants)))
-        .setIn(['combatants', state.currentPlayer], applyDeathSavingThrows(player, state.turn));
+        .setIn(['combatants', state.currentPlayer], applyDeathSavingThrows(player, state.turn))
+        .set('status', calculateEncounterStatus(state.combatants));
     default:
       const turn = turnReducer(state.turn, action);
       return state.set('turn', turn);
@@ -138,4 +141,18 @@ function nextTurnIndex(combatants, currentPlayerIndex) {
   }
 
   return -1; // All enemies defeated!
+}
+
+function calculateEncounterStatus(combatants) {
+  const aliveCombatants = combatants.filter(isAlive);
+
+  if (aliveCombatants.filter(c => c.type === 'player').size === 0) {
+    return 'tpk';
+  }
+
+  if (aliveCombatants.filter(c => c.type === 'enemy').size === 0) {
+    return 'victory';
+  }
+
+  return 'active';
 }

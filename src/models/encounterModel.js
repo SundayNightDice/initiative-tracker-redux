@@ -5,7 +5,8 @@ const _Encounter = {
   conditions: new immutable.List([]),
   round: 1,
   currentPlayer: 0,
-  turn: null
+  turn: null,
+  status: "pending"
 };
 
 export default class EncounterModel extends immutable.Record(_Encounter) {
