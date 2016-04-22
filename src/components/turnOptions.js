@@ -19,7 +19,14 @@ export default class TurnOptions extends React.Component {
 
     return (
       <div id="turnOptions">
-        <h1>{turnText}</h1>
+        <div className="menu">
+          <h1>{turnText}</h1>
+          <span className="hp">{currentPlayer.hp + ' / ' + currentPlayer.maxHp + ' HP'}</span>
+          <button
+            className="turnEnd"
+            onClick={this.props.onEndTurn}
+            disabled={!canEndTurn}>✓ End Turn</button>
+        </div>
         {
           currentPlayer.hp > 0 ?
             this._renderActiveOptions(currentPlayer.name) :
@@ -29,9 +36,6 @@ export default class TurnOptions extends React.Component {
               onDeathFail={this.props.onDeathFail}
               onCriticalSave={this.props.onCriticalSave} />
         }
-        <button
-          onClick={this.props.onEndTurn}
-          disabled={!canEndTurn}>End Turn</button>
       </div>
     );
   }
