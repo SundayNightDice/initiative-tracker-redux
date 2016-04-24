@@ -4,61 +4,41 @@ import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
 import Turn from './../models/turn';
 
-const defaultState = new EncounterModel({
-  combatants: new immutable.List([
-    new Combatant('Orc', 'enemy', 15, 1),
-    new Combatant('Bugbear', 'enemy', 45, 3),
-    new Combatant('Bella', 'player', 24, 3),
-    new Combatant('Cedric', 'player', 25, 4),
-    new Combatant('Fargrim', 'player', 30, 2),
-    new Combatant('Kasimir', 'player', 18, 3),
-    new Combatant('Sibilant Caius', 'player', 16, 3)
-  ]),
-  conditions: new immutable.List([
-    'Blinded',
-    'Charmed',
-    'Deafened',
-    'Fatigued',
-    'Frightened',
-    'Grappled',
-    'Incapacitated',
-    'Invisible',
-    'Paralyzed',
-    'Petrified',
-    'Poisoned',
-    'Prone',
-    'Restrained',
-    'Stunned',
-    'Unconscious'
-  ]),
-  round: 0,
-  currentPlayer: -1,
-  turn: null,
-  status: "pending"
-});
+const defaultState = new EncounterModel(
+  new immutable.Map({
+    'ORC1': new Combatant('Orc', 'enemy', 15, 13, 1, 'ORC1'),
+    'BUG1': new Combatant('Bugbear', 'enemy', 45, 10, 1, 'BUG1'),
+    'PL1': new Combatant('Bella', 'player', 24, 7, 1, 'PL1'),
+    'PL2': new Combatant('Cedric', 'player', 25, 6, 1, 'PL2'),
+    'PL3': new Combatant('Fargrim', 'player', 30, 5, 1, 'PL3'),
+    'PL4': new Combatant('Kasimir', 'player', 18, 4, 1, 'PL4'),
+    'PL5': new Combatant('Sibilant Caius', 'player', 16, 3, 1, 'PL5')
+  })
+);
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'START_ENCOUNTER':
+      const order = calculateInitiativeOrder(state.combatants);
       return state
+        .set('order', order)
         .set('round', 1)
         .set('currentPlayer', 0)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, 0), healingTargets(state.combatants)))
+        .set('turn', new Turn(targetsForPlayer(state.combatants, order, 0), healingTargets(state.combatants)))
         .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state);
     case 'DEAL_HEALING':
       return dealHealing(state);
     case 'END_TURN':
-      // Assumes that the combatants array is sorted by initiative.
-      const player = state.combatants.get(state.currentPlayer);
-      const nextIndex = nextTurnIndex(state.combatants, state.currentPlayer);
+      const player = state.combatants.get(state.order.get(state.currentPlayer));
+      const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
       const round = nextIndex === 0 ? state.round + 1 : state.round;
       return state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, nextIndex), healingTargets(state.combatants)))
-        .setIn(['combatants', state.currentPlayer], applyDeathSavingThrows(player, state.turn))
+        .set('turn', new Turn(targetsForPlayer(state.combatants, state.order, nextIndex), healingTargets(state.combatants)))
+        .setIn(['combatants', player.id], applyDeathSavingThrows(player, state.turn))
         .set('status', calculateEncounterStatus(state.combatants));
     default:
       const turn = turnReducer(state.turn, action);
@@ -66,9 +46,19 @@ export default function encounter(state = defaultState, action) {
   }
 };
 
+function calculateInitiativeOrder(combatants) {
+  // For now assume that initiatives are all unique
+  return new immutable.List(combatants
+    .sort((a, b) => {
+      if (a.initiative < b.initiative) return 1;
+      if (a.initiative > b.initiative) return -1;
+      return 0;
+    })
+    .keys());
+}
+
 function dealDamage(state) {
   const item = state.combatants.find(x => x.name === state.turn.damage.target);
-  const index = state.combatants.indexOf(item);
   const remainingHp = Math.max(0, item.hp - state.turn.damage.value);
   const leftoverHp = Math.abs(Math.min(0, item.hp - state.turn.damage.value));
   const newItem = item.hp > 0 ?
@@ -78,36 +68,39 @@ function dealDamage(state) {
     item.set('deathFails', state.turn.damage.value < item.maxHp ? item.deathFails + 1 : 3);
 
   return state
-    .set('combatants', state.combatants.set(index, newItem))
+    .setIn(['combatants', item.id], newItem)
     .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
 }
 
 function dealHealing(state) {
   const item = state.combatants.find(x => x.name === state.turn.healing.target);
-  const index = state.combatants.indexOf(item);
   const newItem = item
     .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing.value))
     .set('deathSaves', 0)
     .set('deathFails', 0);
 
   return state
-    .set('combatants', state.combatants.set(index, newItem))
+    .setIn(['combatants', item.id], newItem)
     .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
 }
 
-function targetsForPlayer(combatants, index) {
-  const player = combatants.get(index);
-  return combatants.filter(c => c.name !== player.name && isAlive(c));
+function targetsForPlayer(combatants, order, index) {
+  const player = combatants.get(order.get(index));
+  return itemsList(combatants.filter(c => c.name !== player.name && isAlive(c)));
 }
 
 function healingTargets(combatants) {
-  return combatants.filter(isAlive);
+  return itemsList(combatants.filter(isAlive));
 }
 
 function isAlive(combatant) {
   return combatant.type === 'enemy' ?
     combatant.hp > 0 :
     combatant.deathFails < 3;
+}
+
+function itemsList(items) {
+  return new immutable.List(items.values());
 }
 
 function applyDeathSavingThrows(player, turn) {
@@ -128,12 +121,11 @@ function applyDeathSavingThrows(player, turn) {
   }
 }
 
-function nextTurnIndex(combatants, currentPlayerIndex) {
-  const size = combatants.size;
-  const increment = (i) => (i + 1) % size;
+function nextTurnIndex(combatants, order, currentPlayerIndex) {
+  const increment = (i) => (i + 1) % order.size;
 
   for (let i = increment(currentPlayerIndex); i !== currentPlayerIndex; i = increment(i)) {
-    const combatant = combatants.get(i);
+    const combatant = combatants.get(order.get(i));
 
     if (isAlive(combatant)) {
         return i;

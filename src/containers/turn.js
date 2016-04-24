@@ -16,9 +16,11 @@ import toggleApplyCondition from './../actions/toggleApplyCondition';
 import toggleCondition from './../actions/toggleCondition';
 
 const mapStateToProps = (state) => {
+  const combatants = state.encounter.combatants;
+  const order = state.encounter.order;
   return {
-    currentPlayer: state.encounter.currentPlayer,
-    combatants: state.encounter.combatants,
+    combatants: order.map(id => combatants.get(id)),
+    currentPlayer: combatants.get(order.get(state.encounter.currentPlayer)),
     conditions: state.encounter.conditions,
     turn: state.encounter.turn
   };

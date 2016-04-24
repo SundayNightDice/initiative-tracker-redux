@@ -13,7 +13,7 @@ export default class TurnOptions extends React.Component {
   }
 
   _renderTurnOptions() {
-    const currentPlayer = this.props.combatants.get(this.props.currentPlayer);
+    const currentPlayer = this.props.currentPlayer;
     const turnText = 'It\'s ' + currentPlayer.name + '\'s turn!';
     const canEndTurn = currentPlayer.hp > 0 || (this.props.turn.deathSave || this.props.turn.deathFail);
 

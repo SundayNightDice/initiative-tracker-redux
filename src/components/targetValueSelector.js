@@ -10,7 +10,8 @@ export default class TargetValueSelector extends React.Component {
           onChange={this.props.onTargetSelected}>
           {
             this.props.model.targets.map(t =>
-              <option value={t.name}>{t.name}</option>
+              <option value={t.name}
+                key={t.id}>{t.name}</option>
             )
           }
         </select>
