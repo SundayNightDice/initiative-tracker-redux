@@ -24,7 +24,7 @@ export default function encounter(state = defaultState, action) {
         .set('order', order)
         .set('round', 1)
         .set('currentPlayer', 0)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, order, 0), healingTargets(state.combatants)))
+        .set('turn', new Turn(getDamageTargets(state.combatants, order.get(0)), getHealingTargets(state.combatants)))
         .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state);
@@ -37,12 +37,11 @@ export default function encounter(state = defaultState, action) {
       return state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(targetsForPlayer(state.combatants, state.order, nextIndex), healingTargets(state.combatants)))
+        .set('turn', new Turn(getDamageTargets(state.combatants, state.order.get(nextIndex)), getHealingTargets(state.combatants)))
         .setIn(['combatants', player.id], applyDeathSavingThrows(player, state.turn))
         .set('status', calculateEncounterStatus(state.combatants));
     default:
-      const turn = turnReducer(state.turn, action);
-      return state.set('turn', turn);
+      return state.set('turn', turnReducer(state.turn, action));
   }
 };
 
@@ -84,12 +83,11 @@ function dealHealing(state) {
     .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
 }
 
-function targetsForPlayer(combatants, order, index) {
-  const player = combatants.get(order.get(index));
-  return itemsList(combatants.filter(c => c.name !== player.name && isAlive(c)));
+function getDamageTargets(combatants, id) {
+  return itemsList(combatants.filter(c => c.id !== id && isAlive(c)));
 }
 
-function healingTargets(combatants) {
+function getHealingTargets(combatants) {
   return itemsList(combatants.filter(isAlive));
 }
 
