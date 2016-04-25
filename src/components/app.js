@@ -1,17 +1,13 @@
 import React from 'react';
 import Header from './../containers/header';
-import Initiatives from './../containers/initiatives';
-import Turn from './../containers/turn';
+import Encounter from './../containers/encounter';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <div id="contents">
-          <Initiatives />
-          <Turn />
-        </div>
+        <Encounter />
       </div>
     );
   }

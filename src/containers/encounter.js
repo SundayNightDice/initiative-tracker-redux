@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import TurnOptions from './../components/TurnOptions';
-
 import dealDamage from './../actions/dealDamage';
 import dealHealing from './../actions/dealHealing';
 import deathFail from './../actions/deathFail';
@@ -14,6 +12,8 @@ import setDamageTarget from './../actions/setDamageTarget';
 import setHealingTarget from './../actions/setHealingTarget';
 import toggleApplyCondition from './../actions/toggleApplyCondition';
 import toggleCondition from './../actions/toggleCondition';
+
+import Encounter from './../components/Encounter';
 
 const mapStateToProps = (state) => {
   const combatants = state.encounter.combatants;
@@ -43,9 +43,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const Turn = connect(
+const EncounterContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TurnOptions);
+)(Encounter);
 
-export default Turn;
+export default EncounterContainer;
