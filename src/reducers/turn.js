@@ -8,6 +8,8 @@ export default function reducer(state = defaultState, action) {
       return state.setIn(['damage', 'target'], action.target);
     case 'SET_DAMAGE':
       return state.setIn(['damage', 'value'], action.value);
+    case 'CRITICAL_DAMAGE':
+      return state.set('criticalDamage', action.value);
     case 'SET_HEALING_TARGET':
       return state.setIn(['healing', 'target'], action.target);
     case 'SET_HEALING':

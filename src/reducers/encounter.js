@@ -66,7 +66,8 @@ function dealDamage(state) {
     item
       .set('hp', remainingHp)
       .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
-    item.set('deathFails', state.turn.damage.value < item.maxHp ? item.deathFails + 1 : 3);
+    item.set('deathFails', state.turn.damage.value < item.maxHp ?
+      item.deathFails + (state.turn.criticalDamage ? 2 : 1 ) : 3);
   const turn = new Turn(
     state.turn.damage.targets,
     state.turn.healing.targets,

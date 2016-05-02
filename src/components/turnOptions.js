@@ -48,6 +48,10 @@ export default class TurnOptions extends React.Component {
             model={this.props.turn.damage}
             onTargetSelected={this.props.onDamageTargetSelected}
             onChange={this.props.onDamageChange} />
+          <input type="checkbox"
+            onChange={this.props.onCriticalDamage}
+            checked={this.props.turn.criticalDamage} />
+          <label>Critical Damage</label>
           <div>
             <span>
               <input type="checkbox"

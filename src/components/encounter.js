@@ -25,6 +25,7 @@ export default class Encounter extends React.Component {
           onApplyHealing={this.props.onApplyHealing}
           onDeathSave={this.props.onDeathSave}
           onDeathFail={this.props.onDeathFail}
+          onCriticalDamage={this.props.onCriticalDamage}
           onCriticalSave={this.props.onCriticalSave}
           onEndTurn={this.props.onEndTurn} />
       </div>

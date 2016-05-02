@@ -8,7 +8,8 @@ const _Turn = {
   applyConditions: false,
   deathSave: false,
   deathFail: false,
-  criticalSave: false
+  criticalSave: false,
+  criticalDamage: false
 };
 
 export default class Turn extends Record(_Turn) {
@@ -20,7 +21,8 @@ export default class Turn extends Record(_Turn) {
       applyConditions: false,
       deathSave: false,
       deathFail: false,
-      criticalSave: false
+      criticalSave: false,
+      criticalDamage: false
     });
   }
 }
