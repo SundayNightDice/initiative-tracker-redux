@@ -6,8 +6,6 @@ import Turn from './../models/turn';
 
 const defaultState = new EncounterModel(
   new immutable.Map({
-    'ORC1': new Combatant('Orc', 'enemy', 15, 13, 1, 'ORC1'),
-    'BUG1': new Combatant('Bugbear', 'enemy', 45, 10, 1, 'BUG1'),
     'PL1': new Combatant('Bella', 'player', 24, 7, 1, 'PL1'),
     'PL2': new Combatant('Cedric', 'player', 25, 6, 1, 'PL2'),
     'PL3': new Combatant('Fargrim', 'player', 30, 5, 1, 'PL3'),
@@ -19,8 +17,12 @@ const defaultState = new EncounterModel(
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'START_ENCOUNTER':
-      const order = calculateInitiativeOrder(state.combatants);
+      const enemies = action.enemies.map(enemy => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, enemy.id));
+      const combatants = state.combatants.merge(enemies);
+      const order = calculateInitiativeOrder(combatants);
+
       return state
+        .set('combatants', combatants)
         .set('order', order)
         .set('round', 1)
         .set('currentPlayer', 0)

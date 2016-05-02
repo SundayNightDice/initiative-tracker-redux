@@ -5,7 +5,7 @@ export default class Header extends React.Component {
     return (
       <header>
         <span>D&D Initiative Tracker</span>
-        <span>{'Round ' + this.props.round}</span>
+        { this.props.round > 0 ? <span>{'Round ' + this.props.round}</span> : <span>Encounter Setup</span> }
       </header>
     );
   }

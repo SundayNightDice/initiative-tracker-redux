@@ -119,29 +119,66 @@ h2 {
       }
     }
 
-    button {
-      padding: 4px 8px;
-      margin: 12px 0;
-      background-color: #3F51B5;
-      color: #FFF;
-      border: none;
-    }
-
-    button:hover {
-      background-color: #5C6BC0;
-    }
-
-    button:active {
-      background-color: #1A237E;
-      color: #BDBDBD;
-    }
-
-    button:disabled, button:disabled:hover {
-      background-color: #9FA8DA;
-    }
-
     select {
       margin-right: 8px;
     }
   }
+
+}
+
+.box {
+  width: 500px;
+  margin: 28px auto;
+  padding: 20px;
+  background: #81D4FA;
+
+  .row {
+    float: left;
+    margin-right: 4px;
+
+    label, input {
+      display: block;
+    }
+
+    label {
+      text-transform: uppercase;
+    }
+
+    input[type=number] {
+      width: 100px;
+    }
+  }
+
+  .builderOptions {
+    clear: both;
+
+    .start {
+      float: right;
+    }
+  }
+
+  .clearfix {
+    clear: both;
+  }
+}
+
+button {
+  padding: 4px 8px;
+  margin: 12px 0;
+  background-color: #3F51B5;
+  color: #FFF;
+  border: none;
+}
+
+button:hover {
+  background-color: #5C6BC0;
+}
+
+button:active {
+  background-color: #1A237E;
+  color: #BDBDBD;
+}
+
+button:disabled, button:disabled:hover {
+  background-color: #9FA8DA;
 }
