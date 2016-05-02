@@ -22,7 +22,7 @@ const _Encounter = {
   round: 0,
   currentPlayer: '',
   turn: null,
-  status: "pending",
+  status: 'pending',
   order: new immutable.List([])
 };
 

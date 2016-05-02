@@ -65,10 +65,16 @@ function dealDamage(state) {
       .set('hp', remainingHp)
       .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
     item.set('deathFails', state.turn.damage.value < item.maxHp ? item.deathFails + 1 : 3);
+  const turn = new Turn(
+    state.turn.damage.targets,
+    state.turn.healing.targets,
+    state.turn.damage.target,
+    state.turn.healing.target
+  );
 
   return state
     .setIn(['combatants', item.id], newItem)
-    .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
+    .set('turn', turn);
 }
 
 function dealHealing(state) {
@@ -77,14 +83,20 @@ function dealHealing(state) {
     .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing.value))
     .set('deathSaves', 0)
     .set('deathFails', 0);
+  const turn = new Turn(
+    state.turn.damage.targets,
+    state.turn.healing.targets,
+    state.turn.damage.target,
+    state.turn.healing.target
+  );
 
   return state
     .setIn(['combatants', item.id], newItem)
-    .set('turn', new Turn(state.turn.damage.targets, state.turn.healing.targets, state.turn.damage.target, state.turn.healing.target));
+    .set('turn', turn);
 }
 
 function getDamageTargets(combatants, id) {
-  return itemsList(combatants.filter(c => c.id !== id && isAlive(c)));
+  return itemsList(combatants.filter((c, i) => i !== id && isAlive(c)));
 }
 
 function getHealingTargets(combatants) {
