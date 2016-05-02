@@ -1,4 +1,4 @@
-import immutable from 'immutable';
+import { Record } from 'immutable';
 
 const _Target = {
   targets: [],
@@ -6,7 +6,7 @@ const _Target = {
   value: 0
 };
 
-export default class Target extends immutable.Record(_Target) {
+export default class Target extends Record(_Target) {
   constructor(targets, target) {
     super({
       targets: targets,

@@ -1,4 +1,4 @@
-import immutable from 'immutable';
+import { Record } from 'immutable';
 
 const _Combatant = {
   name: '',
@@ -13,7 +13,7 @@ const _Combatant = {
   id: ''
 };
 
-export default class Combatant extends immutable.Record(_Combatant) {
+export default class Combatant extends Record(_Combatant) {
   constructor(name, type, hp, initiative, startingRound, id) {
     super({
       name: name,

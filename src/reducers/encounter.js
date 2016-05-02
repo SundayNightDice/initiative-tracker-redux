@@ -1,11 +1,11 @@
-import immutable from 'immutable';
+import { List, Map } from 'immutable';
 import turnReducer from './turn';
 import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
 import Turn from './../models/turn';
 
 const defaultState = new EncounterModel(
-  new immutable.Map({
+  Map({
     'PL1': new Combatant('Bella', 'player', 24, 7, 1, 'PL1'),
     'PL2': new Combatant('Cedric', 'player', 25, 6, 1, 'PL2'),
     'PL3': new Combatant('Fargrim', 'player', 30, 5, 1, 'PL3'),
@@ -49,7 +49,7 @@ export default function encounter(state = defaultState, action) {
 
 function calculateInitiativeOrder(combatants) {
   // For now assume that initiatives are all unique
-  return new immutable.List(combatants
+  return List(combatants
     .sort((a, b) => {
       if (a.initiative < b.initiative) return 1;
       if (a.initiative > b.initiative) return -1;
@@ -112,7 +112,7 @@ function isAlive(combatant) {
 }
 
 function itemsList(items) {
-  return new immutable.List(items.values());
+  return List(items.values());
 }
 
 function applyDeathSavingThrows(player, turn) {

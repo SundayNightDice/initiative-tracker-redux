@@ -1,4 +1,4 @@
-import immutable from 'immutable';
+import { Record } from 'immutable';
 import Target from './target';
 
 const _Turn = {
@@ -11,7 +11,7 @@ const _Turn = {
   criticalSave: false
 };
 
-export default class Turn extends immutable.Record(_Turn) {
+export default class Turn extends Record(_Turn) {
   constructor(damageTargets, healingTargets, damageTarget, healingTarget) {
     super({
       damage: new Target(damageTargets, damageTarget),

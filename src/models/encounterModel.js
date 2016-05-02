@@ -1,8 +1,8 @@
-import immutable from 'immutable';
+import { List, Map, Record } from 'immutable';
 
 const _Encounter = {
-  combatants: new immutable.Map({}),
-  conditions: new immutable.List([
+  combatants: Map({}),
+  conditions: List([
     'Blinded',
     'Charmed',
     'Deafened',
@@ -23,14 +23,14 @@ const _Encounter = {
   currentPlayer: '',
   turn: null,
   status: 'pending',
-  order: new immutable.List([])
+  order: List([])
 };
 
-export default class EncounterModel extends immutable.Record(_Encounter) {
+export default class EncounterModel extends Record(_Encounter) {
   constructor(combatants) {
     super({
       combatants: combatants,
-      conditions: new immutable.List([
+      conditions: List([
         'Blinded',
         'Charmed',
         'Deafened',
@@ -51,7 +51,7 @@ export default class EncounterModel extends immutable.Record(_Encounter) {
       currentPlayer: '',
       turn: null,
       status: "pending",
-      order: new immutable.List([])
+      order: List([])
     });
   }
 }
