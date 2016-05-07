@@ -99,11 +99,17 @@ function dealHealing(state) {
 }
 
 function getDamageTargets(combatants, id) {
-  return itemsList(combatants.filter((c, i) => i !== id && isAlive(c)));
+  return itemsList(combatants
+    .filter((c, i) => i !== id && isAlive(c))
+    .map((c, i) => i)
+  );
 }
 
 function getHealingTargets(combatants) {
-  return itemsList(combatants.filter(isAlive));
+  return itemsList(combatants
+    .filter(isAlive)
+    .map((c, i) => i)
+  );
 }
 
 function isAlive(combatant) {

@@ -11,10 +11,11 @@ export default class Encounter extends React.Component {
           combatants={this.props.combatants}
           currentPlayer={this.props.currentPlayer} />
         <TurnOptions
-          combatants={this.props.combatants}
           currentPlayer={this.props.currentPlayer}
           conditions={this.props.conditions}
           turn={this.props.turn}
+          damageTargets={this.props.damageTargets}
+          healingTargets={this.props.healingTargets}
           onDamageTargetSelected={this.props.onDamageTargetSelected}
           onDamageChange={this.props.onDamageChange}
           onToggleApplyCondition={this.props.onToggleApplyCondition}

@@ -15,6 +15,7 @@ import toggleApplyCondition from './../actions/toggleApplyCondition';
 import toggleCondition from './../actions/toggleCondition';
 
 import Encounter from './../components/Encounter';
+import { getDamageTargets, getHealingTargets } from './../selectors/getTurnTargets';
 
 const mapStateToProps = (state) => {
   const combatants = state.encounter.combatants;
@@ -23,7 +24,9 @@ const mapStateToProps = (state) => {
     combatants: order.map(id => combatants.get(id)),
     currentPlayer: combatants.get(order.get(state.encounter.currentPlayer)),
     conditions: state.encounter.conditions,
-    turn: state.encounter.turn
+    turn: state.encounter.turn,
+    damageTargets: getDamageTargets(state),
+    healingTargets: getHealingTargets(state)
   };
 };
 

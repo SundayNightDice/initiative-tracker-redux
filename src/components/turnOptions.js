@@ -45,7 +45,9 @@ export default class TurnOptions extends React.Component {
       <div>
         <section>
           <TargetValueSelector title="Damage"
-            model={this.props.turn.damage}
+            target={this.props.turn.damage.target}
+            targets={this.props.damageTargets}
+            value={this.props.turn.damage.value}
             onTargetSelected={this.props.onDamageTargetSelected}
             onChange={this.props.onDamageChange} />
           <input type="checkbox"
@@ -77,7 +79,9 @@ export default class TurnOptions extends React.Component {
         </section>
         <section>
           <TargetValueSelector title="Healing"
-            model={this.props.turn.healing}
+            target={this.props.turn.healing.target}
+            targets={this.props.healingTargets}
+            value={this.props.turn.healing.value}
             onTargetSelected={this.props.onHealTargetSelected}
             onChange={this.props.onHealChange} />
           <button
