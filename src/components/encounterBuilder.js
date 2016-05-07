@@ -47,12 +47,11 @@ export default class EncounterBuilder extends React.Component {
     const enemyName = document.getElementById('enemyName').value;
     const enemyHp = document.getElementById('enemyHp').value;
     const enemyInitiative = document.getElementById('enemyInitiative').value;
-    const id = enemyName.replace(/ /g, '').toUpperCase();
 
-    this.props.onAddEnemy({ name: enemyName, hp: enemyHp, initiative: enemyInitiative, id: id });
+    this.props.onAddEnemy({ name: enemyName, hp: enemyHp, initiative: enemyInitiative });
   }
 
   start() {
-    this.props.onStart(this.props.enemies);
+    this.props.onStart(this.props.enemies, this.props.players);
   }
 }

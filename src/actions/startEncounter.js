@@ -1,6 +1,7 @@
-export default function startEncounter(enemies) {
+export default function startEncounter(enemies, players) {
   return {
     type: 'START_ENCOUNTER',
-    enemies: enemies
+    enemies: enemies,
+    players: players
   };
 }

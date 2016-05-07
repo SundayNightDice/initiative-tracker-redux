@@ -4,21 +4,14 @@ import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
 import Turn from './../models/turn';
 
-const defaultState = new EncounterModel(
-  Map({
-    'PL1': new Combatant('Bella', 'player', 24, 7, 1, 'PL1'),
-    'PL2': new Combatant('Cedric', 'player', 25, 6, 1, 'PL2'),
-    'PL3': new Combatant('Fargrim', 'player', 30, 5, 1, 'PL3'),
-    'PL4': new Combatant('Kasimir', 'player', 18, 4, 1, 'PL4'),
-    'PL5': new Combatant('Sibilant Caius', 'player', 16, 3, 1, 'PL5')
-  })
-);
+const defaultState = new EncounterModel();
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'START_ENCOUNTER':
-      const enemies = action.enemies.map(enemy => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, enemy.id));
-      const combatants = state.combatants.merge(enemies);
+      const enemies = action.enemies.map((enemy, id) => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, 1, id));
+      const players = action.players.map((player, id) => new Combatant(player.name, 'player', player.maxHp, player.initiativeBonus, 1, id));
+      const combatants = players.merge(enemies);
       const order = calculateInitiativeOrder(combatants);
 
       return state
@@ -26,7 +19,7 @@ export default function encounter(state = defaultState, action) {
         .set('order', order)
         .set('round', 1)
         .set('currentPlayer', 0)
-        .set('turn', new Turn(getDamageTargets(state.combatants, order.get(0)), getHealingTargets(state.combatants)))
+        .set('turn', new Turn(getDamageTargets(combatants, order.get(0)), getHealingTargets(combatants)))
         .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state);

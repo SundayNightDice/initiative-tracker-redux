@@ -27,9 +27,9 @@ const _Encounter = {
 };
 
 export default class EncounterModel extends Record(_Encounter) {
-  constructor(combatants) {
+  constructor() {
     super({
-      combatants: combatants,
+      combatants: Map({}),
       conditions: List([
         'Blinded',
         'Charmed',

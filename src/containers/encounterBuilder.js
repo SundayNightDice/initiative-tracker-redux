@@ -7,14 +7,15 @@ import EncounterBuilder from './../components/encounterBuilder';
 
 const mapStateToProps = (state) => {
   return {
-    enemies: state.enemies
+    enemies: state.enemies,
+    players: state.players
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddEnemy: (enemy) => dispatch(addEnemy(enemy)),
-    onStart: (e) => dispatch(startEncounter(e))
+    onStart: (e, p) => dispatch(startEncounter(e, p))
   };
 };
 
