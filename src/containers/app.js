@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 
 import App from './../components/app';
+import getActiveEncounter from './../selectors/getActiveEncounter';
 
 const mapStateToProps = (state) => {
-  const id = 'ENC1';
+  const activeEncounter = getActiveEncounter(state);
   return {
-    id: id,
-    status: state.encounters.get(id).status
+    id: activeEncounter[0],
+    encounter: activeEncounter[1]
   }
 };
 

@@ -1,8 +1,28 @@
 import { createSelector } from 'reselect';
 
-const getCombatants = (state) => state.encounters.get('ENC1').combatants;
-const getDamageTargetIds = (state) => state.encounters.get('ENC1').turn.damage.targets;
-const getHealingTargetIds = (state) => state.encounters.get('ENC1').turn.healing.targets;
+const getActiveEncounter = (state) => state.encounters.filter(e => e.status === 'active').keySeq().get(0);
+const getEncounters = (state) => state.encounters;
+
+const getCombatants = createSelector(
+  [getActiveEncounter, getEncounters],
+  (activeEncounter, encounters) => {
+    return encounters.get(activeEncounter).combatants;
+  }
+);
+
+const getDamageTargetIds = createSelector(
+  [getActiveEncounter, getEncounters],
+  (activeEncounter, encounters) => {
+    return encounters.get(activeEncounter).turn.damage.targets;
+  }
+);
+
+const getHealingTargetIds = createSelector(
+  [getActiveEncounter, getEncounters],
+  (activeEncounter, encounters) => {
+    return encounters.get(activeEncounter).turn.healing.targets;
+  }
+);
 
 export const getDamageTargets = createSelector(
   [getCombatants, getDamageTargetIds],

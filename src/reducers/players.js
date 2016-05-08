@@ -30,6 +30,9 @@ const defaultState = Map({
 
 export default function players(state = defaultState, action) {
   switch(action.type) {
+    case 'ADD_PLAYER':
+      const playerId = action.player.name.trim();
+      return state.set(playerId, action.player);
     default:
       return state;
   }

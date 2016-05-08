@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import Header from './../components/header';
+import getActiveEncounter from './../selectors/getActiveEncounter';
 
 const mapStateToProps = (state) => {
+  const activeEncounter = getActiveEncounter(state);
   return {
-    round: state.encounters.get('ENC1').round
+    round: activeEncounter[1] ? activeEncounter[1].round : null
   }
 };
 
