@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './../containers/header';
 import Encounter from './../containers/encounter';
 import EncounterBuilder from './../containers/encounterBuilder';
+import EncounterSummary from './encounterSummary';
 
 export default class App extends React.Component {
   render() {
@@ -20,7 +21,7 @@ export default class App extends React.Component {
       case 'pending':
         return <EncounterBuilder />;
       default:
-        return (<p>{status}</p>);
+        return (<EncounterSummary status={status} />);
     }
   }
 }
