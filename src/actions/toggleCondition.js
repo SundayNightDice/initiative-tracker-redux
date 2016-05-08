@@ -1,7 +1,8 @@
-export default function toggleCondition(condition, checked) {
+export default function toggleCondition(condition, checked, encounterId) {
   return {
     type: 'TOGGLE_CONDITION',
     condition: condition,
-    checked: checked
+    checked: checked,
+    encounterId: encounterId
   };
 }

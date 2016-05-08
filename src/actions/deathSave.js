@@ -1,6 +1,7 @@
-export default function deathSave(value) {
+export default function deathSave(value, encounterId) {
   return {
     type: 'DEATH_SAVE',
-    value: value
+    value: value,
+    encounterId: encounterId
   };
 }

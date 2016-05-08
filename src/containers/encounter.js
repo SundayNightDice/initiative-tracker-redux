@@ -17,34 +17,36 @@ import toggleCondition from './../actions/toggleCondition';
 import Encounter from './../components/Encounter';
 import { getDamageTargets, getHealingTargets } from './../selectors/getTurnTargets';
 
-const mapStateToProps = (state) => {
-  const combatants = state.encounter.combatants;
-  const order = state.encounter.order;
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.id;
+  const encounter = state.encounters.get(id);
+  const combatants = encounter.combatants;
+  const order = encounter.order;
   return {
     combatants: order.map(id => combatants.get(id)),
-    currentPlayer: combatants.get(order.get(state.encounter.currentPlayer)),
-    conditions: state.encounter.conditions,
-    turn: state.encounter.turn,
+    currentPlayer: combatants.get(order.get(encounter.currentPlayer)),
+    conditions: encounter.conditions,
+    turn: encounter.turn,
     damageTargets: getDamageTargets(state),
     healingTargets: getHealingTargets(state)
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onDamageTargetSelected: (e) => dispatch(setDamageTarget(e.target.value)),
-    onHealTargetSelected: (e) => dispatch(setHealingTarget(e.target.value)),
-    onToggleApplyCondition: (e) => dispatch(toggleApplyCondition(e.target.checked)),
-    onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked)),
-    onDamageChange: (e) => dispatch(setDamage(e.target.value)),
-    onHealChange: (e) => dispatch(setHealing(e.target.value)),
-    onApplyDamage: (e) => dispatch(dealDamage()),
-    onApplyHealing: (e) => dispatch(dealHealing()),
-    onDeathSave: (e) => dispatch(deathSave(e.target.checked)),
-    onDeathFail: (e) => dispatch(deathFail(e.target.checked)),
-    onCriticalDamage: (e) => dispatch(criticalDamage(e.target.checked)),
-    onCriticalSave: (e) => dispatch(criticalSave(e.target.checked)),
-    onEndTurn: (e) => dispatch(endTurn())
+    onDamageTargetSelected: (e) => dispatch(setDamageTarget(e.target.value, ownProps.id)),
+    onHealTargetSelected: (e) => dispatch(setHealingTarget(e.target.value, ownProps.id)),
+    onToggleApplyCondition: (e) => dispatch(toggleApplyCondition(e.target.checked, ownProps.id)),
+    onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked, ownProps.id)),
+    onDamageChange: (e) => dispatch(setDamage(e.target.value, ownProps.id)),
+    onHealChange: (e) => dispatch(setHealing(e.target.value, ownProps.id)),
+    onApplyDamage: (e) => dispatch(dealDamage(ownProps.id)),
+    onApplyHealing: (e) => dispatch(dealHealing(ownProps.id)),
+    onDeathSave: (e) => dispatch(deathSave(e.target.checked, ownProps.id)),
+    onDeathFail: (e) => dispatch(deathFail(e.target.checked, ownProps.id)),
+    onCriticalDamage: (e) => dispatch(criticalDamage(e.target.checked, ownProps.id)),
+    onCriticalSave: (e) => dispatch(criticalSave(e.target.checked, ownProps.id)),
+    onEndTurn: (e) => dispatch(endTurn(ownProps.id))
   };
 };
 

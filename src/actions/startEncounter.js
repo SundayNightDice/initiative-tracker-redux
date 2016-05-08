@@ -1,7 +1,8 @@
-export default function startEncounter(enemies, players) {
+export default function startEncounter(enemies, players, encounterId) {
   return {
     type: 'START_ENCOUNTER',
     enemies: enemies,
-    players: players
+    players: players,
+    encounterId: encounterId
   };
 }

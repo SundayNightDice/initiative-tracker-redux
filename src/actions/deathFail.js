@@ -1,6 +1,7 @@
-export default function deathFail(value) {
+export default function deathFail(value, encounterId) {
   return {
     type: 'DEATH_FAIL',
-    value: value
+    value: value,
+    encounterId: encounterId
   };
 }

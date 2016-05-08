@@ -12,10 +12,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAddEnemy: (enemy) => dispatch(addEnemy(enemy)),
-    onStart: (e, p) => dispatch(startEncounter(e, p))
+    onStart: (e, p) => dispatch(startEncounter(e, p, ownProps.id))
   };
 };
 

@@ -1,6 +1,7 @@
-export default function criticalDamage(value) {
+export default function criticalDamage(value, encounterId) {
   return {
     type: 'CRITICAL_DAMAGE',
-    value: value
+    value: value,
+    encounterId: encounterId
   };
 }

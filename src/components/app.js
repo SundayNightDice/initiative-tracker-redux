@@ -17,9 +17,9 @@ export default class App extends React.Component {
   renderContent(status) {
     switch (status) {
       case 'active':
-        return (<Encounter />);
+        return (<Encounter id={this.props.id} />);
       case 'pending':
-        return <EncounterBuilder />;
+        return <EncounterBuilder id={this.props.id} />;
       default:
         return (<EncounterSummary status={status} />);
     }

@@ -1,5 +1,6 @@
-export default function dealDamage() {
+export default function dealDamage(encounterId) {
   return {
-    type: 'DEAL_HEALING'
+    type: 'DEAL_HEALING',
+    encounterId: encounterId
   };
 }

@@ -1,6 +1,7 @@
-export default function setDamage(value) {
+export default function setDamage(value, encounterId) {
   return {
     type: 'SET_DAMAGE',
-    value: Number(value)
+    value: Number(value),
+    encounterId: encounterId
   };
 }

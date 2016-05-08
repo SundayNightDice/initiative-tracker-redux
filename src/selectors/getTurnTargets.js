@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
-const getCombatants = (state) => state.encounter.combatants;
-const getDamageTargetIds = (state) => state.encounter.turn.damage.targets;
-const getHealingTargetIds = (state) => state.encounter.turn.healing.targets;
+const getCombatants = (state) => state.encounters.get('ENC1').combatants;
+const getDamageTargetIds = (state) => state.encounters.get('ENC1').turn.damage.targets;
+const getHealingTargetIds = (state) => state.encounters.get('ENC1').turn.healing.targets;
 
 export const getDamageTargets = createSelector(
   [getCombatants, getDamageTargetIds],

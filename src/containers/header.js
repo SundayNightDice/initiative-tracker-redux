@@ -3,7 +3,7 @@ import Header from './../components/header';
 
 const mapStateToProps = (state) => {
   return {
-    round: state.encounter.round
+    round: state.encounters.get('ENC1').round
   }
 };
 

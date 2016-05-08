@@ -1,6 +1,7 @@
-export default function criticalSave(value) {
+export default function criticalSave(value, encounterId) {
   return {
     type: 'CRITICAL_SAVE',
-    value: value
+    value: value,
+    encounterId: encounterId
   };
 }

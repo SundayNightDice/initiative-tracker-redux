@@ -1,5 +1,6 @@
-export default function endTurn() {
+export default function endTurn(encounterId) {
   return {
-    type: 'END_TURN'
+    type: 'END_TURN',
+    encounterId: encounterId
   };
 }

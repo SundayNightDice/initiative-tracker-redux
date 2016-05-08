@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import App from './../components/app';
 
 const mapStateToProps = (state) => {
+  const id = 'ENC1';
   return {
-    status: state.encounter.status
+    id: id,
+    status: state.encounters.get(id).status
   }
 };
 
