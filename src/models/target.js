@@ -10,7 +10,7 @@ export default class Target extends Record(_Target) {
   constructor(targets, target) {
     super({
       targets: targets,
-      target: target || targets.get(0).name
+      target: target
     });
   }
 }
