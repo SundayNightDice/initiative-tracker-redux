@@ -5,7 +5,7 @@ export default class EncounterBuilder extends React.Component {
   constructor() {
     super();
     this.addEnemy = this.addEnemy.bind(this);
-    this.start = this.start.bind(this);
+    this.done = this.done.bind(this);
   }
 
   render() {
@@ -36,7 +36,7 @@ export default class EncounterBuilder extends React.Component {
         <div className="builderOptions">
           <button
             className="start"
-            onClick={this.start}>Start</button>
+            onClick={this.done}>Done</button>
         </div>
         <div className="clearfix" />
       </div>
@@ -51,7 +51,7 @@ export default class EncounterBuilder extends React.Component {
     this.props.onAddEnemy({ name: enemyName, hp: enemyHp, initiative: enemyInitiative });
   }
 
-  start() {
-    this.props.onStart(this.props.enemies, this.props.players);
+  done() {
+    this.props.onDone();
   }
 }

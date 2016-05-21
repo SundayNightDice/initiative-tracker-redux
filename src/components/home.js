@@ -30,6 +30,6 @@ export default class Home extends React.Component {
   }
 
   renderEncounter(encounter, id) {
-    return <li key={id}><span>{id}</span><button>Start</button></li>;
+    return <li key={id}><span>{id}</span><button onClick={() => this.props.onStartEncounter(id)}>Start</button></li>;
   }
 }

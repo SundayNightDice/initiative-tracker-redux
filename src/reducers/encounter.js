@@ -8,6 +8,8 @@ const defaultState = new EncounterModel();
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
+    case 'ENEMIES_ADDED':
+      return state.set('status', 'pending');
     case 'START_ENCOUNTER':
       const enemies = action.enemies.map((enemy, id) => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, 1, id));
       const players = action.players.map((player, id) => new Combatant(player.name, 'player', player.maxHp, player.initiativeBonus, 1, id));

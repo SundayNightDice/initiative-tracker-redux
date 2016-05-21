@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import addEncounter from './../actions/addEncounter';
 import addPlayer from './../actions/addPlayer';
+import startEncounter from './../actions/startEncounter';
 
 import Home from './../components/home';
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddEncounter: (e) => dispatch(addEncounter(e)),
-    onAddPlayer: (p) => dispatch(addPlayer(p))
+    onAddPlayer: (p) => dispatch(addPlayer(p)),
+    onStartEncounter: (id) => dispatch(startEncounter(id))
   }
 };
 
