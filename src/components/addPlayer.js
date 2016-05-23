@@ -10,15 +10,15 @@ export default class AddPlayer extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <div class="row">
+        <div className="row">
           <label>Name:</label>
           <input type="text" />
         </div>
-        <div class="row">
+        <div className="row">
           <label>HP:</label>
           <input type="number" />
         </div>
-        <div class="row">
+        <div className="row">
           <label>Initiative Bonus:</label>
           <input type="number" />
         </div>

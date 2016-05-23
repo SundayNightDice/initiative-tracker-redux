@@ -1,27 +1,25 @@
 import React from 'react';
 
-export default class ThreeChanceButtons extends React.Component {
-
-  render() {
-    return (
-      <p>
-        <span>{this.props.title}</span>
-        <input type="checkbox"
-          disabled={this.props.value !== 0}
-          checked={this.props.value === 0 ? this.props.checked : true}
-          onClick={this.props.onChange} />
-        <input type="checkbox"
-          disabled={this.props.value !== 1}
-          checked={this.props.value === 1 ? this.props.checked : this.props.value > 1}
-          onClick={this.props.onChange} />
-        <input type="checkbox"
-          disabled={this.props.value !== 2}
-          checked={this.props.value === 2 ? this.props.checked : false}
-          onClick={this.props.onChange} />
-      </p>
-    );
-  }
-}
+const ThreeChanceButtons = (props) => (
+  <p>
+    <span>{props.title}</span>
+    <input
+      type="checkbox"
+      disabled={props.value !== 0}
+      checked={props.value === 0 ? props.checked : true}
+      onClick={props.onChange} />
+    <input
+      type="checkbox"
+      disabled={props.value !== 1}
+      checked={props.value === 1 ? props.checked : props.value > 1}
+      onClick={props.onChange} />
+    <input
+      type="checkbox"
+      disabled={props.value !== 2}
+      checked={props.value === 2 ? props.checked : false}
+      onClick={props.onChange} />
+  </p>
+);
 
 ThreeChanceButtons.propTypes = {
   title: React.PropTypes.string,
@@ -36,3 +34,5 @@ ThreeChanceButtons.defaultProps = {
   checked: false,
   onChange: () => {}
 };
+
+export default ThreeChanceButtons;

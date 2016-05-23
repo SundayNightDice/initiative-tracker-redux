@@ -3,33 +3,31 @@ import React from 'react';
 import InitiativeList from './initiativeList';
 import TurnOptions from './turnOptions';
 
-export default class Encounter extends React.Component {
-  render() {
-    return (
-      <div id="contents">
-        <InitiativeList
-          combatants={this.props.combatants}
-          currentPlayer={this.props.currentPlayer} />
-        <TurnOptions
-          currentPlayer={this.props.currentPlayer}
-          conditions={this.props.conditions}
-          turn={this.props.turn}
-          damageTargets={this.props.damageTargets}
-          healingTargets={this.props.healingTargets}
-          onDamageTargetSelected={this.props.onDamageTargetSelected}
-          onDamageChange={this.props.onDamageChange}
-          onToggleApplyCondition={this.props.onToggleApplyCondition}
-          onToggleCondition={this.props.onToggleCondition}
-          onApplyDamage={this.props.onApplyDamage}
-          onHealTargetSelected={this.props.onHealTargetSelected}
-          onHealChange={this.props.onHealChange}
-          onApplyHealing={this.props.onApplyHealing}
-          onDeathSave={this.props.onDeathSave}
-          onDeathFail={this.props.onDeathFail}
-          onCriticalDamage={this.props.onCriticalDamage}
-          onCriticalSave={this.props.onCriticalSave}
-          onEndTurn={this.props.onEndTurn} />
-      </div>
-    );
-  }
-}
+const Encounter = (props) => (
+  <div id="contents">
+    <InitiativeList
+      combatants={props.combatants}
+      currentPlayer={props.currentPlayer} />
+    <TurnOptions
+      currentPlayer={props.currentPlayer}
+      conditions={props.conditions}
+      turn={props.turn}
+      damageTargets={props.damageTargets}
+      healingTargets={props.healingTargets}
+      onDamageTargetSelected={props.onDamageTargetSelected}
+      onDamageChange={props.onDamageChange}
+      onToggleApplyCondition={props.onToggleApplyCondition}
+      onToggleCondition={props.onToggleCondition}
+      onApplyDamage={props.onApplyDamage}
+      onHealTargetSelected={props.onHealTargetSelected}
+      onHealChange={props.onHealChange}
+      onApplyHealing={props.onApplyHealing}
+      onDeathSave={props.onDeathSave}
+      onDeathFail={props.onDeathFail}
+      onCriticalDamage={props.onCriticalDamage}
+      onCriticalSave={props.onCriticalSave}
+      onEndTurn={props.onEndTurn} />
+  </div>
+);
+
+export default Encounter;

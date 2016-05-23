@@ -1,35 +1,19 @@
 import React from 'react';
-import AddPlayer from './addPlayer';
+import EncountersList from './encountersList';
+import PlayersList from './playersList';
 
 export default class Home extends React.Component {
-
-  constructor() {
-    super();
-    this.renderEncounter = this.renderEncounter.bind(this);
-  }
 
   render() {
     return (
       <div id="contents">
-        <div class="players">
-          <h2>Players</h2>
-          <ul>
-            {this.props.players.entrySeq().map(p => <li key={p[0]}>{p[1].name}</li>)}
-          </ul>
-          <AddPlayer />
-        </div>
-        <div class="encounters">
-          <h2>Encounters</h2>
-          <ul>
-            {this.props.encounters.entrySeq().map(e => this.renderEncounter(e[1], e[0]))}
-          </ul>
-          <button onClick={this.props.onAddEncounter}>Add Encounter</button>
-        </div>
+        <PlayersList
+          players={this.props.players.entrySeq()} />
+        <EncountersList
+          encounters={this.props.encounters.keySeq()}
+          onAddEncounter={this.props.onAddEncounter}
+          onStartEncounter={this.props.onStartEncounter} />
       </div>
     );
-  }
-
-  renderEncounter(encounter, id) {
-    return <li key={id}><span>{id}</span><button onClick={() => this.props.onStartEncounter(id)}>Start</button></li>;
   }
 }

@@ -1,26 +1,25 @@
 import React from 'react';
 
-export default class TargetValueSelector extends React.Component {
+const TargetValueSelector = (props) => (
+  <div>
+    <h2>{props.title}</h2>
+    <select
+      value={props.target}
+      onChange={props.onTargetSelected}>
+        {
+          props.targets.map(t =>
+            <option value={t} key={t}>{t}</option>
+          )
+        }
+    </select>
+    <span>For:</span>
+    <input
+      type="number"
+      min="0"
+      max="100"
+      value={props.value}
+      onChange={props.onChange} />
+  </div>
+);
 
-  render() {
-    return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <select value={this.props.target}
-          onChange={this.props.onTargetSelected}>
-          {
-            this.props.targets.map(t =>
-              <option value={t} key={t}>{t}</option>
-            )
-          }
-        </select>
-        <span>For:</span>
-        <input type="number"
-          min="0"
-          max="100"
-          value={this.props.value}
-          onChange={this.props.onChange} />
-      </div>
-    )
-  }
-}
+export default TargetValueSelector;
