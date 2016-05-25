@@ -11,7 +11,10 @@ const EncountersList = (props) => (
 );
 
 const EncounterItem = (encounter, onStart) => (
-    <li key={encounter}><span>{encounter}</span><button onClick={() => onStart(encounter)}>Start</button></li>
+    <li key={encounter[0]}>
+      <span className={"encounter " + encounter[1].status}>{encounter[0]}</span>
+      { encounter[1].status === 'pending' ? <button onClick={() => onStart(encounter[0])}>Start</button> : null }
+    </li>
 );
 
 export default EncountersList;

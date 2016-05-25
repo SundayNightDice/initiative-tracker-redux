@@ -10,7 +10,7 @@ export default class Home extends React.Component {
         <PlayersList
           players={this.props.players.entrySeq()} />
         <EncountersList
-          encounters={this.props.encounters.keySeq()}
+          encounters={this.props.encounters.entrySeq()}
           onAddEncounter={this.props.onAddEncounter}
           onStartEncounter={this.props.onStartEncounter} />
       </div>

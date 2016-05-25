@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import App from './../components/app';
 import getActiveEncounter from './../selectors/getActiveEncounter';
+import closeEncounter from './../actions/closeEncounter';
 
 const mapStateToProps = (state) => {
   const activeEncounter = getActiveEncounter(state);
@@ -12,7 +13,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    onCloseEncounter: (id) => dispatch(closeEncounter('complete', id))
+  };
 }
 
 const AppContainer = connect(

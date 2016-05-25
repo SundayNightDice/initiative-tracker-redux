@@ -25,7 +25,10 @@ export default class App extends React.Component {
       case 'building':
         return <EncounterBuilder id={this.props.id} />;
       default:
-        return (<EncounterSummary status={status} />);
+        return (<EncounterSummary
+          id={this.props.id}
+          status={activeEncounter.status}
+          onCloseEncounter={this.props.onCloseEncounter} />);
     }
   }
 }

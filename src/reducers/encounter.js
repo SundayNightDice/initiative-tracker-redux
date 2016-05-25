@@ -37,6 +37,8 @@ export default function encounter(state = defaultState, action) {
         .set('turn', new Turn(getDamageTargets(state.combatants, state.order.get(nextIndex)), getHealingTargets(state.combatants)))
         .setIn(['combatants', player.id], applyDeathSavingThrows(player, state.turn))
         .set('status', calculateEncounterStatus(state.combatants));
+    case 'CLOSE_ENCOUNTER':
+      return state.set('status', action.reason);
     default:
       return state.set('turn', turnReducer(state.turn, action));
   }
