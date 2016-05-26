@@ -1,6 +1,15 @@
-export default function addPlayer(player) {
+let count = 0;
+
+export default function addPlayer(playerData) {
+  const id = `PL${count}`;
+  count++;
   return {
     type: 'ADD_PLAYER',
-    player: player
-  }
+    playerId: id,
+    player: {
+      name: playerData.name,
+      maxHp: playerData.hp,
+      initiativeBonus: playerData.bonus
+    }
+  };
 }

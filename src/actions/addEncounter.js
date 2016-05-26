@@ -1,8 +1,8 @@
-let count = 1; // Should be 0, is not because 1 is hard-coded!
+let count = 0;
 
 export default function addPlayer() {
-  count++;
   const id = `ENC${count}`;
+  count++;
   return {
     type: 'ADD_ENCOUNTER',
     id: id

@@ -7,7 +7,8 @@ const PlayersList = (props) => (
       <ul>
         {props.players.map(p => <li key={p[0]}>{p[1].name}</li>)}
       </ul>
-      <AddPlayer />
+      <AddPlayer
+        onSubmit={props.onAddPlayer} />
   </div>
 );
 

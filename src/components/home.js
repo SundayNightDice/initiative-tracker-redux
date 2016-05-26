@@ -8,7 +8,8 @@ export default class Home extends React.Component {
     return (
       <div id="contents">
         <PlayersList
-          players={this.props.players.entrySeq()} />
+          players={this.props.players.entrySeq()}
+          onAddPlayer={this.props.onAddPlayer} />
         <EncountersList
           encounters={this.props.encounters.entrySeq()}
           onAddEncounter={this.props.onAddEncounter}
