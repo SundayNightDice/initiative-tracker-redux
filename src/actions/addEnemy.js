@@ -1,8 +1,12 @@
-export default function criticalSave(enemy) {
-  const id = enemy.name.replace(/ /g, '').toUpperCase();
+export default function addEnemy(enemyData) {
+  const id = enemyData.name.replace(/ /g, '').toUpperCase();
   return {
     type: 'ADD_ENEMY',
-    enemy: enemy,
+    enemy: {
+      name: enemyData.name,
+      hp: enemyData.hp,
+      initiative: enemyData.bonus
+    },
     id: id
   };
 }
