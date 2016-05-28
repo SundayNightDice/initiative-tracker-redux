@@ -1,16 +1,11 @@
-@highlight: #81D4FA;
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@import "base";
+@import "buttons";
+@import "theme";
+@import "home";
+@import "initiativeList";
+@import "turnOptions";
 
 body {
-  margin: 0;
-  padding: 0;
   background: #e9eaed;
 }
 
@@ -29,8 +24,6 @@ header {
 }
 
 h1, h2 {
-  margin: 0;
-  padding: 0;
   font-family: serif;
   font-variant: small-caps;
 }
@@ -48,91 +41,6 @@ h2 {
   display: flex;
   align-items: stretch;
   flex-direction: row;
-
-  #initiativeList {
-    float: left;
-    width: 60%;
-    margin: 0;
-    padding-right: none;
-
-    li {
-      list-style-type: none;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 18px;
-      padding-left: 24px;
-    }
-
-    li.turn {
-       background-color: @highlight;
-    }
-
-    .status {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 12px;
-      margin-left: 12px;
-      padding: 3px 6px;
-      color: white;
-      border-radius: 6px;
-
-      &.stable {
-        background-color: #4CAF50;
-        border: 1px solid #4CAF50;
-      }
-
-      &.dead {
-        background-color: #F44336;
-        border: 1px solid #F44336;
-      }
-
-      &.dying {
-        background-color: #FF5722;
-        border: 1px solid #FF5722;
-      }
-    }
-  }
-
-  #turnOptions {
-    float: right;
-    width: 40%;
-    margin: 0;
-    padding: 16px;
-    background-color: @highlight;
-
-    .menu {
-      width: 100%;
-
-      h1 {
-        display: inline;
-        margin-right: 8px;
-      }
-
-      .hp {
-        margin-right: 8px;
-      }
-
-      .turn-end {
-        display: inline;
-        margin: 0;
-      }
-    }
-
-    select {
-      margin-right: 8px;
-    }
-  }
-
-}
-
-.players {
-  margin: 0 16px;
-}
-
-.encounters {
-  margin: 0 16px;
 }
 
 .box {
@@ -169,29 +77,4 @@ h2 {
   .clearfix {
     clear: both;
   }
-}
-
-.encounter.complete {
-  text-decoration: line-through;
-}
-
-button, input[type=submit] {
-  padding: 4px 8px;
-  margin: 12px 0;
-  background-color: #3F51B5;
-  color: #FFF;
-  border: none;
-}
-
-button:hover, input[type=submit]:hover {
-  background-color: #5C6BC0;
-}
-
-button:active, input[type=submit]:active {
-  background-color: #1A237E;
-  color: #BDBDBD;
-}
-
-button:disabled, button:disabled:hover, input[type=submit]:disabled, input[type=submit]:disabled:hover {
-  background-color: #9FA8DA;
 }
