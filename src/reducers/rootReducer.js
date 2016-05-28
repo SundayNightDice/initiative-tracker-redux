@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { routerReducer } from 'react-router-redux';
 import enemies from './enemies';
 import encounters from './encounters';
 import players from './players';
@@ -37,5 +38,6 @@ export default combineReducers({
           return state;
       }
     }
-  })
+  }),
+  routing: routerReducer
 });

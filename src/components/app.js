@@ -4,14 +4,13 @@ import Encounter from './../containers/encounter';
 import EncounterBuilder from './../containers/encounterBuilder';
 import EncounterSummary from './encounterSummary';
 import Initiatives from './../containers/initiatives';
-import Home from './../containers/home';
 import EncounterStatus from './../models/encounterStatus';
 
 const App = (props) => {
   return (
     <div>
       <Header />
-      { props.id ? renderContent(props) : <Home /> }
+      { props.children }
     </div>
   );
 };
