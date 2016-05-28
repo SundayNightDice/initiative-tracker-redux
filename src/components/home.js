@@ -2,19 +2,18 @@ import React from 'react';
 import EncountersList from './encountersList';
 import PlayersList from './playersList';
 
-export default class Home extends React.Component {
-
-  render() {
-    return (
-      <div id="contents">
-        <PlayersList
-          players={this.props.players.entrySeq()}
-          onAddPlayer={this.props.onAddPlayer} />
-        <EncountersList
-          encounters={this.props.encounters.entrySeq()}
-          onAddEncounter={this.props.onAddEncounter}
-          onStartEncounter={this.props.onStartEncounter} />
-      </div>
-    );
-  }
+const Home = (props) => {
+  return (
+    <div id="contents">
+      <PlayersList
+        players={props.players.entrySeq()}
+        onAddPlayer={props.onAddPlayer} />
+      <EncountersList
+        encounters={props.encounters.entrySeq()}
+        onAddEncounter={props.onAddEncounter}
+        onStartEncounter={props.onStartEncounter} />
+    </div>
+  );
 }
+
+export default Home;
