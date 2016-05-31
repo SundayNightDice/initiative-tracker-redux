@@ -6,7 +6,7 @@ const EncounterBuilder = (props) => {
     <div className="box">
       <h2>Enemies</h2>
       <ul>
-        { props.enemies.entrySeq().map(item => <li key={item[0]}>{item[1].name}</li>) }
+        { props.enemies.map(item => <li key={item[0]}>{item[1].name}</li>) }
       </ul>
       <h3>Add</h3>
         <AddEnemyForm

@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
+import getEnemiesForEncounter from './getEnemiesForEncounter';
 
 const getPlayers = (state, encounterId) => state.players;
-const getEnemies = (state, encounterId) => state.enemies;
 
 const getEncounterCombatants = createSelector(
-  [getPlayers, getEnemies],
+  [getPlayers, getEnemiesForEncounter],
   (players, enemies) => {
     return {
       players: players,

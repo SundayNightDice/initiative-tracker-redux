@@ -4,16 +4,17 @@ import addEnemy from './../actions/addEnemy';
 import enemiesAdded from './../actions/enemiesAdded';
 
 import EncounterBuilder from './../components/encounterBuilder';
+import getEnemiesForEncounter from './../selectors/getEnemiesForEncounter';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    enemies: state.enemies
+    enemies: getEnemiesForEncounter(state, ownProps.id).entrySeq()
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onAddEnemy: (enemy) => dispatch(addEnemy(enemy)),
+    onAddEnemy: (enemy) => dispatch(addEnemy(enemy, ownProps.id)),
     onDone: () => dispatch(enemiesAdded(ownProps.id))
   };
 };
