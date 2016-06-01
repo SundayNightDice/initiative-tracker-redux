@@ -1,7 +1,7 @@
 import React from 'react';
 import Death from './death';
-import TargetValueSelector from './targetValueSelector';
 import DamageForm from './damage';
+import HealingForm from './healing';
 
 export default class TurnOptions extends React.Component {
 
@@ -47,17 +47,9 @@ export default class TurnOptions extends React.Component {
         <DamageForm
           targets={this.props.damageTargets}
           onSubmit={this.props.onApplyDamage} />
-        <section>
-          <TargetValueSelector title="Healing"
-            target={this.props.turn.healing.target}
-            targets={this.props.healingTargets}
-            value={this.props.turn.healing.value}
-            onTargetSelected={this.props.onHealTargetSelected}
-            onChange={this.props.onHealChange} />
-          <button
-            onClick={this.props.onApplyHealing}
-            disabled={this.props.turn.healing.value === 0 || !this.props.turn.healing.target}>Apply Healing</button>
-        </section>
+        <HealingForm
+          targets={this.props.healingTargets}
+          onSubmit={this.props.onApplyHealing} />
       </div>
     );
   }

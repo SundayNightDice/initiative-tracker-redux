@@ -6,8 +6,6 @@ import deathFail from './../actions/deathFail';
 import deathSave from './../actions/deathSave';
 import criticalSave from './../actions/criticalSave';
 import endTurn from './../actions/endTurn';
-import setHealing from './../actions/setHealing';
-import setHealingTarget from './../actions/setHealingTarget';
 import toggleCondition from './../actions/toggleCondition';
 
 import Encounter from './../components/Encounter';
@@ -30,11 +28,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onHealTargetSelected: (e) => dispatch(setHealingTarget(e.target.value, ownProps.id)),
     onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked, ownProps.id)),
-    onHealChange: (e) => dispatch(setHealing(e.target.value, ownProps.id)),
     onApplyDamage: (e) => dispatch(dealDamage(e, ownProps.id)),
-    onApplyHealing: (e) => dispatch(dealHealing(ownProps.id)),
+    onApplyHealing: (e) => dispatch(dealHealing(e, ownProps.id)),
     onDeathSave: (e) => dispatch(deathSave(e.target.checked, ownProps.id)),
     onDeathFail: (e) => dispatch(deathFail(e.target.checked, ownProps.id)),
     onCriticalSave: (e) => dispatch(criticalSave(e.target.checked, ownProps.id)),

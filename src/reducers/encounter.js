@@ -26,7 +26,7 @@ export default function encounter(state = defaultState, action) {
     case 'DEAL_DAMAGE':
       return dealDamage(state, action.attack);
     case 'DEAL_HEALING':
-      return dealHealing(state);
+      return dealHealing(state, action.healing);
     case 'END_TURN':
       const player = state.combatants.get(state.order.get(state.currentPlayer));
       const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
@@ -67,8 +67,7 @@ function dealDamage(state, attack) {
       item.deathFails + (attack.isCritical ? 2 : 1 ) : 3);
   const turn = new Turn(
     state.turn.damageTargets,
-    state.turn.healing.targets,
-    state.turn.healing.target
+    state.turn.healingTargets
   );
 
   return state
@@ -76,16 +75,15 @@ function dealDamage(state, attack) {
     .set('turn', turn);
 }
 
-function dealHealing(state) {
-  const item = state.combatants.find(x => x.name === state.turn.healing.target);
+function dealHealing(state, healing) {
+  const item = state.combatants.find(x => x.name === healing.target);
   const newItem = item
-    .set('hp', Math.min(item.maxHp, item.hp + state.turn.healing.value))
+    .set('hp', Math.min(item.maxHp, item.hp + healing.value))
     .set('deathSaves', 0)
     .set('deathFails', 0);
   const turn = new Turn(
-    state.turn.damage.targets,
-    state.turn.healing.targets,
-    state.turn.healing.target
+    state.turn.damageTargets,
+    state.turn.healingTargets
   );
 
   return state

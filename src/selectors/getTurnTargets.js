@@ -20,7 +20,7 @@ const getDamageTargetIds = createSelector(
 const getHealingTargetIds = createSelector(
   [getActiveEncounter, getEncounters],
   (activeEncounter, encounters) => {
-    return encounters.get(activeEncounter).turn.healing.targets;
+    return encounters.get(activeEncounter).turn.healingTargets;
   }
 );
 
