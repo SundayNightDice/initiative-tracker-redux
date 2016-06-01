@@ -24,6 +24,8 @@ export default combineReducers({
         default:
           return state;
       }
-    }
+    },
+    turnDamage: (state, action) => state,
+    turnHealing: (state, action) => state
   })
 });
