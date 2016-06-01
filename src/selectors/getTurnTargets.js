@@ -13,7 +13,7 @@ const getCombatants = createSelector(
 const getDamageTargetIds = createSelector(
   [getActiveEncounter, getEncounters],
   (activeEncounter, encounters) => {
-    return encounters.get(activeEncounter).turn.damage.targets;
+    return encounters.get(activeEncounter).turn.damageTargets;
   }
 );
 

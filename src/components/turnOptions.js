@@ -1,6 +1,7 @@
 import React from 'react';
 import Death from './death';
 import TargetValueSelector from './targetValueSelector';
+import DamageForm from './damage';
 
 export default class TurnOptions extends React.Component {
 
@@ -43,40 +44,9 @@ export default class TurnOptions extends React.Component {
   _renderActiveOptions(currentPlayerName) {
     return (
       <div>
-        <section>
-          <TargetValueSelector title="Damage"
-            target={this.props.turn.damage.target}
-            targets={this.props.damageTargets}
-            value={this.props.turn.damage.value}
-            onTargetSelected={this.props.onDamageTargetSelected}
-            onChange={this.props.onDamageChange} />
-          <input type="checkbox"
-            onChange={this.props.onCriticalDamage}
-            checked={this.props.turn.criticalDamage} />
-          <label>Critical Damage</label>
-          <div>
-            <span>
-              <input type="checkbox"
-                onChange={this.props.onToggleApplyCondition}
-                checked={this.props.turn.applyConditions} />
-              <label>Apply condition</label>
-            </span>
-            <div>
-              {this.props.conditions.map(condition =>
-                <span>
-                  <input key={condition}
-                    type="checkbox"
-                    disabled={!this.props.turn.applyConditions}
-                    onChange={e => this.props.onToggleCondition(condition, e.target.checked)} />
-                  <label>{condition}</label>
-                </span>
-              )}
-            </div>
-          </div>
-          <button
-            onClick={this.props.onApplyDamage}
-            disabled={this.props.turn.damage.value === 0 || !this.props.turn.damage.target}>Apply Damage</button>
-        </section>
+        <DamageForm
+          targets={this.props.damageTargets}
+          onSubmit={this.props.onApplyDamage} />
         <section>
           <TargetValueSelector title="Healing"
             target={this.props.turn.healing.target}

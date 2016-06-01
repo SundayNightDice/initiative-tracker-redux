@@ -2,27 +2,25 @@ import { Record } from 'immutable';
 import Target from './target';
 
 const _Turn = {
-  damage: null,
+  damageTargets: [],
   healing: null,
   conditions: [],
   applyConditions: false,
   deathSave: false,
   deathFail: false,
-  criticalSave: false,
-  criticalDamage: false
+  criticalSave: false
 };
 
 export default class Turn extends Record(_Turn) {
-  constructor(damageTargets, healingTargets, damageTarget, healingTarget) {
+  constructor(damageTargets, healingTargets, healingTarget) {
     super({
-      damage: new Target(damageTargets, damageTarget),
+      damageTargets: damageTargets,
       healing: new Target(healingTargets, healingTarget),
       conditions: [],
       applyConditions: false,
       deathSave: false,
       deathFail: false,
-      criticalSave: false,
-      criticalDamage: false
+      criticalSave: false
     });
   }
 }
