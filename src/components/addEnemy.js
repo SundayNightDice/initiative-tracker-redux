@@ -26,7 +26,12 @@ const AddEnemy = (props) => {
 
 const AddEnemyForm = reduxForm({
   form: 'addEnemy',
-  fields: ['name', 'hp', 'bonus']
+  fields: ['name', 'hp', 'bonus'],
+  initialValues: {
+    'name': '',
+    'hp': 1,
+    'bonus': 0
+  }
 })(AddEnemy);
 
 export default AddEnemyForm;
