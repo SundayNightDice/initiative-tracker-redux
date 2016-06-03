@@ -23,7 +23,8 @@ const _Encounter = {
   currentPlayer: '',
   turn: null,
   status: 'pending',
-  order: List([])
+  order: List([]),
+  name: ''
 };
 
 export default class EncounterModel extends Record(_Encounter) {
@@ -51,7 +52,8 @@ export default class EncounterModel extends Record(_Encounter) {
       currentPlayer: '',
       turn: null,
       status: "pending",
-      order: List([])
+      order: List([]),
+      name: ''
     });
   }
 }

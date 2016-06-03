@@ -8,6 +8,8 @@ const defaultState = new EncounterModel();
 
 export default function encounter(state = defaultState, action) {
   switch(action.type) {
+    case 'SET_ENCOUNTER_NAME':
+      return state.set('name', action.name);
     case 'ENEMIES_ADDED':
       return state.set('status', 'pending');
     case 'START_ENCOUNTER':
