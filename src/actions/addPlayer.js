@@ -1,9 +1,6 @@
-let count = 0;
+import uuid from 'node-uuid';
 
-export default function addPlayer(playerData) {
-  const id = `PL${count}`;
-  count++;
-
+export default (playerData) => {
   const attributes = {
     strength: Number(playerData.strength),
     dexterity: Number(playerData.dexterity),
@@ -16,7 +13,7 @@ export default function addPlayer(playerData) {
 
   return {
     type: 'ADD_PLAYER',
-    playerId: id,
+    playerId: uuid.v4(),
     player: {
       name: playerData.name,
       maxHp: playerData.hp,

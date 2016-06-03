@@ -1,10 +1,6 @@
-let count = 0;
+import uuid from 'node-uuid';
 
-export default function addPlayer() {
-  const id = `ENC${count}`;
-  count++;
-  return {
-    type: 'ADD_ENCOUNTER',
-    id: id
-  }
-}
+export default () => ({
+  type: 'ADD_ENCOUNTER',
+  id: uuid.v4()
+})
