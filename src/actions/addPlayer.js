@@ -17,6 +17,7 @@ export default (playerData) => {
     player: {
       name: playerData.name,
       maxHp: playerData.hp,
+      hp: playerData.hp,
       attributes: attributes,
       modifiers: modifiers,
       level: playerData.level
@@ -26,11 +27,13 @@ export default (playerData) => {
 
 const modify = (attributes) => {
   return {
-    strength: Math.max(attributes.strength - 10, 0) - 2,
-    dexterity: Math.max(attributes.dexterity - 10, 0) - 2,
-    constitution: Math.max(attributes.constitution - 10, 0) - 2,
-    intelligence: Math.max(attributes.intelligence - 10, 0) - 2,
-    wisdom: Math.max(attributes.wisdom - 10, 0) / 2,
-    charisma: Math.max(attributes.charisma - 10, 0) / 2
+    strength: calculateModifier(attributes.strength),
+    dexterity: calculateModifier(attributes.dexterity),
+    constitution: calculateModifier(attributes.constitution),
+    intelligence: calculateModifier(attributes.intelligence),
+    wisdom: calculateModifier(attributes.wisdom),
+    charisma: calculateModifier(attributes.charisma)
   };
 };
+
+const calculateModifier = (stat) => Math.floor(Math.max(stat - 10, 0) / 2)

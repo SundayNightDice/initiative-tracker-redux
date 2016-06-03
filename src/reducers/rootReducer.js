@@ -17,14 +17,7 @@ export default combineReducers({
           return state;
       }
     },
-    addPlayer: (state, action) => {
-      switch (action.type) {
-        case 'ADD_PLAYER':
-          return undefined;
-        default:
-          return state;
-      }
-    },
+    addPlayer: (state, action) => state,
     turnDamage: (state, action) => state,
     turnHealing: (state, action) => state
   })
