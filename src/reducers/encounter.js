@@ -16,15 +16,23 @@ export default function encounter(state = defaultState, action) {
       const enemies = action.enemies.map((enemy, id) => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, 1, id));
       const players = action.players.map((player, id) => new Combatant(player.name, 'player', player.maxHp, player.modifiers.dexterity, 1, id));
       const combatants = players.merge(enemies);
-      const order = calculateInitiativeOrder(combatants);
 
       return state
         .set('combatants', combatants)
-        .set('order', order)
-        .set('round', 1)
-        .set('currentPlayer', 0)
-        .set('turn', new Turn(getDamageTargets(combatants, order.get(0)), getHealingTargets(combatants)))
-        .set('status', 'active');
+        .set('status', 'initiatives');
+    case 'SET_INITIATIVE':
+      const c = state.combatants
+        .get(action.id)
+        .set('initiative', action.initiative);
+      return state.setIn(['combatants', action.id], c);
+    case 'BEGIN_COMBAT':
+      const order = calculateInitiativeOrder(state.combatants);
+      return state
+      .set('order', order)
+      .set('round', 1)
+      .set('currentPlayer', 0)
+      .set('turn', new Turn(getDamageTargets(state.combatants, order.get(0)), getHealingTargets(state.combatants)))
+      .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state, action.attack);
     case 'DEAL_HEALING':
@@ -50,8 +58,11 @@ function calculateInitiativeOrder(combatants) {
   // For now assume that initiatives are all unique
   return List(combatants
     .sort((a, b) => {
-      if (a.initiative < b.initiative) return 1;
-      if (a.initiative > b.initiative) return -1;
+      const aint = a.initiative + a.bonus;
+      const bint = b.initiative + b.bonus;
+
+      if (aint < bint) return 1;
+      if (aint > bint) return -1;
       return 0;
     })
     .keys());

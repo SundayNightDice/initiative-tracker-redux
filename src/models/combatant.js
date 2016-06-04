@@ -8,13 +8,14 @@ const _Combatant = {
   deathSaves: 0,
   deathFails: 0,
   conditions: [],
+  bonus: 0,
   initiative: 0,
   startingRound: 0,
   id: ''
 };
 
 export default class Combatant extends Record(_Combatant) {
-  constructor(name, type, hp, initiative, startingRound, id) {
+  constructor(name, type, hp, bonus, startingRound, id) {
     super({
       name: name,
       type: type,
@@ -23,7 +24,8 @@ export default class Combatant extends Record(_Combatant) {
       deathSaves: 0,
       deathFails: 0,
       conditions: [],
-      initiative: initiative,
+      bonus: bonus,
+      initiative: 0,
       startingRound: startingRound,
       id: id
     });
