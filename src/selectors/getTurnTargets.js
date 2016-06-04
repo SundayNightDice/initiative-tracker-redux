@@ -1,27 +1,26 @@
 import { createSelector } from 'reselect';
 
-const getActiveEncounter = (state) => state.encounters.filter(e => e.status === 'active').keySeq().get(0);
+const getActiveEncounterId = (state) => state.encounters.filter(e => e.status === 'active').keySeq().get(0);
 const getEncounters = (state) => state.encounters;
 
+const getActiveEncounter = createSelector(
+  [getActiveEncounterId, getEncounters],
+  (activeEncounterId, encounters) => encounters.get(activeEncounterId)
+);
+
 const getCombatants = createSelector(
-  [getActiveEncounter, getEncounters],
-  (activeEncounter, encounters) => {
-    return encounters.get(activeEncounter).combatants;
-  }
+  [getActiveEncounter],
+  (encounter) => encounter.combatants
 );
 
 const getDamageTargetIds = createSelector(
-  [getActiveEncounter, getEncounters],
-  (activeEncounter, encounters) => {
-    return encounters.get(activeEncounter).turn.damageTargets;
-  }
+  [getActiveEncounter],
+  (encounter) => encounter.turn.damageTargets
 );
 
 const getHealingTargetIds = createSelector(
-  [getActiveEncounter, getEncounters],
-  (activeEncounter, encounters) => {
-    return encounters.get(activeEncounter).turn.healingTargets;
-  }
+  [getActiveEncounter],
+  (encounter) => encounter.turn.healingTargets
 );
 
 export const getDamageTargets = createSelector(
