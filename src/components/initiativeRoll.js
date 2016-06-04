@@ -2,7 +2,7 @@ import React from 'react';
 
 const initiativeRoll = (props) => {
   return (
-    <div>
+    <div className="box">
       <h2>Roll for Initiative!</h2>
       <table>
         <thead>
@@ -24,7 +24,10 @@ const initiativeRoll = (props) => {
           )}
         </tbody>
       </table>
-      <button onClick={props.onBeginCombat}>Start</button>
+      <div className="builderOptions">
+        <button className="start" onClick={props.onBeginCombat}>Start</button>
+      </div>
+      <div className="clearfix" />
     </div>
   );
 };
