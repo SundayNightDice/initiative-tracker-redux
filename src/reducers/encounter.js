@@ -31,7 +31,7 @@ export default function encounter(state = defaultState, action) {
       .set('order', order)
       .set('round', 1)
       .set('currentPlayer', 0)
-      .set('turn', new Turn(getDamageTargets(state.combatants, order.get(0)), getHealingTargets(state.combatants)))
+      .set('turn', new Turn())
       .set('status', 'active');
     case 'DEAL_DAMAGE':
       return dealDamage(state, action.attack);
@@ -44,7 +44,7 @@ export default function encounter(state = defaultState, action) {
       return state
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn(getDamageTargets(state.combatants, state.order.get(nextIndex)), getHealingTargets(state.combatants)))
+        .set('turn', new Turn())
         .setIn(['combatants', player.id], applyDeathSavingThrows(player, state.turn))
         .set('status', calculateEncounterStatus(state.combatants));
     case 'CLOSE_ENCOUNTER':
@@ -78,14 +78,10 @@ function dealDamage(state, attack) {
       .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
     item.set('deathFails', attack.damage < item.maxHp ?
       item.deathFails + (attack.isCritical ? 2 : 1 ) : 3);
-  const turn = new Turn(
-    state.turn.damageTargets,
-    state.turn.healingTargets
-  );
 
   return state
     .setIn(['combatants', item.id], newItem)
-    .set('turn', turn);
+    .set('turn', new Turn());
 }
 
 function dealHealing(state, healing) {
@@ -94,38 +90,16 @@ function dealHealing(state, healing) {
     .set('hp', Math.min(item.maxHp, item.hp + healing.value))
     .set('deathSaves', 0)
     .set('deathFails', 0);
-  const turn = new Turn(
-    state.turn.damageTargets,
-    state.turn.healingTargets
-  );
 
   return state
     .setIn(['combatants', item.id], newItem)
-    .set('turn', turn);
-}
-
-function getDamageTargets(combatants, id) {
-  return itemsList(combatants
-    .filter((c, i) => i !== id && isAlive(c))
-    .map((c, i) => i)
-  );
-}
-
-function getHealingTargets(combatants) {
-  return itemsList(combatants
-    .filter(isAlive)
-    .map((c, i) => i)
-  );
+    .set('turn', new Turn());
 }
 
 function isAlive(combatant) {
   return combatant.type === 'enemy' ?
     combatant.hp > 0 :
     combatant.deathFails < 3;
-}
-
-function itemsList(items) {
-  return List(items.values());
 }
 
 function applyDeathSavingThrows(player, turn) {

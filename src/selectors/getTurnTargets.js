@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { List } from 'immutable';
 
 const getActiveEncounterId = (state) => state.encounters.filter(e => e.status === 'active').keySeq().get(0);
 const getEncounters = (state) => state.encounters;
@@ -13,26 +14,31 @@ const getCombatants = createSelector(
   (encounter) => encounter.combatants
 );
 
-const getDamageTargetIds = createSelector(
+const getCurrentPlayerId = createSelector(
   [getActiveEncounter],
-  (encounter) => encounter.turn.damageTargets
-);
-
-const getHealingTargetIds = createSelector(
-  [getActiveEncounter],
-  (encounter) => encounter.turn.healingTargets
+  (encounter) => encounter.order.get(encounter.currentPlayer)
 );
 
 export const getDamageTargets = createSelector(
-  [getCombatants, getDamageTargetIds],
-  (combatants, damageTargetIds) => {
-    return damageTargetIds.map(id => combatants.get(id).name);
-  }
+  [getCombatants, getCurrentPlayerId],
+  (combatants, currentPlayerId) => itemsList(combatants
+    .filter((c, i) => i !== currentPlayerId && isAlive(c))
+    .map((c, i) => c.name))
 );
 
 export const getHealingTargets = createSelector(
-  [getCombatants, getHealingTargetIds],
-  (combatants, healingTargetIds) => {
-    return healingTargetIds.map(id => combatants.get(id).name);
-  }
+  [getCombatants, getCurrentPlayerId],
+  (combatants, currentPlayerId) => itemsList(combatants
+    .filter(isAlive)
+    .map((c, i) => c.name))
 );
+
+const isAlive = (c) => {
+  return c.type === 'enemy' ?
+    c.hp > 0 :
+    c.deathFails < 3;
+}
+
+const itemsList = (i) => {
+  return List(i.values());
+}
