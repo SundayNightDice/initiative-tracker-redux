@@ -6,17 +6,9 @@ import HealingForm from './healing';
 export default class TurnOptions extends React.Component {
 
   render() {
-    if (this.props.turn) {
-      return this._renderTurnOptions();
-    } else {
-      return <div id="turnOptions"></div>;
-    }
-  }
-
-  _renderTurnOptions() {
     const currentPlayer = this.props.currentPlayer;
     const turnText = 'It\'s ' + currentPlayer.name + '\'s turn!';
-    const canEndTurn = currentPlayer.hp > 0 || (this.props.turn.deathSave || this.props.turn.deathFail);
+    const canEndTurn = currentPlayer.acted;
 
     return (
       <div id="turnOptions">
@@ -32,10 +24,8 @@ export default class TurnOptions extends React.Component {
           currentPlayer.hp > 0 ?
             this._renderActiveOptions(currentPlayer.name) :
             <Death player={currentPlayer}
-              turn={this.props.turn}
               onDeathSave={this.props.onDeathSave}
-              onDeathFail={this.props.onDeathFail}
-              onCriticalSave={this.props.onCriticalSave} />
+              acted={currentPlayer.acted} />
         }
       </div>
     );

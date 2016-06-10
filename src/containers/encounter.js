@@ -2,9 +2,7 @@ import { connect } from 'react-redux';
 
 import dealDamage from './../actions/dealDamage';
 import dealHealing from './../actions/dealHealing';
-import deathFail from './../actions/deathFail';
 import deathSave from './../actions/deathSave';
-import criticalSave from './../actions/criticalSave';
 import endTurn from './../actions/endTurn';
 import toggleCondition from './../actions/toggleCondition';
 
@@ -31,9 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked, ownProps.id)),
     onApplyDamage: (e) => dispatch(dealDamage(e, ownProps.id)),
     onApplyHealing: (e) => dispatch(dealHealing(e, ownProps.id)),
-    onDeathSave: (e) => dispatch(deathSave(e.target.checked, ownProps.id)),
-    onDeathFail: (e) => dispatch(deathFail(e.target.checked, ownProps.id)),
-    onCriticalSave: (e) => dispatch(criticalSave(e.target.checked, ownProps.id)),
+    onDeathSave: (e) => dispatch(deathSave(e, ownProps.id)),
     onEndTurn: (e) => dispatch(endTurn(ownProps.id))
   };
 };

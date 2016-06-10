@@ -1,8 +1,6 @@
 import { List, Map } from 'immutable';
-import turnReducer from './turn';
 import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
-import Turn from './../models/turn';
 
 const defaultState = new EncounterModel();
 
@@ -31,28 +29,38 @@ export default function encounter(state = defaultState, action) {
       .set('order', order)
       .set('round', 1)
       .set('currentPlayer', 0)
-      .set('turn', new Turn())
       .set('status', 'active');
     case 'DEAL_DAMAGE':
-      return dealDamage(state, action.attack);
+      const ddp = getCurrentPlayer(state).set('acted', true);
+      const dds = state.setIn(['combatants', ddp.id], ddp);
+      return dealDamage(dds, action.attack);
     case 'DEAL_HEALING':
-      return dealHealing(state, action.healing);
+      const dhp = getCurrentPlayer(state).set('acted', true);
+      const dhs = state.setIn(['combatants', dhp.id], dhp);
+      return dealHealing(dhs, action.healing);
+    case 'DEATH_SAVE':
+      const player = getCurrentPlayer(state).set('acted', true);
+      return state
+        .setIn(['combatants', player.id], applyDeathSavingThrows(player, action.formData));
     case 'END_TURN':
-      const player = state.combatants.get(state.order.get(state.currentPlayer));
+      const etp = getCurrentPlayer(state).set('acted', false);
       const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
       const round = nextIndex === 0 ? state.round + 1 : state.round;
       return state
+        .setIn(['combatants', etp.id], etp)
         .set('round', round)
         .set('currentPlayer', nextIndex)
-        .set('turn', new Turn())
-        .setIn(['combatants', player.id], applyDeathSavingThrows(player, state.turn))
         .set('status', calculateEncounterStatus(state.combatants));
     case 'CLOSE_ENCOUNTER':
       return state.set('status', action.reason);
     default:
-      return state.set('turn', turnReducer(state.turn, action));
+      return state;
   }
 };
+
+function getCurrentPlayer(state) {
+  return state.combatants.get(state.order.get(state.currentPlayer));
+}
 
 function calculateInitiativeOrder(combatants) {
   // For now assume that initiatives are all unique
@@ -79,9 +87,7 @@ function dealDamage(state, attack) {
     item.set('deathFails', attack.damage < item.maxHp ?
       item.deathFails + (attack.isCritical ? 2 : 1 ) : 3);
 
-  return state
-    .setIn(['combatants', item.id], newItem)
-    .set('turn', new Turn());
+  return state.setIn(['combatants', item.id], newItem);
 }
 
 function dealHealing(state, healing) {
@@ -91,9 +97,7 @@ function dealHealing(state, healing) {
     .set('deathSaves', 0)
     .set('deathFails', 0);
 
-  return state
-    .setIn(['combatants', item.id], newItem)
-    .set('turn', new Turn());
+  return state.setIn(['combatants', item.id], newItem);
 }
 
 function isAlive(combatant) {
@@ -102,19 +106,21 @@ function isAlive(combatant) {
     combatant.deathFails < 3;
 }
 
-function applyDeathSavingThrows(player, turn) {
-  if (turn.deathSave) {
-    if (turn.criticalSave) {
+function applyDeathSavingThrows(player, data) {
+  if (data.save) {
+    if (data.isCritical) {
       return player
         .set('hp', 1)
         .set('deathSaves', 0)
         .set('deathFails', 0);
     } else {
-      return player.set('deathSaves', player.deathSaves + 1);
+      return player
+        .set('deathSaves', player.deathSaves + 1);
     }
-  } else if (turn.deathFail) {
-    const fails = turn.criticalSave ? 2 : 1;
-    return player.set('deathFails', player.deathFails + fails);
+  } else if (data.fail) {
+    const fails = data.isCritical ? 2 : 1;
+    return player
+      .set('deathFails', player.deathFails + fails);
   } else {
     return player;
   }

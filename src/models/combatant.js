@@ -11,7 +11,8 @@ const _Combatant = {
   bonus: 0,
   initiative: 0,
   startingRound: 0,
-  id: ''
+  id: '',
+  acted: false
 };
 
 export default class Combatant extends Record(_Combatant) {
@@ -27,7 +28,8 @@ export default class Combatant extends Record(_Combatant) {
       bonus: bonus,
       initiative: 0,
       startingRound: startingRound,
-      id: id
+      id: id,
+      acted: false
     });
   }
 }

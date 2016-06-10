@@ -18,8 +18,6 @@ const Encounter = (props) => (
       onApplyDamage={props.onApplyDamage}
       onApplyHealing={props.onApplyHealing}
       onDeathSave={props.onDeathSave}
-      onDeathFail={props.onDeathFail}
-      onCriticalSave={props.onCriticalSave}
       onEndTurn={props.onEndTurn} />
   </div>
 );

@@ -19,6 +19,23 @@ export default combineReducers({
     },
     addPlayer: (state, action) => state,
     turnDamage: (state, action) => state,
-    turnHealing: (state, action) => state
+    turnHealing: (state, action) => state,
+    deathSaves: (state, action) => {
+      switch(action.type) {
+        case 'redux-form/CHANGE':
+          if (action.field === 'save' && action.value) {
+            return Object.assign({}, state, { fail: {} });
+          } else if (action.field === 'fail' && action.value) {
+            return Object.assign({}, state, { save: {} });
+          }
+          else {
+            return state;
+          }
+        case 'DEATH_SAVE':
+          return undefined;
+        default:
+          return state;
+      }
+    }
   })
 });
