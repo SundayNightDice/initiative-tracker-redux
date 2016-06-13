@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import EncounterStatus from './../models/encounterStatus';
 
 const getEncounters = (state) => state.encounters;
 
@@ -13,9 +14,9 @@ const getActiveEncounter = createSelector(
 );
 
 const isActive = (e) => {
-  return e.status === 'pending' ||
-    e.status === 'aborted' ||
-    e.status === 'complete';
+  return e.status === EncounterStatus.PENDING ||
+    e.status === EncounterStatus.ABORTED ||
+    e.status === EncounterStatus.COMPLETE;
 }
 
 export default getActiveEncounter;

@@ -1,4 +1,5 @@
 import { List, Map, Record } from 'immutable';
+import EncounterStatus from './encounterStatus';
 
 const _Encounter = {
   combatants: Map({}),
@@ -22,7 +23,7 @@ const _Encounter = {
   round: 0,
   currentPlayer: '',
   turn: null,
-  status: 'pending',
+  status: EncounterStatus.PENDING,
   order: List([]),
   name: ''
 };
@@ -51,7 +52,7 @@ export default class EncounterModel extends Record(_Encounter) {
       round: 0,
       currentPlayer: '',
       turn: null,
-      status: "pending",
+      status: EncounterStatus.PENDING,
       order: List([]),
       name: ''
     });

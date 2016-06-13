@@ -1,6 +1,7 @@
 import { List, Map } from 'immutable';
 import Combatant from './../models/combatant';
 import EncounterModel from './../models/encounterModel';
+import EncounterStatus from './../models/encounterStatus';
 
 const defaultState = new EncounterModel();
 
@@ -9,7 +10,7 @@ export default function encounter(state = defaultState, action) {
     case 'SET_ENCOUNTER_NAME':
       return state.set('name', action.name);
     case 'ENEMIES_ADDED':
-      return state.set('status', 'pending');
+      return state.set('status', EncounterStatus.PENDING);
     case 'START_ENCOUNTER':
       const enemies = action.enemies.map((enemy, id) => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, 1, id));
       const players = action.players.map((player, id) => new Combatant(player.name, 'player', player.maxHp, player.modifiers.dexterity, 1, id));
@@ -17,7 +18,7 @@ export default function encounter(state = defaultState, action) {
 
       return state
         .set('combatants', combatants)
-        .set('status', 'initiatives');
+        .set('status', EncounterStatus.INITIATIVES);
     case 'SET_INITIATIVE':
       const c = state.combatants
         .get(action.id)
@@ -29,7 +30,7 @@ export default function encounter(state = defaultState, action) {
       .set('order', order)
       .set('round', 1)
       .set('currentPlayer', 0)
-      .set('status', 'active');
+      .set('status', EncounterStatus.ACTIVE);
     case 'DEAL_DAMAGE':
       const ddp = getCurrentPlayer(state).set('acted', true);
       const dds = state.setIn(['combatants', ddp.id], ddp);
@@ -144,12 +145,12 @@ function calculateEncounterStatus(combatants) {
   const aliveCombatants = combatants.filter(isAlive);
 
   if (aliveCombatants.filter(c => c.type === 'player').size === 0) {
-    return 'tpk';
+    return EncounterStatus.TPK;
   }
 
   if (aliveCombatants.filter(c => c.type === 'enemy').size === 0) {
-    return 'victory';
+    return EncounterStatus.VICTORY;
   }
 
-  return 'active';
+  return EncounterStatus.ACTIVE;
 }

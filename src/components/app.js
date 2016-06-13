@@ -5,6 +5,7 @@ import EncounterBuilder from './../containers/encounterBuilder';
 import EncounterSummary from './encounterSummary';
 import Initiatives from './../containers/initiatives';
 import Home from './../containers/home';
+import EncounterStatus from './../models/encounterStatus';
 
 const App = (props) => {
   return (
@@ -17,11 +18,11 @@ const App = (props) => {
 
 const renderContent = (props) => {
   switch(props.encounter.status) {
-    case 'initiatives':
+    case EncounterStatus.INITIATIVES:
       return <Initiatives id={props.id} />
-    case 'active':
+    case EncounterStatus.ACTIVE:
       return <Encounter id={props.id} />;
-    case 'building':
+    case EncounterStatus.BUILDING:
       return <EncounterBuilder id={props.id} />;
     default:
       return <EncounterSummary
