@@ -1,25 +1,18 @@
 import React from 'react';
 
-import InitiativeList from './initiativeList';
-import TurnOptions from './turnOptions';
+import EncounterSummary from './../containers/encounterSummary';
+import EncounterTurns from './../containers/encounterTurns';
+import Initiatives from './../containers/initiatives';
 
-const Encounter = (props) => (
-  <div id="contents">
-    <InitiativeList
-      combatants={props.combatants}
-      currentPlayer={props.currentPlayer} />
-    <TurnOptions
-      currentPlayer={props.currentPlayer}
-      conditions={props.conditions}
-      turn={props.turn}
-      damageTargets={props.damageTargets}
-      healingTargets={props.healingTargets}
-      onToggleCondition={props.onToggleCondition}
-      onApplyDamage={props.onApplyDamage}
-      onApplyHealing={props.onApplyHealing}
-      onDeathSave={props.onDeathSave}
-      onEndTurn={props.onEndTurn} />
-  </div>
-);
+const Encounter = (props) => {
+  switch (props.status) {
+    case 'initiatives':
+      return <Initiatives id={props.id} />
+    case 'active':
+      return <EncounterTurns id={props.id} />
+    default:
+      return <EncounterSummary id={props.id} />
+  }
+};
 
 export default Encounter;

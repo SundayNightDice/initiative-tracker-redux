@@ -9,16 +9,16 @@ import getEnemiesForEncounter from './../selectors/getEnemiesForEncounter';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    enemies: getEnemiesForEncounter(state, ownProps.id).entrySeq(),
-    name: state.encounters.get(ownProps.id).name
+    enemies: getEnemiesForEncounter(state, ownProps.params.id).entrySeq(),
+    name: state.encounters.get(ownProps.params.id).name
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onSetEncounterName: (e) => dispatch(setEncounterName(ownProps.id, e.target.value)),
-    onAddEnemy: (enemy) => dispatch(addEnemy(enemy, ownProps.id)),
-    onDone: () => dispatch(enemiesAdded(ownProps.id))
+    onSetEncounterName: (e) => dispatch(setEncounterName(ownProps.params.id, e.target.value)),
+    onAddEnemy: (enemy) => dispatch(addEnemy(enemy, ownProps.params.id)),
+    onDone: () => dispatch(enemiesAdded(ownProps.params.id))
   };
 };
 

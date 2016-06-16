@@ -1,6 +1,15 @@
 import uuid from 'node-uuid';
+import { push } from 'react-router-redux'
 
-export default () => ({
-  type: 'ADD_ENCOUNTER',
-  id: uuid.v4()
-})
+export default () => {
+  return (dispatch, getState) => {
+    const id = uuid.v4();
+
+    dispatch({
+      type: 'ADD_ENCOUNTER',
+      id: id
+    });
+
+    dispatch(push(`/build/${id}`));
+  }
+}

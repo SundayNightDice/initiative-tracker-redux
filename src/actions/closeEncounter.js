@@ -1,7 +1,12 @@
-export default function closeEncounter(reason, encounterId) {
-  return {
-    type: 'CLOSE_ENCOUNTER',
-    reason: reason,
-    encounterId: encounterId
+import { push } from 'react-router-redux'
+
+export default (reason, encounterId) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'CLOSE_ENCOUNTER',
+      reason: reason,
+      encounterId: encounterId
+    });
+    dispatch(push('/'));
   }
 }

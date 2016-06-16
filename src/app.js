@@ -7,8 +7,10 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 
 import rootReducer from './reducers/rootReducer';
-import App from './containers/app';
-import Home from './containers/Home';
+import App from './components/app';
+import Home from './containers/home';
+import Encounter from './containers/encounter';
+import EncounterBuilder from './containers/encounterBuilder';
 import DevTools from './dev/DevTools';
 
 import '../styles/style.less';
@@ -33,6 +35,8 @@ render(
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Home} />
+          <Route path="build/:id" component={EncounterBuilder} />
+          <Route path="encounter/:id" component={Encounter} />
           <Redirect path="*" to="/" />
         </Route>
       </Router>

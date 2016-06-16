@@ -1,37 +1,18 @@
 import { connect } from 'react-redux';
 
-import dealDamage from './../actions/dealDamage';
-import dealHealing from './../actions/dealHealing';
-import deathSave from './../actions/deathSave';
-import endTurn from './../actions/endTurn';
-import toggleCondition from './../actions/toggleCondition';
-
 import Encounter from './../components/Encounter';
-import { getDamageTargets, getHealingTargets } from './../selectors/getTurnTargets';
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.id;
+  const id = ownProps.params.id;
   const encounter = state.encounters.get(id);
-  const combatants = encounter.combatants;
-  const order = encounter.order;
   return {
-    combatants: order.map(id => combatants.get(id)),
-    currentPlayer: combatants.get(order.get(encounter.currentPlayer)),
-    conditions: encounter.conditions,
-    turn: encounter.turn,
-    damageTargets: getDamageTargets(state),
-    healingTargets: getHealingTargets(state)
+    id: id,
+    status: encounter.status
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onToggleCondition: (condition, checked) => dispatch(toggleCondition(condition, checked, ownProps.id)),
-    onApplyDamage: (e) => dispatch(dealDamage(e, ownProps.id)),
-    onApplyHealing: (e) => dispatch(dealHealing(e, ownProps.id)),
-    onDeathSave: (e) => dispatch(deathSave(e, ownProps.id)),
-    onEndTurn: (e) => dispatch(endTurn(ownProps.id))
-  };
+  return {};
 };
 
 const EncounterContainer = connect(

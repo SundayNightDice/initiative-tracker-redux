@@ -7,7 +7,7 @@ const EncounterSummary = (props) => (
       <h2>Encounter {props.status === EncounterStatus.VICTORY ? 'Victory' : 'Failure'}</h2>
     </div>
     <div className="builderOptions">
-      <button onClick={() => props.onCloseEncounter(props.id)}>Close</button>
+      <button onClick={() => props.onCloseEncounter()}>Close</button>
     </div>
   </div>
 );
