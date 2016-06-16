@@ -16,8 +16,24 @@
     padding-left: 24px;
   }
 
+  @arrow-length: .9em;
+
   li.turn {
-     background-color: @highlight;
+     background-color: @tableAltBackground;
+     margin-right: @arrow-length;
+     position: relative;
+  }
+
+  li.turn:after {
+    content: "";
+    border-left: @arrow-length solid #E0E5C1;
+    border-top: 18pt solid transparent; /* This width has to be 50% of 'line-height + padding-top + padding-bottom' */
+    border-bottom: 18pt solid transparent; /* Same for this width */
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: @arrow-length * -1;
+    top: 0;
   }
 
   .status {

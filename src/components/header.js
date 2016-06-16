@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = (props) => (
   <header>
-    <span>D&D Initiative Tracker</span>
+    <span className="logo">D&D Initiative Tracker</span>
     { props.round > 0 ? <span>{'Round ' + props.round}</span> : <span>Encounter Setup</span> }
   </header>
 );

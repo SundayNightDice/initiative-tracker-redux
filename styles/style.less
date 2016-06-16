@@ -6,7 +6,7 @@
 @import "turnOptions";
 
 body {
-  background: #e9eaed;
+  background: @background;
 }
 
 header {
@@ -21,6 +21,10 @@ header {
     margin-right: 20px;
     line-height: 52px;
   }
+
+  .logo {
+    color: @logoText;
+  }
 }
 
 h1, h2 {
@@ -29,12 +33,13 @@ h1, h2 {
 }
 
 h1 {
-  color: #0D47A1;
+  color: @headerText;
 }
 
 h2 {
+  color: @headerText;
   margin: 16px 0 8px 0;
-  border-bottom: 2px solid #0D47A1;
+  border-bottom: 2px solid @horizontalRule;
 }
 
 #contents {
@@ -47,7 +52,6 @@ h2 {
   width: 500px;
   margin: 28px auto;
   padding: 20px;
-  background: #81D4FA;
 
   .row {
     float: left;
