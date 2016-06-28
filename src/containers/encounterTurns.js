@@ -19,7 +19,6 @@ const mapStateToProps = (state, ownProps) => {
     combatants: order.map(id => combatants.get(id)),
     currentPlayer: combatants.get(order.get(encounter.currentPlayer)),
     conditions: encounter.conditions,
-    turn: encounter.turn,
     damageTargets: getDamageTargets(state),
     healingTargets: getHealingTargets(state)
   };

@@ -22,7 +22,6 @@ const _Encounter = {
   ]),
   round: 0,
   currentPlayer: '',
-  turn: null,
   status: EncounterStatus.PENDING,
   order: List([]),
   name: ''
@@ -51,7 +50,6 @@ export default class EncounterModel extends Record(_Encounter) {
       ]),
       round: 0,
       currentPlayer: '',
-      turn: null,
       status: EncounterStatus.PENDING,
       order: List([]),
       name: ''
