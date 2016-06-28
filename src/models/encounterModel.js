@@ -3,23 +3,6 @@ import EncounterStatus from './encounterStatus';
 
 const _Encounter = {
   combatants: Map({}),
-  conditions: List([
-    'Blinded',
-    'Charmed',
-    'Deafened',
-    'Fatigued',
-    'Frightened',
-    'Grappled',
-    'Incapacitated',
-    'Invisible',
-    'Paralyzed',
-    'Petrified',
-    'Poisoned',
-    'Prone',
-    'Restrained',
-    'Stunned',
-    'Unconscious'
-  ]),
   round: 0,
   currentPlayer: '',
   status: EncounterStatus.PENDING,
@@ -31,23 +14,6 @@ export default class EncounterModel extends Record(_Encounter) {
   constructor() {
     super({
       combatants: Map({}),
-      conditions: List([
-        'Blinded',
-        'Charmed',
-        'Deafened',
-        'Fatigued',
-        'Frightened',
-        'Grappled',
-        'Incapacitated',
-        'Invisible',
-        'Paralyzed',
-        'Petrified',
-        'Poisoned',
-        'Prone',
-        'Restrained',
-        'Stunned',
-        'Unconscious'
-      ]),
       round: 0,
       currentPlayer: '',
       status: EncounterStatus.PENDING,

@@ -9,7 +9,6 @@ const EncounterTurns = (props) => (
       currentPlayer={props.currentPlayer} />
     <TurnOptions
       currentPlayer={props.currentPlayer}
-      conditions={props.conditions}
       damageTargets={props.damageTargets}
       healingTargets={props.healingTargets}
       onToggleCondition={props.onToggleCondition}
