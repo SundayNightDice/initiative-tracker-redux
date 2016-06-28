@@ -19,6 +19,7 @@ const InitiativeList = (props) => {
 
 const InitiativeItem = ({ className, combatant }) => (
   <li className={className}>
+    <span className="initiativeScore">{combatant.initiative}</span>
     {combatant.name + ' - '+ combatant.hp + ' HP'}
     <Status hp={combatant.hp}
       deathSaves={combatant.deathSaves}
