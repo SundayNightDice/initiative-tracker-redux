@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onCloseEncounter: () => dispatch(closeEncounter('complete', ownProps.id))
+    onCloseEncounter: () => dispatch(closeEncounter(ownProps.id, 'complete'))
   }
 };
 

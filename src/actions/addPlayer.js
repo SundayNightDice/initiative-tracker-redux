@@ -1,4 +1,5 @@
 import uuid from 'node-uuid';
+import Player from './../models/player';
 
 export default (playerData) => {
   const attributes = {
@@ -14,14 +15,14 @@ export default (playerData) => {
   return {
     type: 'ADD_PLAYER',
     playerId: uuid.v4(),
-    player: {
+    player: new Player({
       name: playerData.name,
       maxHp: playerData.hp,
       hp: playerData.hp,
       attributes: attributes,
       modifiers: modifiers,
       level: playerData.level
-    }
+    })
   };
 }
 
