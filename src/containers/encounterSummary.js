@@ -5,7 +5,9 @@ import EncounterSummary from './../components/encounterSummary';
 const mapStateToProps = (state, ownProps) => {
   const encounter = state.encounters.get(ownProps.id);
   return {
-    status: encounter.staus
+    status: encounter.status,
+    players: encounter.combatants.filter(c => c.type === 'player'),
+    enemies: encounter.combatants.filter(c => c.type === 'enemy')
   };
 };
 
