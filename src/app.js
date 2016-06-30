@@ -16,11 +16,11 @@ import { save, load } from './persistence/localStorage';
 
 import '../styles/style.less';
 
-//const initialState = load();
+const initialState = load();
 
 const store = createStore(
   rootReducer,
-  {},
+  initialState,
   compose(
     applyMiddleware(
       thunkMiddleware,
@@ -31,7 +31,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-  //save(store.getState());
+  save(store.getState());
 });
 
 const history = syncHistoryWithStore(browserHistory, store);

@@ -11,14 +11,4 @@ const _Encounter = {
 };
 
 export default class EncounterModel extends Record(_Encounter) {
-  constructor() {
-    super({
-      combatants: Map({}),
-      round: 0,
-      currentPlayer: '',
-      status: EncounterStatus.PENDING,
-      order: List([]),
-      name: ''
-    });
-  }
 }

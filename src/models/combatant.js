@@ -16,10 +16,28 @@ const _Combatant = {
 };
 
 export default class Combatant extends Record(_Combatant) {
-  constructor(name, type, hp, bonus, startingRound, id) {
-    super({
+
+  static fromPlayer(name, hp, bonus, startingRound, id) {
+    return new Combatant({
       name: name,
-      type: type,
+      type: 'player',
+      hp: hp,
+      maxHp: hp,
+      deathSaves: 0,
+      deathFails: 0,
+      conditions: [],
+      bonus: bonus,
+      initiative: 0,
+      startingRound: startingRound,
+      id: id,
+      acted: false
+    });
+  }
+
+  static fromEnemy(name, hp, bonus, startingRound, id) {
+    return new Combatant({
+      name: name,
+      type: 'enemy',
       hp: hp,
       maxHp: hp,
       deathSaves: 0,

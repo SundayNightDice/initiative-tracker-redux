@@ -12,10 +12,10 @@ export default function encounter(state = defaultState, action) {
     case 'ENEMIES_ADDED':
       return state.set('status', EncounterStatus.PENDING);
     case 'START_ENCOUNTER':
-      const enemies = action.enemies.map((enemy, id) => new Combatant(enemy.name, 'enemy', enemy.hp, enemy.initiative, 1, id));
+      const enemies = action.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
       const players = action.players
         .filter((player) => player.hp > 0)
-        .map((player, id) => new Combatant(player.name, 'player', player.hp, player.modifiers.dexterity, 1, id));
+        .map((player, id) => Combatant.fromPlayer(player.name, player.hp, player.modifiers.dexterity, 1, id));
       const combatants = players.merge(enemies);
 
       return state
