@@ -12,8 +12,11 @@ import Home from './containers/home';
 import Encounter from './containers/encounter';
 import EncounterBuilder from './containers/encounterBuilder';
 import DevTools from './dev/DevTools';
+import { save, load } from './persistence/localStorage';
 
 import '../styles/style.less';
+
+//const initialState = load();
 
 const store = createStore(
   rootReducer,
@@ -26,6 +29,10 @@ const store = createStore(
     DevTools.instrument()
   )
 );
+
+store.subscribe(() => {
+  //save(store.getState());
+});
 
 const history = syncHistoryWithStore(browserHistory, store);
 
