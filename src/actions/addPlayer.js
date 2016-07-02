@@ -1,29 +1,34 @@
 import uuid from 'node-uuid';
 import Player from './../models/player';
+import { reset } from 'redux-form';
 
 export default (playerData) => {
-  const attributes = {
-    strength: Number(playerData.strength),
-    dexterity: Number(playerData.dexterity),
-    constitution: Number(playerData.constitution),
-    intelligence: Number(playerData.intelligence),
-    wisdom: Number(playerData.wisdom),
-    charisma: Number(playerData.charisma)
-  };
-  const modifiers = modify(attributes);
+  return (dispatch, getState) => {
+    const attributes = {
+      strength: Number(playerData.strength),
+      dexterity: Number(playerData.dexterity),
+      constitution: Number(playerData.constitution),
+      intelligence: Number(playerData.intelligence),
+      wisdom: Number(playerData.wisdom),
+      charisma: Number(playerData.charisma)
+    };
+    const modifiers = modify(attributes);
 
-  return {
-    type: 'ADD_PLAYER',
-    playerId: uuid.v4(),
-    player: new Player({
-      name: playerData.name,
-      maxHp: playerData.hp,
-      hp: playerData.hp,
-      attributes: attributes,
-      modifiers: modifiers,
-      level: playerData.level
-    })
-  };
+    dispatch({
+      type: 'ADD_PLAYER',
+      playerId: uuid.v4(),
+      player: new Player({
+        name: playerData.name,
+        maxHp: playerData.hp,
+        hp: playerData.hp,
+        attributes: attributes,
+        modifiers: modifiers,
+        level: playerData.level
+      })
+    });
+
+    dispatch(reset('addPlayer'));
+  }
 }
 
 const modify = (attributes) => {
