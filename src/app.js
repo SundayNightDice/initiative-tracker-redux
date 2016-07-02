@@ -7,12 +7,16 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 
 import rootReducer from './reducers/rootReducer';
+
 import App from './components/app';
 import Home from './containers/home';
 import Encounter from './containers/encounter';
 import EncounterBuilder from './containers/encounterBuilder';
 import DevTools from './dev/DevTools';
 import { save, load } from './persistence/localStorage';
+
+import monstersLoaded from './actions/monstersLoaded';
+import monsters from './data/monsters';
 
 import '../styles/style.less';
 
@@ -29,6 +33,8 @@ const store = createStore(
     DevTools.instrument()
   )
 );
+
+store.dispatch(monstersLoaded(monsters));
 
 store.subscribe(() => {
   save(store.getState());

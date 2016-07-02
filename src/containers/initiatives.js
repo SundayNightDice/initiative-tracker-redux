@@ -5,11 +5,11 @@ import setInitiative from './../actions/setInitiative';
 import InitiativeRoll from './../components/InitiativeRoll';
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.id;
-  const encounter = state.encounters.get(id);
-  const combatants = encounter.combatants;
   return {
-    combatants: combatants,
+    combatants: state.encounters
+      .get(ownProps.id)
+      .combatants
+      .valueSeq()
   };
 };
 

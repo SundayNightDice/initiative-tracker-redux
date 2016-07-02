@@ -2,20 +2,19 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 
 const AddEnemy = (props) => {
-  const { fields: { name, hp, bonus }, handleSubmit } = props;
+  const { fields: { name, monster }, handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div className="row">
+        <label>Type:</label>
+        <select {...monster}>
+          <option value="">Select...</option>
+          { props.monsters.map(item => <option value={item[0]} key={item[0]}>{item[1].name}</option>) }
+        </select>
+      </div>
+      <div className="row">
         <label>Name:</label>
         <input type="text" {...name} />
-      </div>
-      <div className="row">
-        <label>HP:</label>
-        <input type="number" min="0" max="1000" {...hp} />
-      </div>
-      <div className="row">
-        <label>Initiative:</label>
-        <input type="number" min="0" max="100" {...bonus} />
       </div>
       <div className="row">
         <button type="submit">Add</button>
@@ -26,11 +25,9 @@ const AddEnemy = (props) => {
 
 const AddEnemyForm = reduxForm({
   form: 'addEnemy',
-  fields: ['name', 'hp', 'bonus'],
+  fields: ['name', 'monster'],
   initialValues: {
-    'name': '',
-    'hp': 1,
-    'bonus': 0
+    'name': ''
   }
 })(AddEnemy);
 

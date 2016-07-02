@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux';
-import enemies from './enemies';
 import encounters from './encounters';
+import monsters from './monsters';
 import players from './players';
 
 export default combineReducers({
-  enemies,
   encounters,
+  monsters,
   players,
   form: formReducer.plugin({
     addEnemy: (state, action) => {

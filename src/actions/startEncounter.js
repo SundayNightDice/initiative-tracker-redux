@@ -1,15 +1,13 @@
-import getEncounterCombatants from './../selectors/getEncounterCombatants';
 import { push } from 'react-router-redux'
 
 export default function startEncounter(id) {
   return (dispatch, getState) => {
     const state = getState();
-    const encounterCombatants = getEncounterCombatants(state, id);
 
     dispatch({
       type: 'START_ENCOUNTER',
-      enemies: encounterCombatants.enemies,
-      players: encounterCombatants.players,
+      players: state.players
+        .filter((player) => player.hp > 0),
       encounterId: id
     });
 

@@ -14,6 +14,7 @@ const EncounterBuilder = (props) => {
       </ul>
       <h3>Add</h3>
         <AddEnemyForm
+          monsters={props.monsters}
           onSubmit={props.onAddEnemy} />
         <div className="builderOptions">
           <button

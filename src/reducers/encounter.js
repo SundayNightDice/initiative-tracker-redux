@@ -9,12 +9,13 @@ export default function encounter(state = defaultState, action) {
   switch(action.type) {
     case 'SET_ENCOUNTER_NAME':
       return state.set('name', action.name);
+    case 'ADD_ENEMY':
+      return state.setIn(['enemies', action.enemyId], action.enemy);
     case 'ENEMIES_ADDED':
       return state.set('status', EncounterStatus.PENDING);
     case 'START_ENCOUNTER':
-      const enemies = action.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
+      const enemies = state.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
       const players = action.players
-        .filter((player) => player.hp > 0)
         .map((player, id) => Combatant.fromPlayer(player.name, player.hp, player.modifiers.dexterity, 1, id));
       const combatants = players.merge(enemies);
 
