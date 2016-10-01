@@ -11,6 +11,7 @@ const Home = (props) => {
       <EncountersList
         encounters={props.encounters.entrySeq()}
         onAddEncounter={props.onAddEncounter}
+        onDeleteEncounter={props.onDeleteEncounter}
         onStartEncounter={props.onStartEncounter} />
     </div>
   );

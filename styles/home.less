@@ -12,8 +12,33 @@
   }
 }
 
-.encounter.complete {
-  text-decoration: line-through;
+.encounter {
+  height: 26px;
+
+  span {
+    line-height: 26px;
+  }
+
+  .complete {
+    text-decoration: line-through;
+  }
+
+  > div {
+    display: inline-block;
+
+    > .start-encounter {
+      margin-left: 4px;
+    }
+
+    > .delete-encounter {
+      background-image: url('../img/cancel.png');
+      background-size: contain;
+      width: 26px;
+      height: 26px;
+      margin-left: 4px;
+      vertical-align: bottom;
+    }
+  }
 }
 
 table {
