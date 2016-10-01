@@ -1,9 +1,10 @@
 import React from 'react';
 import AddEnemyForm from './addEnemy';
+import Box from './box';
 
 const EncounterBuilder = (props) => {
   return (
-    <div className="box">
+    <Box>
       <div class="row">
         <label>Name: </label>
         <input type="text" value={props.name} onChange={props.onSetEncounterName} />
@@ -21,8 +22,7 @@ const EncounterBuilder = (props) => {
             className="start"
             onClick={() => props.onDone()}>Done</button>
         </div>
-      <div className="clearfix" />
-    </div>
+    </Box>
   );
 };
 

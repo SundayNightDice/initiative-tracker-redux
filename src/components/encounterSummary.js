@@ -1,9 +1,10 @@
 import React from 'react';
+import Box from './box';
 import EncounterStatus from './../models/encounterStatus';
 import Status from './status';
 
 const EncounterSummary = (props) => (
-  <div className="box">
+  <Box>
     <div className="summary">
       <h2>Encounter {props.status === EncounterStatus.VICTORY ? 'Victory' : 'Failure'}</h2>
       <div>
@@ -32,7 +33,7 @@ const EncounterSummary = (props) => (
     <div className="builderOptions">
       <button onClick={() => props.onCloseEncounter()}>Close</button>
     </div>
-  </div>
+  </Box>
 );
 
 const SummaryItem = ({ combatant }) => (

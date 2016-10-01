@@ -1,8 +1,9 @@
 import React from 'react';
+import Box from './box';
 
 const initiativeRoll = (props) => {
   return (
-    <div className="box">
+    <Box>
       <h2>Roll for Initiative!</h2>
       <table>
         <thead>
@@ -27,8 +28,7 @@ const initiativeRoll = (props) => {
       <div className="builderOptions">
         <button className="start" onClick={props.onBeginCombat}>Start</button>
       </div>
-      <div className="clearfix" />
-    </div>
+    </Box>
   );
 };
 
