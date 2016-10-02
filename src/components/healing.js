@@ -1,18 +1,17 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 const Healing = (props) => {
-  const { fields: { target, healing }, handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.handleSubmit}>
       <h2>Healing</h2>
       <div>
-        <select {...target}>
+        <Field name="target" component="select">
           <option value="">Select...</option>
           { props.targets.map(t => <option value={t} key={t}>{t}</option>) }
-        </select>
+        </Field>
         <span>For:</span>
-        <input type="number" min="0" max="100" {...healing} />
+        <Field name="healing" type="number" min="0" max="100" component="input" />
       </div>
       <button type="submit">Apply Healing</button>
     </form>
@@ -20,8 +19,7 @@ const Healing = (props) => {
 };
 
 const HealingForm = reduxForm({
-  form: 'turnHealing',
-  fields: ['target', 'healing']
+  form: 'turnHealing'
 })(Healing);
 
 export default HealingForm;

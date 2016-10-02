@@ -1,34 +1,34 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import ThreeChanceButtons from './threeChanceButtons';
 
 const DeathSave = (props) => {
-  const { fields: { save, fail, isCritical }, handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.handleSubmit}>
       <h2>Death Saving Throw</h2>
       <label>Is Critical?</label>
-      <input type="checkbox"
+      <Field
+        name="isCritical"
+        type="checkbox"
         disabled={props.acted}
-        {...isCritical} />
+        component="input" />
       <ThreeChanceButtons
+        name="save"
         title='Successes:'
         value={props.saves}
-        disabled={props.acted}
-        formProps={save} />
+        disabled={props.acted} />
       <ThreeChanceButtons
+        name="fail"
         title='Failures:'
         value={props.fails}
-        disabled={props.acted}
-        formProps={fail} />
+        disabled={props.acted} />
       <button type="submit" disabled={props.acted}>Apply Death Save Roll</button>
     </form>
   )
 };
 
 const DeathSaveForm = reduxForm({
-  form: 'deathSaves',
-  fields: ['save', 'fail', 'isCritical']
+  form: 'deathSaves'
 })(DeathSave);
 
 const Death = (props) => {

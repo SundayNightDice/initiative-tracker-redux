@@ -1,24 +1,23 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 const Damage = (props) => {
-  const { fields: { target, damage, isCritical,applyConditions }, handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.handleSubmit}>
       <h2>Damage</h2>
       <div>
-        <select {...target}>
+        <Field name="target" component="select">
           <option value="">Select...</option>
           { props.targets.map(t => <option value={t} key={t}>{t}</option>) }
-        </select>
+        </Field>
         <span>For:</span>
-        <input type="number" min="0" max="100" {...damage} />
-        <input type="checkbox" {...isCritical} />
+        <Field name="damage" type="number" min="0" max="100" component="input" />
+        <Field name="isCritical" type="checkbox" component="input" />
         <label>Critical Hit</label>
       </div>
       <div>
         <span>
-          <input type="checkbox" {...applyConditions} />
+          <Field name="applyConditions" type="checkbox" component="input" />
           <label>Apply condition</label>
         </span>
         <div>
@@ -31,8 +30,7 @@ const Damage = (props) => {
 };
 
 const DamageForm = reduxForm({
-  form: 'turnDamage',
-  fields: ['target', 'damage', 'isCritical', 'applyConditions']
+  form: 'turnDamage'
 })(Damage);
 
 export default DamageForm;

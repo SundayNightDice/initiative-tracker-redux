@@ -5,7 +5,7 @@ import Box from './box';
 const EncounterBuilder = (props) => {
   return (
     <Box>
-      <div class="row">
+      <div className="row">
         <label>Name: </label>
         <input type="text" value={props.name} onChange={props.onSetEncounterName} />
       </div>

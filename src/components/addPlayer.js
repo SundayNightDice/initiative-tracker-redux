@@ -1,17 +1,19 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
+
+const renderStatInput = (field) =>
+  <input type="number" min="0" max="20" {...field.input} />
 
 const AddPlayer = (props) => {
-  const { fields: { name, hp, strength, dexterity, constitution, intelligence, wisdom, charisma, level }, handleSubmit } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={props.handleSubmit}>
       <div className="row">
         <label>Name:</label>
-        <input type="text" {...name} />
+        <Field type="text" component="input" name="name" />
       </div>
       <div className="row">
         <label>HP:</label>
-        <input type="number" {...hp} />
+        <Field type="number" component="input" name="hp" />
       </div>
       <table>
         <thead>
@@ -26,18 +28,18 @@ const AddPlayer = (props) => {
         </thead>
         <tbody>
           <tr>
-            <td><input type="number" min="0" max="20" {...strength} /></td>
-            <td><input type="number" min="0" max="20" {...dexterity} /></td>
-            <td><input type="number" min="0" max="20" {...constitution} /></td>
-            <td><input type="number" min="0" max="20" {...intelligence} /></td>
-            <td><input type="number" min="0" max="20" {...wisdom} /></td>
-            <td><input type="number" min="0" max="20" {...charisma} /></td>
+            <td><Field component={renderStatInput} name="strength" /></td>
+            <td><Field component={renderStatInput} name="dexterity" /></td>
+            <td><Field component={renderStatInput} name="constitution" /></td>
+            <td><Field component={renderStatInput} name="intelligence" /></td>
+            <td><Field component={renderStatInput} name="wisdom" /></td>
+            <td><Field component={renderStatInput} name="charisma" /></td>
           </tr>
         </tbody>
       </table>
       <div className="row">
         <label>Level:</label>
-        <input type="number" min="0" max="20" {...level} />
+        <Field component={renderStatInput} name="level" />
       </div>
       <button type="submit">Add</button>
     </form>
@@ -46,7 +48,6 @@ const AddPlayer = (props) => {
 
 const AddPlayerForm = reduxForm({
   form: 'addPlayer',
-  fields: ['name', 'hp', 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma', 'level'],
   initialValues: {
     'name': '',
     'hp': 1,

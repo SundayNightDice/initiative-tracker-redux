@@ -1,35 +1,40 @@
 import React from 'react';
+import { Field } from 'redux-form';
 
 const ThreeChanceButtons = (props) => {
-  const formProps1 = props.value === 0 ? props.formProps : {};
-  const formProps2 = props.value === 1 ? props.formProps : {};
-  const formProps3 = props.value === 2 ? props.formProps : {};
+  const button1Name = props.value === 0 ? props.name : `${props.name}1`;
+  const button2Name = props.value === 1 ? props.name : `${props.name}2`;
+  const button3Name = props.value === 2 ? props.name : `${props.name}3`;
 
   return (
   <p>
     <span>{props.title}</span>
-    <input
+    <Field
+      name={button1Name}
       type="checkbox"
       disabled={props.value !== 0 || props.disabled}
       checked={props.value === 0 ? props.checked : true}
       onClick={props.onChange}
-      {...formProps1} />
-    <input
+      component="input" />
+    <Field
+      name={button2Name}
       type="checkbox"
       disabled={props.value !== 1 || props.disabled}
       checked={props.value === 1 ? props.checked : props.value > 1}
       onClick={props.onChange}
-      {...formProps2} />
-    <input
+      component="input" />
+    <Field
+      name={button3Name}
       type="checkbox"
       disabled={props.value !== 2 || props.disabled}
       checked={props.value === 2 ? props.checked : false}
       onClick={props.onChange}
-      {...formProps3} />
-  </p>)
+      component="input" />
+  </p>);
 };
 
 ThreeChanceButtons.propTypes = {
+  name: React.PropTypes.string.isRequired,
   title: React.PropTypes.string,
   value: React.PropTypes.number,
   checked: React.PropTypes.bool,
