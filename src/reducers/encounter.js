@@ -14,53 +14,108 @@ export default function encounter(state = defaultState, action) {
     case 'ENEMIES_ADDED':
       return state.set('status', EncounterStatus.PENDING);
     case 'START_ENCOUNTER':
-      const enemies = state.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
-      const players = action.players
-        .map((player, id) => Combatant.fromPlayer(player.name, player.hp, player.modifiers.dexterity, 1, id));
-      const combatants = players.merge(enemies);
-
-      return state
-        .set('combatants', combatants)
-        .set('status', EncounterStatus.INITIATIVES);
+      return _startEncounter(state, action);
     case 'SET_INITIATIVE':
-      const c = state.combatants
-        .get(action.id)
-        .set('initiative', action.initiative);
-      return state.setIn(['combatants', action.id], c);
+      return _setInitiative(state, action);
     case 'BEGIN_COMBAT':
-      const order = calculateInitiativeOrder(state.combatants);
-      return state
-      .set('order', order)
-      .set('round', 1)
-      .set('currentPlayer', 0)
-      .set('status', EncounterStatus.ACTIVE);
+      return _beginCombat(state, action);
     case 'DEAL_DAMAGE':
-      const ddp = getCurrentPlayer(state).set('acted', true);
-      const dds = state.setIn(['combatants', ddp.id], ddp);
-      return dealDamage(dds, action.attack);
+      return _dealDamage(state, action);
     case 'DEAL_HEALING':
-      const dhp = getCurrentPlayer(state).set('acted', true);
-      const dhs = state.setIn(['combatants', dhp.id], dhp);
-      return dealHealing(dhs, action.healing);
+    return _dealHealing(state, action);
     case 'DEATH_SAVE':
-      const player = getCurrentPlayer(state).set('acted', true);
-      return state
-        .setIn(['combatants', player.id], applyDeathSavingThrows(player, action.formData));
+      return _deathSave(state, action);
     case 'END_TURN':
-      const etp = getCurrentPlayer(state).set('acted', false);
-      const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
-      const round = nextIndex === 0 ? state.round + 1 : state.round;
-      return state
-        .setIn(['combatants', etp.id], etp)
-        .set('round', round)
-        .set('currentPlayer', nextIndex)
-        .set('status', calculateEncounterStatus(state.combatants));
+      return _endTurn(state, action);
     case 'CLOSE_ENCOUNTER':
       return state.set('status', action.reason);
     default:
       return state;
   }
 };
+
+function _startEncounter(state, action) {
+  const enemies = state.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
+  const players = action.players
+    .map((player, id) => Combatant.fromPlayer(player.name, player.hp, player.modifiers.dexterity, 1, id));
+  const combatants = players.merge(enemies);
+
+  return state
+    .set('combatants', combatants)
+    .set('status', EncounterStatus.INITIATIVES);
+}
+
+function _setInitiative(state, action) {
+  const combatants = state.combatants
+    .get(action.id)
+    .set('initiative', action.initiative);
+  return state.setIn(['combatants', action.id], combatants);
+}
+
+function _beginCombat(state, action) {
+  const order = calculateInitiativeOrder(state.combatants);
+  return state
+  .set('order', order)
+  .set('round', 1)
+  .set('currentPlayer', 0)
+  .set('status', EncounterStatus.ACTIVE);
+}
+
+function _dealDamage(state, action) {
+  const attacker = getCurrentPlayer(state)
+    .set('acted', true);
+
+  const target = state.combatants.find(x => x.name === action.attack.target);
+  const remainingHp = Math.max(0, target.hp - action.attack.damage);
+  const leftoverHp = Math.abs(Math.min(0, target.hp - action.attack.damage));
+  const damaged = target.hp > 0 ?
+    target
+      .set('hp', remainingHp)
+      .set('deathFails', leftoverHp < target.maxHp ? target.deathFails : 3) :
+    target
+      .set('deathFails', action.attack.damage < target.maxHp ?
+        target.deathFails + (action.attack.isCritical ? 2 : 1 ) :
+        3
+      );
+
+  return state
+    .setIn(['combatants', attacker.id], attacker)
+    .setIn(['combatants', damaged.id], damaged);
+}
+
+function _dealHealing(state, action) {
+  const healer = getCurrentPlayer(state)
+    .set('acted', true);
+
+  const target = state.combatants.find(x => x.name === action.healing.target);
+  const healed = target
+    .set('hp', Math.min(target.maxHp, target.hp + action.healing.value))
+    .set('deathSaves', 0)
+    .set('deathFails', 0);
+
+  return state
+    .setIn(['combatants', healer.id], healer)
+    .setIn(['combatants', healed.id], healed);
+}
+
+function _deathSave(state, action) {
+  const player = getCurrentPlayer(state)
+    .set('acted', true);
+  return state
+    .setIn(['combatants', player.id], applyDeathSavingThrows(player, action.formData));
+}
+
+function _endTurn(state, action) {
+  const player = getCurrentPlayer(state)
+    .set('acted', false);
+  const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
+  const round = nextIndex === 0 ? state.round + 1 : state.round;
+  return state
+    .setIn(['combatants', player.id], player)
+    .set('round', round)
+    .set('currentPlayer', nextIndex)
+    .set('status', calculateEncounterStatus(state.combatants));
+}
 
 function getCurrentPlayer(state) {
   return state.combatants.get(state.order.get(state.currentPlayer));
@@ -78,30 +133,6 @@ function calculateInitiativeOrder(combatants) {
       return 0;
     })
     .keys());
-}
-
-function dealDamage(state, attack) {
-  const item = state.combatants.find(x => x.name === attack.target);
-  const remainingHp = Math.max(0, item.hp - attack.damage);
-  const leftoverHp = Math.abs(Math.min(0, item.hp - attack.damage));
-  const newItem = item.hp > 0 ?
-    item
-      .set('hp', remainingHp)
-      .set('deathFails', leftoverHp < item.maxHp ? item.deathFails : 3) :
-    item.set('deathFails', attack.damage < item.maxHp ?
-      item.deathFails + (attack.isCritical ? 2 : 1 ) : 3);
-
-  return state.setIn(['combatants', item.id], newItem);
-}
-
-function dealHealing(state, healing) {
-  const item = state.combatants.find(x => x.name === healing.target);
-  const newItem = item
-    .set('hp', Math.min(item.maxHp, item.hp + healing.value))
-    .set('deathSaves', 0)
-    .set('deathFails', 0);
-
-  return state.setIn(['combatants', item.id], newItem);
 }
 
 function isAlive(combatant) {
