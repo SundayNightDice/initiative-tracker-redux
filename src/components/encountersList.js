@@ -14,14 +14,13 @@ const EncountersList = (props) => (
 const EncounterItem = (id, encounter, onStart, onDelete) => (
     <li key={id} className="encounter">
       <span className={encounter.status}>{encounter.name}</span>
-      {
-          encounter.status === EncounterStatus.PENDING ?
-            <div>
-              <button className="start-encounter" onClick={() => onStart(id)}>Start</button>
-              <button className="delete-encounter" onClick={() => onDelete(id)}></button>
-            </div> :
-            null
-      }
+        <div>
+          { encounter.status === EncounterStatus.PENDING ?
+              <button className="start-encounter" onClick={() => onStart(id)}>Start</button> :
+              null
+          }
+          <button className="delete-encounter" onClick={() => onDelete(id)}></button>
+        </div>
     </li>
 );
 
