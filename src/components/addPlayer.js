@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import classes from '../data/classes';
 
 const renderStatInput = (field) =>
   <input type="number" min="0" max="20" {...field.input} />
@@ -40,6 +41,13 @@ const AddPlayer = (props) => {
       <div className="row">
         <label>Level:</label>
         <Field component={renderStatInput} name="level" />
+      </div>
+      <div className="row">
+        <label>Class:</label>
+        <Field component="select" name="class">
+          <option value="">Select...</option>
+          { classes.map(c => <option value={c} key={c}>{c}</option>) }
+        </Field>
       </div>
       <button type="submit">Add</button>
     </form>

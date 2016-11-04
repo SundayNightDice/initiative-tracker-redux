@@ -23,7 +23,8 @@ export default (playerData) => {
         hp: playerData.hp,
         attributes: attributes,
         modifiers: modifiers,
-        level: playerData.level
+        level: playerData.level,
+        class: playerData.class
       })
     });
 

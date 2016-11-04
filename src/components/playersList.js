@@ -4,7 +4,7 @@ import AddPlayer from './addPlayer';
 const Player = (props) => (
   <li>
     <span>{props.player.name}</span>
-    <span className="level">Level {props.player.level}</span>
+    <span className="level">Level {props.player.level} {props.player.class}</span>
     <span className="hp">({props.player.hp + ' / ' + props.player.maxHp + ' HP'})</span>
     <table>
       <thead>

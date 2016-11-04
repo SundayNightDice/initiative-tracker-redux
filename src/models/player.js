@@ -6,7 +6,8 @@ const _Player = {
   hp: 0,
   attributes: null,
   modifiers: null,
-  level: 0  
+  level: 0,
+  class: ''
 };
 
 export default class Player extends Record(_Player) {
