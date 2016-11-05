@@ -8,9 +8,7 @@ const defaultState = Map({});
 export default function encounters(state = defaultState, action) {
     switch (action.type) {
       case 'ADD_ENCOUNTER':
-        return state.set(action.id,
-          new EncounterModel()
-            .set('status', EncounterStatus.BUILDING));
+        return state.set(action.id, new EncounterModel());
       case 'DELETE_ENCOUNTER':
         return state.delete(action.id);
       default:

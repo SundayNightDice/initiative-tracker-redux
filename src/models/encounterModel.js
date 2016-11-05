@@ -6,7 +6,7 @@ const _Encounter = {
   combatants: Map({}),
   round: 0,
   currentPlayer: '',
-  status: EncounterStatus.PENDING,
+  status: EncounterStatus.BUILDING,
   order: List([]),
   name: ''
 };
