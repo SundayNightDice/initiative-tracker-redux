@@ -22,14 +22,17 @@ const Bestiary = (props) => {
     );
   }
 
+  const description = `${props.monster.size} ${props.monster.type}, ${props.monster.alignment}`;
+  const hp = `${props.monster.hp} (${props.monster.dice})`;
+
   return (
     <div className="bestiary">
       <h1>{ props.monster.name }</h1>
+      <p>{description}</p>
       <ul>
-        <li>{props.monster.type}</li>
         <li>CR {formatChallengeRating(props.monster.cr)}</li>
         <li>AC {props.monster.ac}</li>
-        <li>HP {props.monster.dice} ({props.monster.hp})</li>
+        <li>HP {hp}</li>
       </ul>
       <StatBlock attributes={props.monster.attributes} modifiers={props.monster.modifiers} />
     </div>

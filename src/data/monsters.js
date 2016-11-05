@@ -24,7 +24,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "eb4e4762-d9ff-4e09-91ce-19917a650263": {
     "name": "Giant Centipede",
@@ -49,7 +51,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "0b2d277a-8493-4b40-8efe-169acb0f3f6f": {
     "name": "Brass Dragon Wyrmling",
@@ -74,7 +78,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic good"
   },
   "9b00b877-62c8-4319-a829-28d318b2c03c": {
     "name": "Giant Lizard",
@@ -99,7 +105,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "6c0f4b8d-b6b7-4a6f-bbab-75edf21de922": {
     "name": "Bandit Captain",
@@ -124,7 +132,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "any non-lawful alignment"
   },
   "33f5773f-7e63-4765-8991-bc77b49cb8e3": {
     "name": "Chuul",
@@ -149,7 +159,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "3d475d0b-0adc-4b1c-a9af-04a86a25775e": {
     "name": "Pseudodragon",
@@ -174,7 +186,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Tiny",
+    "alignment": "neutral good"
   },
   "98f56d5f-5f1a-4704-abc8-874ba42cacc4": {
     "name": "Otyugh",
@@ -199,7 +213,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "92ac4320-791c-49d9-ae6c-5845214284a8": {
     "name": "Gorgon",
@@ -224,7 +240,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "327072d6-d83d-4157-8df7-31fa56da1977": {
     "name": "Green Dragon Wyrmling",
@@ -249,7 +267,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "fae339d7-bc1c-4d53-b82d-bcbc180d20f7": {
     "name": "Mage",
@@ -274,7 +294,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "9696ad88-cbb2-46f2-95de-6c752751cfa4": {
     "name": "Spider",
@@ -299,7 +321,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "9d0c9956-6379-4419-a577-f91153b10c93": {
     "name": "Goat",
@@ -324,7 +348,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "b118e47b-4382-47a6-9e68-a5fcf1c12b39": {
     "name": "Air Elemental",
@@ -349,7 +375,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "297e70f6-1bb5-4eca-8413-80c4fdb8690f": {
     "name": "Druid",
@@ -374,7 +402,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "f3ba3e0c-53b5-46e3-be56-5844df19955a": {
     "name": "Minotaur",
@@ -399,7 +429,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "0d05c449-7eae-4fb8-8315-1837fa36bce6": {
     "name": "Priest",
@@ -424,7 +456,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 1
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "84edbd4c-7f5a-4730-a715-b3e1c1b2300b": {
     "name": "Gargoyle",
@@ -449,7 +483,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "08988202-ddef-47b5-a9b7-dcda9196c7d5": {
     "name": "Gold Dragon Wyrmling",
@@ -474,7 +510,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 3
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "34a6fd4b-2ed2-4bd2-9ee5-3a4e8a148e09": {
     "name": "Deva",
@@ -499,7 +537,9 @@ const monsters = Map({
       "wisdom": 5,
       "charisma": 5
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "1ade212e-e5d4-4b99-bf58-81bd32a85c70": {
     "name": "Ice Mephit",
@@ -524,7 +564,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "neutral evil"
   },
   "663b119e-4bc7-40bc-a8ca-b91c83d481b6": {
     "name": "Swarm of Centipedes",
@@ -549,7 +591,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "e9a11e02-b5ca-4cde-b16a-f2782417038c": {
     "name": "Swarm of Bats",
@@ -574,7 +618,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "e3fcf958-6b64-4bb8-8a4b-146f8452552d": {
     "name": "Cockatrice",
@@ -599,7 +645,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "1b415475-8bff-4657-bd3d-6c52622bc838": {
     "name": "Commoner",
@@ -624,7 +672,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "f13702e2-7525-4bab-b2e9-9447e48b5998": {
     "name": "Gladiator",
@@ -649,7 +699,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "3947fa6b-6b48-496e-896a-ee0c4eac8250": {
     "name": "Merfolk",
@@ -674,7 +726,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "65c3bbd5-16ac-4934-9ddc-edd48d77efc5": {
     "name": "Camel",
@@ -699,7 +753,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "478c2fd6-381d-4010-8458-eb4b3d5cae74": {
     "name": "Frost Giant",
@@ -724,7 +780,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Huge",
+    "alignment": "neutral evil"
   },
   "787265fa-2ee8-409d-9662-29a7976312d0": {
     "name": "Giant Scorpion",
@@ -749,7 +807,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "2b1434a7-e0a9-4a8a-a7f2-7534109234e5": {
     "name": "Cult Fanatic",
@@ -774,7 +834,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "any non-good alignment"
   },
   "009fa351-1341-42e1-aa9a-58a542a58466": {
     "name": "Salamander",
@@ -799,7 +861,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "0ed43e23-95ae-408f-a272-31eb8da3bcb5": {
     "name": "Mule",
@@ -824,7 +888,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "3ea8c91a-fe2b-4a82-ad41-048636bf20b7": {
     "name": "Behir",
@@ -849,7 +915,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 1
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Huge",
+    "alignment": "neutral evil"
   },
   "d4ea56f1-08cd-47c4-b7d2-84ca2de85108": {
     "name": "Shadow",
@@ -874,7 +942,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "8bad135d-9a03-4bfd-967a-5b50e9df76f4": {
     "name": "Giant Spider",
@@ -899,7 +969,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "2b76c138-6ac7-47a4-bb26-4085b6ee1277": {
     "name": "Blue Dragon Wyrmling",
@@ -924,7 +996,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "d1f476a9-e503-4124-b3bd-a163178fb834": {
     "name": "Wraith",
@@ -949,7 +1023,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 2
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "4e784cce-98ac-46bb-9f71-78cf623270f4": {
     "name": "Ancient Brass Dragon",
@@ -974,7 +1050,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 20
+    "cr": 20,
+    "size": "Gargantuan",
+    "alignment": "chaotic good"
   },
   "e105eb80-f7f8-46d9-a985-60d2657da172": {
     "name": "Draft Horse",
@@ -999,7 +1077,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "ba6185d2-e8a3-4467-a6ca-136360944776": {
     "name": "Bugbear",
@@ -1024,7 +1104,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "7a7c1bfb-e4e1-4731-870b-46562f1019c1": {
     "name": "Grick",
@@ -1049,7 +1131,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "9b4a3a3b-925f-4c16-b93b-6156553e4586": {
     "name": "Black Pudding",
@@ -1074,7 +1158,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "a17f1200-9207-4e14-966c-d727a6921f76": {
     "name": "Dryad",
@@ -1099,7 +1185,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "aba4a30b-2ab9-41c5-b982-ad566159f469": {
     "name": "Warhorse",
@@ -1124,7 +1212,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "3d75dd4d-bb56-4663-9c31-181ca3120487": {
     "name": "Gelatinous Cube",
@@ -1149,7 +1239,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "434c1c10-6423-4670-ba17-b5245909940a": {
     "name": "Unicorn",
@@ -1174,7 +1266,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 3
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "585c08ce-400e-48f0-8e0a-25af9c948511": {
     "name": "Aboleth",
@@ -1199,7 +1293,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "0820e0cf-2800-4faa-bb1b-c71a5a259319": {
     "name": "Badger",
@@ -1224,7 +1320,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "a558374c-9233-44cc-91ce-8fa90b54b8aa": {
     "name": "Ancient Red Dragon",
@@ -1249,7 +1347,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 6
     },
-    "cr": 24
+    "cr": 24,
+    "size": "Gargantuan",
+    "alignment": "chaotic evil"
   },
   "c489fc50-9175-433a-8eb5-bb8361f9fe51": {
     "name": "Axe Beak",
@@ -1274,7 +1374,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "6765e8bd-fea0-4ab3-a885-353b12f12daf": {
     "name": "White Dragon Wyrmling",
@@ -1299,7 +1401,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "90f4c54a-d7a1-43c6-a1bd-5c68346fa42b": {
     "name": "Dragon Turtle",
@@ -1324,7 +1428,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 1
     },
-    "cr": 17
+    "cr": 17,
+    "size": "Gargantuan",
+    "alignment": "neutral"
   },
   "0aa509de-a90b-40fb-9ec9-9f071da1b203": {
     "name": "Clay Golem",
@@ -1349,7 +1455,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "d843e06b-f2df-48d0-9fb9-6026b146e0ad": {
     "name": "Earth Elemental",
@@ -1374,7 +1482,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "4f4ec1f0-440f-4c9e-8527-b2a5f1e319bd": {
     "name": "Spy",
@@ -1399,7 +1509,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "d6f39214-46fe-48b3-b4a4-2268109b1c87": {
     "name": "Carrion Crawler",
@@ -1424,7 +1536,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "d7c5f42a-9f61-49b6-be10-3aa48d1dbdf8": {
     "name": "Swarm of Beetles",
@@ -1449,7 +1563,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "8c7b26e0-7194-49d9-a61f-e2bb965b5adf": {
     "name": "Guardian Naga",
@@ -1474,7 +1590,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 4
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "6414fd9d-33c5-47e9-ad8e-401a5c6af5e7": {
     "name": "Violet Fungus",
@@ -1499,7 +1617,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "74606325-d071-45a0-ab82-79a84fe4419a": {
     "name": "Bulette",
@@ -1524,7 +1644,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "92bff5cd-8dbe-43d0-8b8b-ab61bba53ca1": {
     "name": "Tribal Warrior",
@@ -1549,7 +1671,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "284100d2-8ac3-4a7d-ab8e-ad62d3e016be": {
     "name": "Rug of Smothering",
@@ -1574,7 +1698,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "e9f2aa17-e052-4bc2-b207-b9fa3dccef75": {
     "name": "Doppelganger",
@@ -1599,7 +1725,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "86f9b0fa-4257-4e32-8a12-5123f15a068d": {
     "name": "Marilith",
@@ -1624,7 +1752,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 5
     },
-    "cr": 16
+    "cr": 16,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "be6e210b-9197-44e6-b59e-32a2c64e2cac": {
     "name": "Flying Sword",
@@ -1649,7 +1779,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "abdc2525-cf08-45bd-a43b-c11ce06c1ded": {
     "name": "Animated Armor",
@@ -1674,7 +1806,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "c7818807-4f89-48f0-8588-842a6f3549f8": {
     "name": "Quipper",
@@ -1699,7 +1833,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "f0607025-47ff-4e06-8d48-269fec8f3844": {
     "name": "Hill Giant",
@@ -1724,7 +1860,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Huge",
+    "alignment": "chaotic evil"
   },
   "fa6028d7-3d3a-4e14-ac11-9447f820043f": {
     "name": "Horned Devil",
@@ -1749,7 +1887,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 3
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "963850b3-9af5-455f-ba3c-147e2d97c064": {
     "name": "Giant Octopus",
@@ -1774,7 +1914,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "69ce0077-b9d2-49fc-a949-2c15d6259ee0": {
     "name": "Goblin",
@@ -1799,7 +1941,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Small",
+    "alignment": "neutral evil"
   },
   "90ae513c-647b-4d56-99f3-f3b472a644c8": {
     "name": "Dust Mephit",
@@ -1824,7 +1968,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "neutral evil"
   },
   "5877474d-3d43-4e15-a340-755629b3f4d8": {
     "name": "Homunculus",
@@ -1849,7 +1995,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "neutral"
   },
   "2b0949d9-7a3b-4137-babb-1d3fbf441496": {
     "name": "Blood Hawk",
@@ -1874,7 +2022,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "aeaa88e9-6f4d-44b5-b969-1cf8136997a0": {
     "name": "Minotaur Skeleton",
@@ -1899,7 +2049,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "4c1b416f-6375-4935-8739-a0460af83057": {
     "name": "Crocodile",
@@ -1924,7 +2076,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "5128ac76-9b83-474b-90ef-0c713ff72132": {
     "name": "Ancient Blue Dragon",
@@ -1949,7 +2103,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 5
     },
-    "cr": 23
+    "cr": 23,
+    "size": "Gargantuan",
+    "alignment": "lawful evil"
   },
   "26fbdaf4-de26-4a2d-a99b-56c46caf73ad": {
     "name": "Adult Red Dragon",
@@ -1974,7 +2130,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 5
     },
-    "cr": 17
+    "cr": 17,
+    "size": "Huge",
+    "alignment": "chaotic evil"
   },
   "94b79469-cc90-49d6-9fa8-c26bf4076a57": {
     "name": "Giant Boar",
@@ -1999,7 +2157,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "0ea4f759-c5f5-44d4-8174-2f05ad6611b7": {
     "name": "Adult Blue Dragon",
@@ -2024,7 +2184,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 16
+    "cr": 16,
+    "size": "Huge",
+    "alignment": "lawful evil"
   },
   "eb93dc76-7971-42ee-9ada-2d95f04501fa": {
     "name": "Guard",
@@ -2049,7 +2211,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "d5def9ca-be78-4e23-887d-ac9752a22b38": {
     "name": "Fire Elemental",
@@ -2074,7 +2238,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "29001c07-2bb4-48a1-a174-7de9db1411ff": {
     "name": "Young Blue Dragon",
@@ -2099,10 +2265,12 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 3
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "5c134041-ec04-4265-b582-6a6e93acfa32": {
-    "name": "Succubus\/Incubus",
+    "name": "Succubus/Incubus",
     "type": "fiend",
     "subtype": "shapechanger",
     "ac": 15,
@@ -2124,7 +2292,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 5
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "416ba17a-c82f-4497-bccb-7371e8e0c06d": {
     "name": "Swarm of Quippers",
@@ -2149,7 +2319,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "c3179b79-e7cd-4066-9409-3cfee274cf16": {
     "name": "Remorhaz",
@@ -2174,7 +2346,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "ede00aa3-1e81-4c94-803d-dda914610b86": {
     "name": "Pegasus",
@@ -2199,7 +2373,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 1
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "chaotic good"
   },
   "652f65f3-10bd-4bf7-b2c4-7a2e9dd5db0d": {
     "name": "Balor",
@@ -2224,7 +2400,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 6
     },
-    "cr": 19
+    "cr": 19,
+    "size": "Huge",
+    "alignment": "chaotic evil"
   },
   "96206487-8eff-4905-8a91-683ae4d91c7d": {
     "name": "Death Dog",
@@ -2249,7 +2427,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "7e8b7d3a-e928-4140-aca6-4280d7f856b2": {
     "name": "Plesiosaurus",
@@ -2274,7 +2454,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "aa5eefbd-516b-4613-832d-37ec7ce98da9": {
     "name": "Zombie",
@@ -2299,7 +2481,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "d3a13138-f036-4ef0-a5c6-b4bcc4c5bf49": {
     "name": "Adult Silver Dragon",
@@ -2324,7 +2508,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 5
     },
-    "cr": 16
+    "cr": 16,
+    "size": "Huge",
+    "alignment": "lawful good"
   },
   "5b809e2c-c8c9-4ef2-b1ae-a69d91b7ea20": {
     "name": "Cloaker",
@@ -2349,7 +2535,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Large",
+    "alignment": "chaotic neutral"
   },
   "df974171-bf80-4074-9cab-5f67fb09b181": {
     "name": "Basilisk",
@@ -2374,7 +2562,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "891cc040-b2b1-415b-878f-946a808b1ea3": {
     "name": "Ice Devil",
@@ -2399,7 +2589,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 14
+    "cr": 14,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "4eb8e996-308f-4754-b480-55d789465a67": {
     "name": "Hunter Shark",
@@ -2424,7 +2616,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "31b8c1af-75f8-44ac-9683-9485ca01f842": {
     "name": "Ancient Bronze Dragon",
@@ -2449,7 +2643,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 5
     },
-    "cr": 22
+    "cr": 22,
+    "size": "Gargantuan",
+    "alignment": "lawful good"
   },
   "5e4d1902-52ce-483a-b12e-1e405c2476d2": {
     "name": "Flying Snake",
@@ -2474,7 +2670,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "6ab76123-96d3-4f47-8427-5acf6fca9e73": {
     "name": "Jackal",
@@ -2499,7 +2697,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "b4df133d-fba2-4a24-bbb2-054b7a8acd9b": {
     "name": "Adult Gold Dragon",
@@ -2524,7 +2724,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 7
     },
-    "cr": 17
+    "cr": 17,
+    "size": "Huge",
+    "alignment": "lawful good"
   },
   "0dd9ccd1-8a30-4693-86f3-136bd4a5a458": {
     "name": "Gray Ooze",
@@ -2549,7 +2751,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "1d586a9d-06b4-43dd-b801-0e3e6a61b6e1": {
     "name": "Giant Vulture",
@@ -2574,7 +2778,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "adae698c-32ef-4cb4-994b-c3faecc73359": {
     "name": "Imp",
@@ -2599,7 +2805,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Tiny",
+    "alignment": "lawful evil"
   },
   "5a74fe59-a460-4644-8b2d-60d455ec7982": {
     "name": "Werebear",
@@ -2624,7 +2832,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 1
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral good"
   },
   "04d1547b-1c66-4f21-8854-30e213c98eed": {
     "name": "Androsphinx",
@@ -2649,7 +2859,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 6
     },
-    "cr": 17
+    "cr": 17,
+    "size": "Large",
+    "alignment": "lawful neutral"
   },
   "7c88fe0b-649b-4f58-9c82-b367e7bd7157": {
     "name": "Adult Green Dragon",
@@ -2674,7 +2886,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 15
+    "cr": 15,
+    "size": "Huge",
+    "alignment": "lawful evil"
   },
   "ccc304c0-5b6b-41ed-b5ee-fcaf84cc6770": {
     "name": "Mummy Lord",
@@ -2699,7 +2913,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 3
     },
-    "cr": 15
+    "cr": 15,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "36e861ad-c6c3-4c29-bacd-9aa83ccd2c89": {
     "name": "Ancient Black Dragon",
@@ -2724,7 +2940,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 21
+    "cr": 21,
+    "size": "Gargantuan",
+    "alignment": "chaotic evil"
   },
   "dc1b07db-ccd4-4851-bca0-9422c33d1e04": {
     "name": "Bronze Dragon Wyrmling",
@@ -2749,7 +2967,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "b57f4fff-415a-4ac5-8dae-dd418cf48e8d": {
     "name": "Stone Golem",
@@ -2774,7 +2994,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "43afb48c-41c1-42fe-8322-2d174a470eb6": {
     "name": "Lizardfolk",
@@ -2799,7 +3021,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "c2ede063-8a0f-4a2f-aefa-ecaa6e780d8f": {
     "name": "Roc",
@@ -2824,7 +3048,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Gargantuan",
+    "alignment": "unaligned"
   },
   "6a08677d-6bc7-44b7-8cb2-456c946c3f28": {
     "name": "Nalfeshnee",
@@ -2849,7 +3075,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "f3f473d2-8895-47a8-923a-f34928cf1edc": {
     "name": "Steam Mephit",
@@ -2874,7 +3102,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Small",
+    "alignment": "neutral evil"
   },
   "69732a65-5fbb-465f-9b0b-c4d93a635978": {
     "name": "Hydra",
@@ -2899,7 +3129,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "0b52db2d-126a-464c-9d1b-ce9bdd915ae8": {
     "name": "Elk",
@@ -2924,7 +3156,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "cf72421c-fc53-4f8e-81e3-82d6bb7da9e3": {
     "name": "Rhinoceros",
@@ -2949,7 +3183,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "c7158651-27e9-450a-922c-8196f4310fa2": {
     "name": "Giant Hyena",
@@ -2974,7 +3210,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "99b9f0f3-125f-4c1d-ab20-a5302c4f097f": {
     "name": "Phase Spider",
@@ -2999,7 +3237,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "2a024fb2-e7b7-43a5-9861-3d169e77f9f7": {
     "name": "Sprite",
@@ -3024,7 +3264,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Tiny",
+    "alignment": "neutral good"
   },
   "25c5b736-0e07-46af-813b-21f4327fba45": {
     "name": "Darkmantle",
@@ -3049,7 +3291,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "aaeac689-94bc-468f-a65e-15cdfe9571a3": {
     "name": "Giant Sea Horse",
@@ -3074,7 +3318,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "7bd5c3cf-2e08-4750-bbe7-173547bccbcc": {
     "name": "Giant Crocodile",
@@ -3099,7 +3345,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "8ba82c16-97ef-4fe4-9035-f0ddb3d69986": {
     "name": "Cat",
@@ -3124,7 +3372,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "88edae47-9bf5-48a0-9de2-980689912006": {
     "name": "Tyrannosaurus Rex",
@@ -3149,7 +3399,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "7cc7a39b-a977-479e-bcb3-e9880dd963a3": {
     "name": "Worg",
@@ -3174,7 +3426,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "2c321c95-9f97-45f0-9020-8522b6ae6dee": {
     "name": "Awakened Shrub",
@@ -3199,7 +3453,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "03863569-01c6-4c92-8f77-0d79732cd1b2": {
     "name": "Scorpion",
@@ -3224,7 +3480,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "466c62a3-b0b6-43be-94a2-51ec19107a1a": {
     "name": "Young Brass Dragon",
@@ -3249,7 +3507,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "chaotic good"
   },
   "d62504e1-5046-4aa7-8ca8-941cc222879a": {
     "name": "Giant Frog",
@@ -3274,7 +3534,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "8fcebe92-4798-4e3f-a6ec-2f77bac68a47": {
     "name": "Giant Toad",
@@ -3299,7 +3561,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "d5c94de6-04be-4eed-b590-bce1bacfe859": {
     "name": "Archmage",
@@ -3324,7 +3588,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 12
+    "cr": 12,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "fb419623-1ed8-404f-8443-602995a18b1e": {
     "name": "Scout",
@@ -3349,7 +3615,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "31f599a4-ac10-409e-bea6-2f3712dd419a": {
     "name": "Bandit",
@@ -3374,7 +3642,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "any non-lawful alignment"
   },
   "49d45c73-bd68-45ed-a717-686da42a8f6d": {
     "name": "Cave Bear",
@@ -3399,7 +3669,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "6552ea41-78f5-4c76-b38b-d827f85afeed": {
     "name": "Wereboar",
@@ -3424,7 +3696,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "e3854061-b014-47e3-8068-4da5e7e2b0a5": {
     "name": "Giant Rat (Diseased)",
@@ -3449,7 +3723,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "ef122589-5898-4038-b300-e8647c370e36": {
     "name": "Night Hag",
@@ -3474,7 +3750,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "98c0a1a4-ac8c-4f92-ae96-b4224597654e": {
     "name": "Treant",
@@ -3499,7 +3777,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 1
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Huge",
+    "alignment": "chaotic good"
   },
   "4994190e-46f6-4263-976b-6f8efced70dc": {
     "name": "Will-o'-Wisp",
@@ -3524,7 +3804,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Tiny",
+    "alignment": "chaotic evil"
   },
   "e9eb908e-76a4-4a0b-96d2-3f063abb84a5": {
     "name": "Young White Dragon",
@@ -3549,7 +3831,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "e0f25916-b151-4d46-9c9d-526a979f20f1": {
     "name": "Barbed Devil",
@@ -3574,7 +3858,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 2
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "b16ca472-eb0e-43ea-bbda-69ffa652b5c3": {
     "name": "Young Copper Dragon",
@@ -3599,7 +3885,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Large",
+    "alignment": "chaotic good"
   },
   "3ac8f569-59ca-4e16-9e0a-3f306aa856c2": {
     "name": "Purple Worm",
@@ -3624,7 +3912,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 15
+    "cr": 15,
+    "size": "Gargantuan",
+    "alignment": "unaligned"
   },
   "6b74e8d4-0fc9-40cc-bab8-ec986e2537d8": {
     "name": "Hawk",
@@ -3649,7 +3939,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "e258f2ac-df2e-4203-818a-eec88c76b5a5": {
     "name": "Planetar",
@@ -3674,7 +3966,9 @@ const monsters = Map({
       "wisdom": 6,
       "charisma": 7
     },
-    "cr": 16
+    "cr": 16,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "28d2a474-6590-4bba-9515-3e9952510fe7": {
     "name": "Ogre",
@@ -3699,7 +3993,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "362ee93b-b1fd-4fbe-bfa1-ca5cfa2c0229": {
     "name": "Elephant",
@@ -3724,7 +4020,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "4eb3e45f-3a4d-4402-ab4b-dda27d9a9f04": {
     "name": "Ancient Copper Dragon",
@@ -3749,7 +4047,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 4
     },
-    "cr": 21
+    "cr": 21,
+    "size": "Gargantuan",
+    "alignment": "chaotic good"
   },
   "ed183db6-3fb4-45fb-8f10-bf4f4864b69e": {
     "name": "Raven",
@@ -3774,7 +4074,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "6b46a021-2908-463a-a411-7a8aeba92196": {
     "name": "Swarm of Spiders",
@@ -3799,7 +4101,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "3d814202-7234-402c-b6eb-deba64d92d21": {
     "name": "Swarm of Wasps",
@@ -3824,7 +4128,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "d6b4de9a-64c2-4949-a6d6-e912ce7f1ea3": {
     "name": "Tiger",
@@ -3849,7 +4155,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "70ba8da9-2e43-4226-9206-a63e5e02923c": {
     "name": "Silver Dragon Wyrmling",
@@ -3874,7 +4182,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "f98638a6-3d50-48cd-9bb2-cb1ba8a06f53": {
     "name": "Swarm of Rats",
@@ -3899,7 +4209,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "ac07ec4a-14dd-4a30-b5d2-c393119089a4": {
     "name": "Young Red Dragon",
@@ -3924,7 +4236,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 4
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "ec01df59-0b7f-4384-b850-a461a83b4c31": {
     "name": "Vampire Spawn",
@@ -3949,7 +4263,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "5e6917ad-a67e-4a72-8893-32e8d24390b4": {
     "name": "Giant Eagle",
@@ -3974,7 +4290,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "neutral good"
   },
   "d7b5179d-6143-40b0-ad6d-9fd43a375a97": {
     "name": "Hippogriff",
@@ -3999,7 +4317,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "9e338c62-8bbd-40d3-8028-fa91b3dbef80": {
     "name": "Black Bear",
@@ -4024,7 +4344,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "bb0388b6-66ed-453c-807a-4f432589693c": {
     "name": "Owl",
@@ -4049,7 +4371,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "7869ee28-1332-4d02-b227-72c92bf527d8": {
     "name": "Pit Fiend",
@@ -4074,7 +4398,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 7
     },
-    "cr": 20
+    "cr": 20,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "dbc0dcbf-1489-4046-b1a6-8e48f5371228": {
     "name": "Ettin",
@@ -4099,7 +4425,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "cf00c913-3811-4325-a042-66898647b2c5": {
     "name": "Constrictor Snake",
@@ -4124,7 +4452,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "96b61168-9d14-4935-84dc-b32bc620b691": {
     "name": "Grimlock",
@@ -4149,7 +4479,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "7e9d807b-fc8d-4be4-a047-6a54aeb9a283": {
     "name": "Assassin",
@@ -4174,7 +4506,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Medium",
+    "alignment": "any non-good alignment"
   },
   "7c83e675-6710-4552-9ad6-f5d9bd2255c3": {
     "name": "Lizard",
@@ -4199,7 +4533,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "768b249c-1971-4cd0-8486-c9014617f3a1": {
     "name": "Vampire",
@@ -4224,7 +4560,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "fcd5e46d-58ec-499c-9447-38513f536427": {
     "name": "Panther",
@@ -4249,7 +4587,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "558539eb-0724-4868-9047-724567cd7ecd": {
     "name": "Water Elemental",
@@ -4274,7 +4614,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "11493fa3-ae69-4692-8b80-122c5bbcd5be": {
     "name": "Rakshasa",
@@ -4299,7 +4641,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 5
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "01623cae-d8b3-4a5c-8c88-ed4ba0547353": {
     "name": "Magma Mephit",
@@ -4324,7 +4668,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "neutral evil"
   },
   "dd24ea3b-b3ca-4c06-b31e-3a6da822bb5e": {
     "name": "Ankheg",
@@ -4349,7 +4695,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "6ad80d51-3b4a-4601-94d8-eba428b5ed57": {
     "name": "Acolyte",
@@ -4374,7 +4722,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "c289d8b6-7967-4720-a00c-af7b6819b3a3": {
     "name": "Adult Copper Dragon",
@@ -4399,7 +4749,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 14
+    "cr": 14,
+    "size": "Huge",
+    "alignment": "chaotic good"
   },
   "10d6c2f9-84f1-4d83-a0ac-98a845cff227": {
     "name": "Satyr",
@@ -4424,7 +4776,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "chaotic neutral"
   },
   "b2220950-678c-4241-8e21-30860dfd665b": {
     "name": "Roper",
@@ -4449,7 +4803,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "7b105b67-b07c-49b1-bb82-99c84b2106a3": {
     "name": "Fire Giant",
@@ -4474,7 +4830,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 1
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Huge",
+    "alignment": "lawful evil"
   },
   "55d0dd94-01a4-4a29-8ff8-97eab952cb20": {
     "name": "Blink Dog",
@@ -4499,7 +4857,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "71409c35-b23d-423a-a58f-52187ff170a1": {
     "name": "Vulture",
@@ -4524,7 +4884,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "4ff39dca-c4ec-45bf-8826-5335539fd298": {
     "name": "Weretiger",
@@ -4549,7 +4911,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "3ec9775a-7a96-4841-83cf-532f944cacbf": {
     "name": "Centaur",
@@ -4574,7 +4938,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "neutral good"
   },
   "4a6af690-0dd3-4c58-b5d4-06ddef151371": {
     "name": "Giant Shark",
@@ -4599,7 +4965,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "d1e9fb74-144a-4182-949d-61aa754dd443": {
     "name": "Swarm of Insects",
@@ -4624,7 +4992,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "5a9c40a6-9765-495d-a9b0-8059fef88eef": {
     "name": "Warhorse Skeleton",
@@ -4649,7 +5019,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "5755e432-ff07-42a3-acc5-bbaeac34609f": {
     "name": "Giant Weasel",
@@ -4674,7 +5046,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "c3e12eea-53f7-4aef-832a-25098168c230": {
     "name": "Giant Constrictor Snake",
@@ -4699,7 +5073,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "d79e5af2-c298-4c6b-957d-a888d14b6826": {
     "name": "Ghoul",
@@ -4724,7 +5100,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "b25b4c0b-3915-4854-9deb-3cab1cd574c6": {
     "name": "Xorn",
@@ -4749,7 +5127,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "f32d32b0-227c-41e4-bfe1-6bb473422078": {
     "name": "Saber-Toothed Tiger",
@@ -4774,7 +5154,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "ddaf9285-bab4-46c0-95f9-9b70cae83e37": {
     "name": "Efreeti",
@@ -4799,7 +5181,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "4c86cf1c-2550-485e-8411-be94391d4e3b": {
     "name": "Ancient White Dragon",
@@ -4824,7 +5208,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 20
+    "cr": 20,
+    "size": "Gargantuan",
+    "alignment": "chaotic evil"
   },
   "c445e06d-bab3-48e1-8df8-28134efab940": {
     "name": "Invisible Stalker",
@@ -4849,7 +5235,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "f66c418d-d46f-4be8-9235-eb0dd65f7160": {
     "name": "Quasit",
@@ -4874,7 +5262,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Tiny",
+    "alignment": "chaotic evil"
   },
   "22be6048-9a40-4223-b09a-74c1463f9d47": {
     "name": "Noble",
@@ -4899,7 +5289,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "0425f02c-4c2f-44e1-af7d-7813c6ed80b0": {
     "name": "Ape",
@@ -4924,7 +5316,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "acdf7f0f-377e-4b0d-8cf0-c828946320cb": {
     "name": "Thug",
@@ -4949,7 +5343,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "any non-good alignment"
   },
   "896be100-d3f9-49c5-adec-0a452b038604": {
     "name": "Medusa",
@@ -4974,7 +5370,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "4e7907bc-63bd-41e0-87fc-39fcc6fcf29f": {
     "name": "Adult Black Dragon",
@@ -4999,7 +5397,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 3
     },
-    "cr": 14
+    "cr": 14,
+    "size": "Huge",
+    "alignment": "chaotic evil"
   },
   "aba98ab8-a4f6-40fb-9590-40a76ce299b0": {
     "name": "Poisonous Snake",
@@ -5024,7 +5424,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "ec847494-5196-4ef7-b08d-3c18bf713e7c": {
     "name": "Veteran",
@@ -5049,7 +5451,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "56c73da8-b5fc-4523-8bab-d629b9113e6d": {
     "name": "Ochre Jelly",
@@ -5074,7 +5478,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "b10f8a99-b684-47eb-8f67-e51e8e7dca09": {
     "name": "Mimic",
@@ -5099,7 +5505,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "21396fe1-5407-4144-a0bd-0ba41f4ddc15": {
     "name": "Kraken",
@@ -5124,7 +5532,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 5
     },
-    "cr": 23
+    "cr": 23,
+    "size": "Gargantuan",
+    "alignment": "chaotic evil"
   },
   "d4272c01-df10-4b65-915a-91f63fa912e7": {
     "name": "Ancient Silver Dragon",
@@ -5149,7 +5559,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 6
     },
-    "cr": 23
+    "cr": 23,
+    "size": "Gargantuan",
+    "alignment": "lawful good"
   },
   "02f22c96-d14d-4d87-8200-2e0a23392091": {
     "name": "Tarrasque",
@@ -5174,7 +5586,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 30
+    "cr": 30,
+    "size": "Gargantuan",
+    "alignment": "unaligned"
   },
   "607dc635-9fc7-4576-af29-8e0ea3f60442": {
     "name": "Adult Brass Dragon",
@@ -5199,7 +5613,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 3
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Huge",
+    "alignment": "chaotic good"
   },
   "9460c423-2045-43e8-ba3a-72a8e9531ac7": {
     "name": "Ogre Zombie",
@@ -5224,7 +5640,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "f3c72747-df80-4685-8e30-0296fc409970": {
     "name": "Cultist",
@@ -5249,7 +5667,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "any non-good alignment"
   },
   "90342601-1b6e-4a5b-88df-ad95f7cef961": {
     "name": "Ancient Green Dragon",
@@ -5274,7 +5694,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 4
     },
-    "cr": 22
+    "cr": 22,
+    "size": "Gargantuan",
+    "alignment": "lawful evil"
   },
   "e07f7728-d3cf-4fd5-9e9e-d267e97049fa": {
     "name": "Drow",
@@ -5299,7 +5721,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "3095b95b-80b9-42c0-b70f-76fbd78bdad6": {
     "name": "Knight",
@@ -5324,7 +5748,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "464d33e9-edea-4f1a-9d6b-be8112763de7": {
     "name": "Wight",
@@ -5349,7 +5775,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "2bf4ada2-000c-4355-85a2-0e6b33484fe3": {
     "name": "Djinni",
@@ -5374,7 +5802,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 5
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Large",
+    "alignment": "chaotic good"
   },
   "764986b9-596f-408f-a125-96af732b0759": {
     "name": "Dire Wolf",
@@ -5399,7 +5829,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "4fe93d66-2c38-4f31-8db3-184dcc22c8a7": {
     "name": "Crab",
@@ -5424,7 +5856,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "efc618bc-5983-49d6-a186-cb3e06cb50cb": {
     "name": "Cloud Giant",
@@ -5449,7 +5883,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 3
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Huge",
+    "alignment": "neutral good (50%) or neutral evil (50%)"
   },
   "7980a1ab-ca7f-465f-91b2-f2f2d050dab3": {
     "name": "Green Hag",
@@ -5474,7 +5910,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "3fa96fcb-fac4-4108-8314-358a41315363": {
     "name": "Giant Poisonous Snake",
@@ -5499,7 +5937,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "ecf177b5-2794-4e4b-9e0f-b7a27044b2c1": {
     "name": "Sea Horse",
@@ -5524,7 +5964,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "8f2b1fad-5605-4cd0-b417-302637d3542b": {
     "name": "Erinyes",
@@ -5549,7 +5991,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 12
+    "cr": 12,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "6c85960d-94b8-4fd2-940a-0b4e786986f9": {
     "name": "Stone Giant",
@@ -5574,7 +6018,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Huge",
+    "alignment": "neutral"
   },
   "c0a7fee0-80e2-4462-b3cb-2a1944d64a5a": {
     "name": "Rust Monster",
@@ -5599,7 +6045,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "9700b157-08be-4dd9-a5c8-97e02fe03a22": {
     "name": "Magmin",
@@ -5624,7 +6072,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "chaotic neutral"
   },
   "64aa7517-0048-4cbe-8303-1903fe8b3c33": {
     "name": "Hobgoblin",
@@ -5649,7 +6099,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "1f29ba22-c9ac-412d-a56a-ea12417f6bb0": {
     "name": "Gibbering Mouther",
@@ -5674,7 +6126,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "10237748-ba2b-49c0-8952-aabe83ff5b68": {
     "name": "Giant Wasp",
@@ -5699,7 +6153,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "a0aebdca-0f24-4daf-8df4-30c328b21230": {
     "name": "Killer Whale",
@@ -5724,7 +6180,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "ec335eb6-6df5-419a-84b4-ef925414c2f6": {
     "name": "Chimera",
@@ -5749,7 +6207,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "ceba3a97-4200-4b47-9722-1489435eb44d": {
     "name": "Manticore",
@@ -5774,7 +6234,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "330fbb37-36d0-4dc7-89f0-3f320a6b39db": {
     "name": "Spirit Naga",
@@ -5799,7 +6261,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "9f8adb58-ce00-456c-bed8-fc6b6c446a9c": {
     "name": "Weasel",
@@ -5824,7 +6288,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "e03a9b98-708c-4a01-9018-173aa7eb39da": {
     "name": "Oni",
@@ -5849,7 +6315,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "1d35073a-f259-4a5e-951f-afe398e135f7": {
     "name": "Duergar",
@@ -5874,7 +6342,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "19f655db-b1c1-4ebe-9923-e4a78f80e4b3": {
     "name": "Stirge",
@@ -5899,7 +6369,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "7612d6b0-ec14-4615-affe-dcbf9b194689": {
     "name": "Giant Owl",
@@ -5924,7 +6396,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "neutral"
   },
   "91f79c62-1160-4489-8afd-c373f0821f48": {
     "name": "Red Dragon Wyrmling",
@@ -5949,7 +6423,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "db0e4a3d-127a-4122-b382-bbfee29f69ae": {
     "name": "Bearded Devil",
@@ -5974,7 +6450,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "f45b26e4-a0d4-4ba7-a0bf-7360af415643": {
     "name": "Rat",
@@ -5999,7 +6477,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "a56aa5b9-01e2-4599-bd6d-5bdb047c21a2": {
     "name": "Adult White Dragon",
@@ -6024,7 +6504,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 1
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Huge",
+    "alignment": "chaotic evil"
   },
   "f923ec0b-b719-4c5c-aa81-8068e1c4d6ae": {
     "name": "Sahuagin",
@@ -6049,7 +6531,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "05f4c60a-4add-4ce6-9b0f-687d824b6ae0": {
     "name": "Young Green Dragon",
@@ -6074,7 +6558,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Large",
+    "alignment": "lawful evil"
   },
   "43e31dd3-82a7-4a25-b32f-3b75a39ddc27": {
     "name": "Vrock",
@@ -6099,7 +6585,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "bc6da6b9-09ab-443c-a012-e887eb78592e": {
     "name": "Young Bronze Dragon",
@@ -6124,7 +6612,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 3
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "7b356b3c-ded9-4c5c-a7f3-0383b4868104": {
     "name": "Sea Hag",
@@ -6149,7 +6639,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 1
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "d478c997-a40f-4b81-9a18-2614c51c72ca": {
     "name": "Bat",
@@ -6174,7 +6666,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Tiny",
+    "alignment": "unaligned"
   },
   "115d8918-bb87-45e7-8e86-277d341fd973": {
     "name": "Adult Bronze Dragon",
@@ -6199,7 +6693,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 15
+    "cr": 15,
+    "size": "Huge",
+    "alignment": "lawful good"
   },
   "65794523-04d9-4851-9632-2cda2493aaab": {
     "name": "Kobold",
@@ -6224,7 +6720,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Small",
+    "alignment": "lawful evil"
   },
   "98551b09-bed4-4873-a2b6-ae8c0e5a7dfa": {
     "name": "Storm Giant",
@@ -6249,7 +6747,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 4
     },
-    "cr": 13
+    "cr": 13,
+    "size": "Huge",
+    "alignment": "chaotic good"
   },
   "8ca7d51b-0fbb-40b4-bc7b-7055d7bb56fc": {
     "name": "Mastiff",
@@ -6274,7 +6774,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "140b35fc-dc32-4d75-9688-93c71c872f65": {
     "name": "Young Black Dragon",
@@ -6299,7 +6801,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 2
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "23c54a86-f182-4f57-a9a9-eb25702763bc": {
     "name": "Giant Bat",
@@ -6324,7 +6828,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "3ffac7e5-aaaf-406c-bf6a-c806bc22d08b": {
     "name": "Ghast",
@@ -6349,7 +6855,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "fde0bbfe-b6e6-4665-9713-ff3735608030": {
     "name": "Half-Red Dragon Veteran",
@@ -6374,7 +6882,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "d84ada3d-816c-47d3-8db8-17b441736e99": {
     "name": "Giant Elk",
@@ -6399,7 +6909,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "64eb2bc1-0580-44d9-a205-f5e10b13477c": {
     "name": "Lemure",
@@ -6424,7 +6936,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "5551bf13-1b19-4667-a903-55a59e6f04a6": {
     "name": "Awakened Tree",
@@ -6449,7 +6963,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "304c1a57-b2c8-47a4-b2e7-712eeca83916": {
     "name": "Chain Devil",
@@ -6474,7 +6990,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "f19afb52-63f9-4168-8b18-ea76b931b0a3": {
     "name": "Merrow",
@@ -6499,7 +7017,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "f39d8805-9500-4e86-9417-1a3a7563583b": {
     "name": "Eagle",
@@ -6524,7 +7044,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "4290ecce-b3b8-4ec6-bb84-daf76b6cdc97": {
     "name": "Mummy",
@@ -6549,7 +7071,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "8a1b0977-8133-48f5-aefd-22eb2c1133a2": {
     "name": "Lich",
@@ -6574,7 +7098,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 21
+    "cr": 21,
+    "size": "Medium",
+    "alignment": "any evil alignment"
   },
   "ee18d93f-7a30-461e-9995-c9a447381019": {
     "name": "Brown Bear",
@@ -6599,7 +7125,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "4aa7d2fd-b8a5-4ca9-9e9c-637c0d91d850": {
     "name": "Ancient Gold Dragon",
@@ -6624,7 +7152,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 9
     },
-    "cr": 24
+    "cr": 24,
+    "size": "Gargantuan",
+    "alignment": "lawful good"
   },
   "c6e6c1d9-03de-4159-bd38-fac82edc4c7c": {
     "name": "Swarm of Poisonous Snakes",
@@ -6649,7 +7179,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "ee49dc2f-937e-4825-9778-ec1bff6302d8": {
     "name": "Hell Hound",
@@ -6674,7 +7206,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "9033d347-11d1-45af-862b-ada12c7d174c": {
     "name": "Azer",
@@ -6699,7 +7233,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "lawful neutral"
   },
   "9e1f7f32-6c10-435a-8a34-ccb4edd712f7": {
     "name": "Werewolf",
@@ -6724,7 +7260,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "3d395c7f-312c-4c44-a971-db79996d8bcc": {
     "name": "Gnoll",
@@ -6749,7 +7287,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "0431109b-2fa1-4c35-ba8a-8befaa56e32c": {
     "name": "Lion",
@@ -6774,7 +7314,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "97a7e5a3-2b3e-4b89-9343-7e105fa7e7f1": {
     "name": "Skeleton",
@@ -6799,7 +7341,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "29845781-d6a9-43d7-bafd-32a62abf7dec": {
     "name": "Boar",
@@ -6824,7 +7368,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "71723840-5cd5-4cbe-bf83-c48dd08f7e9e": {
     "name": "Troll",
@@ -6849,7 +7395,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "5704b467-d8b1-46b1-bd9b-1367af1510d8": {
     "name": "Ettercap",
@@ -6874,7 +7422,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "neutral evil"
   },
   "423574be-7bf4-408c-b881-78cf51885dc0": {
     "name": "Wolf",
@@ -6899,7 +7449,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "a7af551d-153b-4ef1-8975-d2a3c65b9925": {
     "name": "Giant Badger",
@@ -6924,7 +7476,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "a2812aaa-853c-4823-a41a-47d959d2cc47": {
     "name": "Owlbear",
@@ -6949,7 +7503,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "2ec32883-449f-4e5f-a9de-a0feee281833": {
     "name": "Giant Wolf Spider",
@@ -6974,7 +7530,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "ddcda042-4854-484d-93e5-c0fe47bbdc91": {
     "name": "Baboon",
@@ -6999,7 +7557,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "8bb1eaf7-f621-406a-b851-0fcce2a1cbda": {
     "name": "Shrieker",
@@ -7024,7 +7584,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "a9909961-69d4-4516-acba-219e122fc69f": {
     "name": "Wyvern",
@@ -7049,7 +7611,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "24823b59-a80f-4adb-8062-8ac9a1478f14": {
     "name": "Octopus",
@@ -7074,7 +7638,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "aad9e645-2c3f-44ff-9a03-2d7959e8bf0e": {
     "name": "Riding Horse",
@@ -7099,7 +7665,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "23049229-4b72-41dc-918b-9a60cfa0c478": {
     "name": "Lamia",
@@ -7124,7 +7692,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "d2c91b21-7ac0-46c9-9a9c-cbcda4211fb4": {
     "name": "Shambling Mound",
@@ -7149,7 +7719,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "3782ea23-0867-4f98-90d5-fb9833462468": {
     "name": "Wererat",
@@ -7174,7 +7746,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "lawful evil"
   },
   "cc46585c-738d-4318-ab74-18c606fc0afa": {
     "name": "Adult Blue Dracolich",
@@ -7199,7 +7773,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 4
     },
-    "cr": 17
+    "cr": 17,
+    "size": "Huge",
+    "alignment": "lawful evil"
   },
   "370fd026-7aa6-4c66-ac2b-db709884c99e": {
     "name": "Specter",
@@ -7224,7 +7800,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "69d10c72-3a8d-4196-a59d-5b94b1ea309f": {
     "name": "Giant Crab",
@@ -7249,7 +7827,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "d6d9df92-364a-4159-bf70-5a5380dd36ab": {
     "name": "Black Dragon Wyrmling",
@@ -7274,7 +7854,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "35efd694-e226-475e-9b96-c08ad2567ccb": {
     "name": "Harpy",
@@ -7299,7 +7881,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "78bbaffa-caa2-4e33-b2ab-eb823d4cc556": {
     "name": "Pony",
@@ -7324,7 +7908,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "79c5c694-67d3-4a57-873d-f066eeadf3e6": {
     "name": "Polar Bear",
@@ -7349,7 +7935,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "94665ad2-cc0f-41c0-8be3-25ea3e27abc7": {
     "name": "Berserker",
@@ -7374,7 +7962,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Medium",
+    "alignment": "any chaotic alignment"
   },
   "5a239547-1604-45d8-92dd-78241722496e": {
     "name": "Solar",
@@ -7399,7 +7989,9 @@ const monsters = Map({
       "wisdom": 7,
       "charisma": 10
     },
-    "cr": 21
+    "cr": 21,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "5a606f75-134a-4159-a765-f1d586da16b2": {
     "name": "Dretch",
@@ -7424,7 +8016,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Small",
+    "alignment": "chaotic evil"
   },
   "31eafd9b-f0a4-4ea7-be79-42833e6ac5b1": {
     "name": "Copper Dragon Wyrmling",
@@ -7449,7 +8043,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 1
     },
-    "cr": 1
+    "cr": 1,
+    "size": "Medium",
+    "alignment": "chaotic good"
   },
   "151dc77e-6dbb-458d-939e-1f44cb2cce48": {
     "name": "Shield Guardian",
@@ -7474,7 +8070,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "d7b8759e-51eb-401c-9398-d2844acea633": {
     "name": "Flesh Golem",
@@ -7499,7 +8097,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Medium",
+    "alignment": "neutral"
   },
   "e11b41d0-e02f-4425-a5b6-db1c7b256003": {
     "name": "Deep Gnome (Svirfneblin)",
@@ -7524,7 +8124,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Small",
+    "alignment": "neutral good"
   },
   "628cbde2-6220-424b-b1b5-cb61bafb4611": {
     "name": "Couatl",
@@ -7549,7 +8151,9 @@ const monsters = Map({
       "wisdom": 5,
       "charisma": 4
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "lawful good"
   },
   "eeaa805e-ee0e-4956-ac12-c2e360ccc256": {
     "name": "Young Silver Dragon",
@@ -7574,7 +8178,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 4
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "378e3f62-5797-4d39-9cac-c0ecb6f03fa8": {
     "name": "Iron Golem",
@@ -7599,7 +8205,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 16
+    "cr": 16,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "f5a94da7-7398-449d-b093-690e46bed340": {
     "name": "Mammoth",
@@ -7624,7 +8232,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "2ffd0f6c-7803-4dc1-be13-c14adb9ec067": {
     "name": "Reef Shark",
@@ -7649,7 +8259,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "e3552184-ab7d-4bf2-a65a-59976196b1ef": {
     "name": "Hezrou",
@@ -7674,7 +8286,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 1
     },
-    "cr": 8
+    "cr": 8,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "a22962fd-e505-42b5-b378-bb2a6979402d": {
     "name": "Triceratops",
@@ -7699,7 +8313,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 5
+    "cr": 5,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "75385e02-9157-4e6f-8aa4-d81be55e8d5b": {
     "name": "Griffon",
@@ -7724,7 +8340,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 2
+    "cr": 2,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "cbcc9fe3-9bdd-4551-a1a2-efdf2f8a2c66": {
     "name": "Ghost",
@@ -7749,7 +8367,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 3
     },
-    "cr": 4
+    "cr": 4,
+    "size": "Medium",
+    "alignment": "any alignment"
   },
   "67740c69-54b1-4160-bb3f-a6c2827a9def": {
     "name": "Swarm of Ravens",
@@ -7774,7 +8394,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.25
+    "cr": 0.25,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "80783cdc-2726-47bd-a908-4ed6c6f1d1f2": {
     "name": "Winter Wolf",
@@ -7799,7 +8421,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "48e3e6ff-23f6-46bf-bb19-1b9be63825fa": {
     "name": "Hyena",
@@ -7824,7 +8448,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "fed6d5e7-938d-4295-a784-87e2e1edd401": {
     "name": "Glabrezu",
@@ -7849,7 +8475,9 @@ const monsters = Map({
       "wisdom": 3,
       "charisma": 3
     },
-    "cr": 9
+    "cr": 9,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "a02ccb2d-342d-4f26-83eb-4d019a795a61": {
     "name": "Nightmare",
@@ -7874,7 +8502,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 2
     },
-    "cr": 3
+    "cr": 3,
+    "size": "Large",
+    "alignment": "neutral evil"
   },
   "31dfa241-dfb8-4344-870a-a6a8296d59a5": {
     "name": "Orc",
@@ -7899,7 +8529,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Medium",
+    "alignment": "chaotic evil"
   },
   "70c4ca3c-cf2b-4e73-a9f8-bb10bc639552": {
     "name": "Giant Ape",
@@ -7924,7 +8556,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 7
+    "cr": 7,
+    "size": "Huge",
+    "alignment": "unaligned"
   },
   "d771bcff-5199-48c9-9b73-f379ec2de706": {
     "name": "Giant Fire Beetle",
@@ -7949,7 +8583,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "4aa7b0e0-e649-4e16-8e32-d47375782797": {
     "name": "Giant Rat",
@@ -7974,7 +8610,9 @@ const monsters = Map({
       "wisdom": 0,
       "charisma": 0
     },
-    "cr": 0.125
+    "cr": 0.125,
+    "size": "Small",
+    "alignment": "unaligned"
   },
   "9ffec790-96db-4634-9d88-e50111fb5cf6": {
     "name": "Deer",
@@ -7999,7 +8637,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 0
     },
-    "cr": 0
+    "cr": 0,
+    "size": "Medium",
+    "alignment": "unaligned"
   },
   "b7bd331b-347f-4755-8e33-0fbca21eb634": {
     "name": "Drider",
@@ -8024,7 +8664,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 1
     },
-    "cr": 6
+    "cr": 6,
+    "size": "Large",
+    "alignment": "chaotic evil"
   },
   "7282a008-3483-439b-8865-72d237886142": {
     "name": "Young Gold Dragon",
@@ -8049,7 +8691,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 5
     },
-    "cr": 10
+    "cr": 10,
+    "size": "Large",
+    "alignment": "lawful good"
   },
   "28060d99-904e-4013-bdbe-1d26ff52090a": {
     "name": "Gynosphinx",
@@ -8074,7 +8718,9 @@ const monsters = Map({
       "wisdom": 4,
       "charisma": 4
     },
-    "cr": 11
+    "cr": 11,
+    "size": "Large",
+    "alignment": "lawful neutral"
   },
   "efa37d07-2438-4c00-a58d-21070057e6a8": {
     "name": "Giant Goat",
@@ -8099,7 +8745,9 @@ const monsters = Map({
       "wisdom": 1,
       "charisma": 0
     },
-    "cr": 0.5
+    "cr": 0.5,
+    "size": "Large",
+    "alignment": "unaligned"
   },
   "2fc21869-1acd-41c5-bce2-24fd05f80308": {
     "name": "Bone Devil",
@@ -8124,7 +8772,9 @@ const monsters = Map({
       "wisdom": 2,
       "charisma": 3
     },
-    "cr": 12
+    "cr": 12,
+    "size": "Large",
+    "alignment": "lawful evil"
   }
 });
 
