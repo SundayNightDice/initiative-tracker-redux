@@ -27,15 +27,16 @@ const EncounterBuilder = (props) => {
             )
           }
         </ul>
-        <h3>Add</h3>
+        <button
+          className="start"
+          onClick={() => props.onDone()}>Done</button>
+      </div>
+      <div className="builder-right">
         <AddEnemyForm
           monsters={props.monsters}
           onSubmit={props.onAddEnemy} />
-          <button
-            className="start"
-            onClick={() => props.onDone()}>Done</button>
+        <Bestiary monster={props.selectedMonster} />
       </div>
-      <Bestiary monster={props.selectedMonster} />
     </div>
   );
 };

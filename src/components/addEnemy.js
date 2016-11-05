@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 const AddEnemy = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
+      <h2>Add</h2>
       <div className="row">
         <label>Type:</label>
         <Field name="monster" component="select">
