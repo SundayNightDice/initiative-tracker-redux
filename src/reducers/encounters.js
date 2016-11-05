@@ -11,6 +11,8 @@ export default function encounters(state = defaultState, action) {
         return state.set(action.id, new EncounterModel());
       case 'DELETE_ENCOUNTER':
         return state.delete(action.id);
+      case 'EDIT_ENCOUNTER':
+        return state.setIn([action.id, 'status'], EncounterStatus.BUILDING)
       default:
         if (action.encounterId) {
           const encounterState = state.get(action.encounterId);

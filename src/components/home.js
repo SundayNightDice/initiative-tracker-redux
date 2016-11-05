@@ -12,6 +12,7 @@ const Home = (props) => {
         encounters={props.encounters.entrySeq()}
         onAddEncounter={props.onAddEncounter}
         onDeleteEncounter={props.onDeleteEncounter}
+        onEditEncounter={props.onEditEncounter}
         onStartEncounter={props.onStartEncounter} />
     </div>
   );
