@@ -11,6 +11,8 @@ export default function encounter(state = defaultState, action) {
       return state.set('name', action.name);
     case 'ADD_ENEMY':
       return state.setIn(['enemies', action.enemyId], action.enemy);
+    case 'DELETE_ENEMY':
+      return state.deleteIn(['enemies', action.enemyId]);
     case 'ENEMIES_ADDED':
       return state.set('status', EncounterStatus.PENDING);
     case 'START_ENCOUNTER':
