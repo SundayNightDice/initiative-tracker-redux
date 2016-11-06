@@ -8,9 +8,12 @@ const Player = (props) => {
 
   return (
     <li className="player">
-      <span className="name">{props.player.name}</span>
-      <span className="details">{details}</span>
-      <span className="hp">{hp}</span>
+      <div>
+        <span className="name">{props.player.name}</span>
+        <span className="details">{details}</span>
+        <span className="hp">{hp}</span>
+        <button className="delete-player" onClick={() => props.onDeletePlayer(props.playerId)}></button>
+      </div>
       <StatBlock attributes={props.player.attributes} modifiers={props.player.modifiers} />
     </li>
   );
@@ -20,7 +23,7 @@ const PlayersList = (props) => (
   <div className="players">
     <h2>Players</h2>
       <ul>
-        {props.players.map(p => <Player key={p[0]} player={p[1]} />)}
+        {props.players.map(p => <Player key={p[0]} playerId={p[0]} player={p[1]} onDeletePlayer={props.onDeletePlayer} />)}
       </ul>
       <AddPlayer
         onSubmit={props.onAddPlayer} />

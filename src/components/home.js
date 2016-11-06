@@ -7,7 +7,8 @@ const Home = (props) => {
     <div id="contents">
       <PlayersList
         players={props.players.entrySeq()}
-        onAddPlayer={props.onAddPlayer} />
+        onAddPlayer={props.onAddPlayer}
+        onDeletePlayer={props.onDeletePlayer} />
       <EncountersList
         encounters={props.encounters.entrySeq()}
         onAddEncounter={props.onAddEncounter}
