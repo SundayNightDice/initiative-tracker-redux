@@ -1,4 +1,5 @@
 import React from 'react';
+import HealthBar from './healthBar';
 import Status from './status';
 
 const InitiativeList = (props) => {
@@ -21,6 +22,7 @@ const InitiativeItem = ({ className, combatant }) => (
   <li className={className}>
     <span className="initiativeScore">{combatant.bonus + combatant.initiative}</span>
     {combatant.name + ' - '+ combatant.hp + ' HP'}
+    <HealthBar hp={combatant.hp} maxHp={combatant.maxHp} />
     <Status hp={combatant.hp}
       deathSaves={combatant.deathSaves}
       deathFails={combatant.deathFails}

@@ -1,5 +1,6 @@
 import React from 'react';
 import AddPlayer from './addPlayer';
+import HealthBar from './healthBar';
 import StatBlock from './statblock';
 
 const Player = (props) => {
@@ -11,9 +12,9 @@ const Player = (props) => {
       <div>
         <span className="name">{props.player.name}</span>
         <span className="details">{details}</span>
-        <span className="hp">{hp}</span>
         <button className="delete-player" onClick={() => props.onDeletePlayer(props.playerId)}></button>
       </div>
+      <HealthBar hp={props.player.hp} maxHp={props.player.maxHp} />
       <StatBlock attributes={props.player.attributes} modifiers={props.player.modifiers} />
     </li>
   );
