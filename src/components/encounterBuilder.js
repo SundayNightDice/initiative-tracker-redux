@@ -3,11 +3,16 @@ import AddEnemyForm from './addEnemy';
 import Bestiary from './bestiary';
 
 const EnemyListItem = (props) => {
-  const description = `${props.enemy.name} ()`;
+  const description = `${props.enemy.size} ${props.enemy.monsterType} - ${props.enemy.hp} HP`;
   return (
     <li>
-      <span>{description}</span>
-      <button className="delete-enemy" onClick={() => props.onDelete(props.enemyId)}></button>
+      <div>
+        <span>{props.enemy.name}</span>
+        <button className="delete-enemy" onClick={() => props.onDelete(props.enemyId)}></button>
+      </div>
+      <div>
+        <span>{description}</span>
+      </div>
     </li>
   );
 };

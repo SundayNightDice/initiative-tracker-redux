@@ -6,13 +6,14 @@ import deleteEnemy from './../actions/deleteEnemy';
 import enemiesAdded from './../actions/enemiesAdded';
 import setEncounterName from './../actions/setEncounterName';
 import EncounterBuilder from './../components/encounterBuilder';
-import getSelectedMonster from './../selectors/getSelectedMonster';
+import { getEncounter, getMonsters, getSelectedMonster, getEnemiesAsMonsters } from './../selectors/getSelectedMonster';
 
 const mapStateToProps = (state, ownProps) => {
-  const encounter = state.encounters.get(ownProps.params.id);
+  const encounter = getEncounter(state, ownProps.params.id);
+  const monsters = getMonsters(state);
   return {
-    enemies: encounter.enemies.entrySeq(),
-    monsters: state.monsters.entrySeq(),
+    enemies: getEnemiesAsMonsters(encounter, monsters).entrySeq(),
+    monsters: monsters.entrySeq(),
     name: encounter.name,
     selectedMonster: getSelectedMonster(state)
   };
