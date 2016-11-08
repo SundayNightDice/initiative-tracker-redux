@@ -7,7 +7,7 @@ const AddEnemy = (props) => {
       <h2>Add</h2>
       <div className="row">
         <label>Type:</label>
-        <Field name="monster" component="select">
+        <Field name="monster" component="select" onChange={props.onChangeEnemy}>
           <option value="">Select...</option>
           { props.monsters.map(item => <option value={item[0]} key={item[0]}>{item[1].name}</option>) }
         </Field>

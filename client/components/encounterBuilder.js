@@ -40,7 +40,8 @@ const EncounterBuilder = (props) => {
       <div className="builder-right">
         <AddEnemyForm
           monsters={props.monsters}
-          onSubmit={props.onAddEnemy} />
+          onSubmit={props.onAddEnemy}
+          onChangeEnemy={props.onChangeEnemy} />
         <Bestiary monster={props.selectedMonster} />
       </div>
     </div>

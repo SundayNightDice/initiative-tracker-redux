@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
 import addEnemy from './../actions/addEnemy';
+import changeEnemy from './../actions/changeEnemy';
 import deleteEnemy from './../actions/deleteEnemy';
 import enemiesAdded from './../actions/enemiesAdded';
 import setEncounterName from './../actions/setEncounterName';
@@ -22,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSetEncounterName: (e) => dispatch(setEncounterName(ownProps.params.id, e.target.value)),
+    onChangeEnemy: (data) => dispatch(changeEnemy(data)),
     onAddEnemy: (enemy) => dispatch(addEnemy(enemy, ownProps.params.id)),
     onDeleteEnemy: (id) => dispatch(deleteEnemy(ownProps.params.id, id)),
     onDone: () => dispatch(enemiesAdded(ownProps.params.id))
