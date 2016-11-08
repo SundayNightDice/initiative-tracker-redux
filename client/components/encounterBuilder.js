@@ -33,6 +33,7 @@ const EncounterBuilder = (props) => {
           }
         </ul>
         <button
+          disabled={props.name === ''}
           className="start"
           onClick={() => props.onDone()}>Done</button>
       </div>
