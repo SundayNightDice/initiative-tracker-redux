@@ -18,7 +18,7 @@ import { save, load } from './persistence/localStorage';
 import monstersLoaded from './actions/monstersLoaded';
 import monsters from './data/monsters';
 
-import '../styles/style.less';
+import './styles/style.less';
 
 const initialState = load();
 
@@ -33,6 +33,14 @@ const store = createStore(
     DevTools.instrument()
   )
 );
+
+if (module.hot) {
+  module.hot.accept('./reducers/rootReducer', () => {
+    const nextRootReducer = require('./reducers/rootReducer').default;
+
+    store.replaceReducer(nextRootReducer);
+  });
+}
 
 store.dispatch(monstersLoaded(monsters));
 
