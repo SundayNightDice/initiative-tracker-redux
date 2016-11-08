@@ -24,7 +24,8 @@ export default (playerData) => {
         attributes: attributes,
         modifiers: modifiers,
         level: playerData.level,
-        class: playerData.class
+        class: playerData.class,
+        race: playerData.race
       })
     });
 

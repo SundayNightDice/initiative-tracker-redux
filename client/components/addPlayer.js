@@ -1,6 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import classes from '../data/classes';
+import races from '../data/races';
 
 const renderStatInput = (field) =>
   <input type="number" min="0" max="20" {...field.input} />
@@ -47,6 +48,13 @@ const AddPlayer = (props) => {
         <Field component="select" name="class">
           <option value="">Select...</option>
           { classes.map(c => <option value={c} key={c}>{c}</option>) }
+        </Field>
+      </div>
+      <div className="row">
+        <label>Race:</label>
+        <Field component="select" name="race">
+          <option value="">Select...</option>
+          { races.map(r => <option value={r} key={r}>{r}</option>) }
         </Field>
       </div>
       <button type="submit">Add</button>

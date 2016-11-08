@@ -4,7 +4,7 @@ import HealthBar from './healthBar';
 import StatBlock from './statblock';
 
 const Player = (props) => {
-  const details = `Level ${props.player.level} ${props.player.class}`;
+  const details = `${props.player.race} - Level ${props.player.level} ${props.player.class}`;
   const hp = `(${props.player.hp}/${props.player.maxHp} HP)`;
 
   return (
