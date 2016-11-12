@@ -24,8 +24,6 @@ export default combineReducers({
           else {
             return state;
           }
-        case 'DEATH_SAVE':
-          return undefined;
         default:
           return state;
       }
