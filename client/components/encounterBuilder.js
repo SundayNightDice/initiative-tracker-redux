@@ -1,6 +1,7 @@
 import React from 'react';
 import AddEnemyForm from './addEnemy';
 import Bestiary from './bestiary';
+import Row from './row';
 
 const EnemyListItem = (props) => {
   const description = `${props.enemy.size} ${props.enemy.monsterType} - ${props.enemy.hp} HP`;
@@ -24,10 +25,10 @@ const EncounterBuilder = (props) => {
   return (
     <div className="encounter-builder">
       <div className="builder">
-        <div className="row">
+        <Row>
           <label>Name: </label>
           <input type="text" value={props.name} onChange={props.onSetEncounterName} />
-        </div>
+        </Row>
         <h2>Enemies</h2>
         <ul>
           { props.enemies.map(e =>

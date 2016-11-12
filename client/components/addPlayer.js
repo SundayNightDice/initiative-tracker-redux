@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import classes from '../data/classes';
 import races from '../data/races';
+import Row from './row';
 
 const renderStatInput = (field) =>
   <input type="number" min="0" max="20" {...field.input} />
@@ -9,14 +10,14 @@ const renderStatInput = (field) =>
 const AddPlayer = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <div className="row">
+      <Row>
         <label>Name:</label>
         <Field type="text" component="input" name="name" />
-      </div>
-      <div className="row">
+      </Row>
+      <Row>
         <label>HP:</label>
         <Field type="number" component="input" name="hp" />
-      </div>
+      </Row>
       <table>
         <thead>
           <tr>
@@ -39,24 +40,24 @@ const AddPlayer = (props) => {
           </tr>
         </tbody>
       </table>
-      <div className="row">
+      <Row>
         <label>Level:</label>
         <Field component={renderStatInput} name="level" />
-      </div>
-      <div className="row">
+      </Row>
+      <Row>
         <label>Class:</label>
         <Field component="select" name="class">
           <option value="">Select...</option>
           { classes.map(c => <option value={c} key={c}>{c}</option>) }
         </Field>
-      </div>
-      <div className="row">
+      </Row>
+      <Row>
         <label>Race:</label>
         <Field component="select" name="race">
           <option value="">Select...</option>
           { races.map(r => <option value={r} key={r}>{r}</option>) }
         </Field>
-      </div>
+      </Row>
       <button type="submit">Add</button>
     </form>
   );
