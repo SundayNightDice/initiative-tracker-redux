@@ -1,4 +1,5 @@
 import uuid from 'node-uuid';
+import { reset } from 'redux-form';
 
 export default (enemyData, encounterId) => {
   return (dispatch, getState) => {
@@ -10,10 +11,13 @@ export default (enemyData, encounterId) => {
         name: enemyData.name,
         hp: monster.hp,
         initiative: monster.modifiers.dexterity,
-        monsterId: enemyData.monster
+        monsterId: enemyData.monster,
+        startingRound: enemyData.startingRound
       },
       encounterId: encounterId,
       enemyId: uuid.v4()
     });
+
+    dispatch(reset('addEnemy'));
   }
 }

@@ -13,6 +13,9 @@ const EnemyListItem = (props) => {
       <div>
         <span>{description}</span>
       </div>
+      <div>
+        <span>Enters on round {props.enemy.startingRound}</span>
+      </div>
     </li>
   );
 };

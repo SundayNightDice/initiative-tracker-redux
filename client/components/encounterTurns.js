@@ -6,7 +6,8 @@ const EncounterTurns = (props) => (
   <div id="contents">
     <InitiativeList
       combatants={props.combatants}
-      currentPlayer={props.currentPlayer} />
+      currentPlayer={props.currentPlayer}
+      round={props.round} />
     <TurnOptions
       currentPlayer={props.currentPlayer}
       damageTargets={props.damageTargets}

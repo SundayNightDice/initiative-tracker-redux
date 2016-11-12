@@ -6,7 +6,7 @@ const AddEnemy = (props) => {
     <form onSubmit={props.handleSubmit}>
       <h2>Add</h2>
       <div className="row">
-        <label>Type:</label>
+        <label>Enemy Type:</label>
         <Field name="monster" component="select" onChange={props.onChangeEnemy}>
           <option value="">Select...</option>
           { props.monsters.map(item => <option value={item[0]} key={item[0]}>{item[1].name}</option>) }
@@ -19,6 +19,13 @@ const AddEnemy = (props) => {
           component="input" />
       </div>
       <div className="row">
+        <label>Starting Round:</label>
+        <Field name="startingRound"
+          type="number"
+          component="input"
+          min="1" />
+      </div>
+      <div className="row">
         <button type="submit">Add</button>
       </div>
     </form>
@@ -28,7 +35,8 @@ const AddEnemy = (props) => {
 const AddEnemyForm = reduxForm({
   form: 'addEnemy',
   initialValues: {
-    'name': ''
+    'name': '',
+    'startingRound': 1
   }
 })(AddEnemy);
 

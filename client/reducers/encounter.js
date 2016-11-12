@@ -37,7 +37,7 @@ export default function encounter(state = defaultState, action) {
 };
 
 function _startEncounter(state, action) {
-  const enemies = state.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, 1, id));
+  const enemies = state.enemies.map((enemy, id) => Combatant.fromEnemy(enemy.name, enemy.hp, enemy.initiative, enemy.startingRound, id));
   const players = action.players
     .map((player, id) => Combatant.fromPlayer(player.name, player.hp, player.modifiers.dexterity, 1, id));
   const combatants = players.merge(enemies);
@@ -59,7 +59,7 @@ function _beginCombat(state, action) {
   return state
   .set('order', order)
   .set('round', 1)
-  .set('currentPlayer', 0)
+  .set('currentPlayer', nextTurnIndex(state.combatants, order, -1, 1))
   .set('status', EncounterStatus.ACTIVE);
 }
 
@@ -110,7 +110,7 @@ function _deathSave(state, action) {
 function _endTurn(state, action) {
   const player = getCurrentPlayer(state)
     .set('acted', false);
-  const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer);
+  const nextIndex = nextTurnIndex(state.combatants, state.order, state.currentPlayer, state.round);
   const round = nextIndex === 0 ? state.round + 1 : state.round;
   return state
     .setIn(['combatants', player.id], player)
@@ -163,15 +163,19 @@ function applyDeathSavingThrows(player, data) {
   }
 }
 
-function nextTurnIndex(combatants, order, currentPlayerIndex) {
+function nextTurnIndex(combatants, order, currentPlayerIndex, round) {
   const increment = (i) => (i + 1) % order.size;
 
   for (let i = increment(currentPlayerIndex); i !== currentPlayerIndex; i = increment(i)) {
     const combatant = combatants.get(order.get(i));
+    const r = (i < currentPlayerIndex) ? round + 1 : round;
 
+    if (combatant.startingRound > r) {
+      continue;
+    }
     if (isAlive(combatant)) {
         return i;
-      }
+    }
   }
 
   return -1; // All enemies defeated!

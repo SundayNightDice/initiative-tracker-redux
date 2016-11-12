@@ -10,14 +10,7 @@ export default combineReducers({
   monsters,
   players,
   form: formReducer.plugin({
-    addEnemy: (state, action) => {
-      switch(action.type) {
-        case 'ADD_ENEMY':
-          return undefined;
-        default:
-          return state;
-      }
-    },
+    addEnemy: (state, action) => state,
     turnDamage: (state, action) => state,
     turnHealing: (state, action) => state,
     deathSaves: (state, action) => {
