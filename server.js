@@ -26,6 +26,10 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, config.output.publicPath, 'index.html'));
 });
 
+app.get('/settings', function(req, res) {
+  res.sendFile(path.join(__dirname, config.output.publicPath, 'index.html'));
+});
+
 // Do "hot-reloading" of express stuff on the server
 // Throw away cached modules and re-require next time
 // Ensure there's no important state in there!

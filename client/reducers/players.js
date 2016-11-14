@@ -1,8 +1,8 @@
 import { Map } from 'immutable';
+import persistable from './persistable';
 
 const defaultState = Map({});
-
-export default function players(state = defaultState, action) {
+const players = (state, action) => {
   switch(action.type) {
     case 'ADD_PLAYER':
       return state.set(action.playerId, action.player);
@@ -18,3 +18,6 @@ export default function players(state = defaultState, action) {
       return state;
   }
 }
+const persistableReducer = persistable(defaultState, players);
+
+export default persistableReducer;

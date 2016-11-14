@@ -12,6 +12,7 @@ import App from './components/app';
 import Home from './containers/home';
 import Encounter from './containers/encounter';
 import EncounterBuilder from './containers/encounterBuilder';
+import Settings from './containers/settings';
 import DevTools from './dev/DevTools';
 import { save, load } from './persistence/localStorage';
 
@@ -58,6 +59,7 @@ render(
           <IndexRoute component={Home} />
           <Route path="build/:id" component={EncounterBuilder} />
           <Route path="encounter/:id" component={Encounter} />
+          <Route path="settings" component={Settings} />
           <Redirect path="*" to="/" />
         </Route>
       </Router>

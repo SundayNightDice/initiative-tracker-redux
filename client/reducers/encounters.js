@@ -1,11 +1,11 @@
 import { Map } from 'immutable';
 import encounter from './encounter';
+import persistable from './persistable';
 import EncounterModel from './../models/encounterModel';
 import EncounterStatus from './../models/encounterStatus';
 
 const defaultState = Map({});
-
-export default function encounters(state = defaultState, action) {
+const encounters = (state, action) => {
     switch (action.type) {
       case 'ADD_ENCOUNTER':
         return state.set(action.id, new EncounterModel());
@@ -22,3 +22,6 @@ export default function encounters(state = defaultState, action) {
         }
     }
 }
+const persistableReducer = persistable(defaultState, encounters);
+
+export default persistableReducer;
