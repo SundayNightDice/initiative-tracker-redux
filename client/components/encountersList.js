@@ -4,10 +4,12 @@ import EncounterStatus from './../models/encounterStatus';
 const EncountersList = (props) => (
   <div className="encounters">
     <h2>Encounters</h2>
+      <div className="options">
+        <button onClick={props.onAddEncounter}>Add Encounter</button>
+      </div>
       <ul>
         {props.encounters.map(e => EncounterItem(e[0], e[1], props.onStartEncounter, props.onDeleteEncounter, props.onEditEncounter))}
       </ul>
-      <button onClick={props.onAddEncounter}>Add Encounter</button>
   </div>
 );
 
