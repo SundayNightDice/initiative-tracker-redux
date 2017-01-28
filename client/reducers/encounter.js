@@ -82,6 +82,7 @@ function _dealDamage(state, action) {
 
   return state
     .setIn(['combatants', attacker.id], attacker)
+    .updateIn(['combatants', attacker.id, 'activityLog'], list => list.push(`Attacked ${damaged.name} for ${action.attack.damage}HP`))
     .setIn(['combatants', damaged.id], damaged);
 }
 
@@ -99,7 +100,8 @@ function _dealHealing(state, action) {
 
   return state
     .setIn(['combatants', healed.id], healed)
-    .setIn(['combatants', healer.id, 'acted'], true);
+    .setIn(['combatants', healer.id, 'acted'], true)
+    .updateIn(['combatants', healer.id, 'activityLog'], list => list.push(`Healed ${healed.name} for ${action.healing.value}HP`));
 }
 
 function _deathSave(state, action) {
@@ -116,6 +118,7 @@ function _endTurn(state, action) {
   const round = nextIndex === 0 ? state.round + 1 : state.round;
   return state
     .setIn(['combatants', player.id], player)
+    .setIn(['combatants', player.id, 'activityLog'], List([]))
     .set('round', round)
     .set('currentPlayer', nextIndex)
     .set('status', calculateEncounterStatus(state.combatants));
@@ -151,15 +154,23 @@ function applyDeathSavingThrows(player, data) {
       return player
         .set('hp', 1)
         .set('deathSaves', 0)
-        .set('deathFails', 0);
+        .set('deathFails', 0)
+        .update('activityLog', list => list.push(`Death Save (Critical) - Regained 1HP`));
     } else {
       return player
-        .set('deathSaves', player.deathSaves + 1);
+        .set('deathSaves', player.deathSaves + 1)
+        .update('activityLog', list => list.push(`Death Save`));
     }
   } else if (data.fail) {
-    const fails = data.isCritical ? 2 : 1;
-    return player
-      .set('deathFails', player.deathFails + fails);
+      if (data.isCritical) {
+        return player
+          .set('deathFails', player.deathFails + 2)
+          .update('activityLog', list => list.push(`Death Fail (Critical)`));
+      } else {
+        return player
+          .set('deathFails', player.deathFails + 1)
+          .update('activityLog', list => list.push(`Death Fail`));
+      }
   } else {
     return player;
   }

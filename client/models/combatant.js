@@ -1,4 +1,4 @@
-import { Record } from 'immutable';
+import { Record, List } from 'immutable';
 
 const _Combatant = {
   name: '',
@@ -11,7 +11,8 @@ const _Combatant = {
   initiative: 0,
   startingRound: 0,
   id: '',
-  acted: false
+  acted: false,
+  activityLog: List([])
 };
 
 export default class Combatant extends Record(_Combatant) {
@@ -28,7 +29,8 @@ export default class Combatant extends Record(_Combatant) {
       initiative: 0,
       startingRound: startingRound,
       id: id,
-      acted: false
+      acted: false,
+      activityLog: List([])
     });
   }
 
@@ -44,7 +46,8 @@ export default class Combatant extends Record(_Combatant) {
       initiative: 0,
       startingRound: startingRound,
       id: id,
-      acted: false
+      acted: false,
+      activityLog: List([])
     });
   }
 }

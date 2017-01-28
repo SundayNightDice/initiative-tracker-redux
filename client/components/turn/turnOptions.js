@@ -2,6 +2,7 @@ import React from 'react';
 import Death from './death';
 import DamageForm from './damage';
 import HealingForm from './healing';
+import ActivityLog from './activityLog';
 
 export default class TurnOptions extends React.Component {
 
@@ -27,6 +28,7 @@ export default class TurnOptions extends React.Component {
               onDeathSave={this.props.onDeathSave}
               acted={currentPlayer.acted} />
         }
+        <ActivityLog log={currentPlayer.activityLog} />
       </div>
     );
   }
