@@ -1,4 +1,4 @@
-export default function dealDamage(healData, encounterId) {
+export default function dealHealing(healData, encounterId) {
   return {
     type: 'DEAL_HEALING',
     encounterId: encounterId,
