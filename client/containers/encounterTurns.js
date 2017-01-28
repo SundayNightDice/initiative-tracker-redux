@@ -6,7 +6,7 @@ import deathSave from './../actions/deathSave';
 import endTurn from './../actions/endTurn';
 import toggleCondition from './../actions/toggleCondition';
 
-import EncounterTurns from './../components/EncounterTurns';
+import EncounterTurns from './../components/turn/EncounterTurns';
 import { getDamageTargets, getHealingTargets } from './../selectors/getTurnTargets';
 
 const mapStateToProps = (state, ownProps) => {

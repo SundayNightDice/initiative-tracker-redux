@@ -6,7 +6,7 @@ import changeEnemy from './../actions/changeEnemy';
 import deleteEnemy from './../actions/deleteEnemy';
 import enemiesAdded from './../actions/enemiesAdded';
 import setEncounterName from './../actions/setEncounterName';
-import EncounterBuilder from './../components/encounterBuilder';
+import EncounterBuilder from './../components/builder/encounterBuilder';
 import { getEncounter, getMonsters, getSelectedMonster, getEnemiesAsMonsters } from './../selectors/getSelectedMonster';
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import AddEnemyForm from './addEnemy';
 import Bestiary from './bestiary';
-import Row from './row';
+import Row from '../common/row';
 
 const EnemyListItem = (props) => {
   const description = `${props.enemy.size} ${props.enemy.monsterType} - ${props.enemy.hp} HP`;

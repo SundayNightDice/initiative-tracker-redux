@@ -1,5 +1,5 @@
 import React from 'react';
-import StatBlock from './statblock';
+import StatBlock from '../common/statblock';
 
 const formatChallengeRating = (value) => {
   if (value === 0.5) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import InitiativeList from './initiativeList';
-import TurnOptions from './turn/turnOptions';
+import TurnOptions from './turnOptions';
 
 const EncounterTurns = (props) => (
   <div id="contents">

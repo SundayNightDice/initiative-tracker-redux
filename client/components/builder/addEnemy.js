@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import Row from './row';
+import Row from '../common/row';
 
 const AddEnemy = (props) => {
   return (

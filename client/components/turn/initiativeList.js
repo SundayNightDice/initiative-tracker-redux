@@ -1,6 +1,6 @@
 import React from 'react';
-import HealthBar from './healthBar';
-import Status from './status';
+import HealthBar from '../common/healthBar';
+import Status from '../common/status';
 
 const InitiativeList = (props) => {
   const currentPlayerName = props.currentPlayer ? props.currentPlayer.name : null;
