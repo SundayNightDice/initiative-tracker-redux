@@ -86,18 +86,20 @@ function _dealDamage(state, action) {
 }
 
 function _dealHealing(state, action) {
-  const healer = getCurrentPlayer(state)
-    .set('acted', true);
+  const healer = getCurrentPlayer(state);
+  const isHealingSelf = (action.healing.target === healer.name);
+  const target = isHealingSelf ?
+    healer :
+    state.combatants.find(x => x.name === action.healing.target);
 
-  const target = state.combatants.find(x => x.name === action.healing.target);
   const healed = target
     .set('hp', Math.min(target.maxHp, target.hp + action.healing.value))
     .set('deathSaves', 0)
-    .set('deathFails', 0);
+    .set('deathFails', 0)
 
   return state
-    .setIn(['combatants', healer.id], healer)
-    .setIn(['combatants', healed.id], healed);
+    .setIn(['combatants', healed.id], healed)
+    .setIn(['combatants', healer.id, 'acted'], true);
 }
 
 function _deathSave(state, action) {
