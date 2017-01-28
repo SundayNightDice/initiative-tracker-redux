@@ -15,15 +15,6 @@ const Damage = (props) => {
         <Field name="isCritical" type="checkbox" component="input" />
         <label>Critical Hit</label>
       </div>
-      <div>
-        <span>
-          <Field name="applyConditions" type="checkbox" component="input" />
-          <label>Apply condition</label>
-        </span>
-        <div>
-          <p>TODO Conditions</p>
-        </div>
-      </div>
       <button type="submit">Apply Damage</button>
     </form>
   );
