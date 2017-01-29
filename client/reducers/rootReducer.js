@@ -4,6 +4,7 @@ import { routerReducer } from 'react-router-redux';
 import encounters from './encounters';
 import monsters from './monsters';
 import players from './players';
+import ui from './ui';
 
 export default combineReducers({
   encounters,
@@ -29,5 +30,6 @@ export default combineReducers({
       }
     }
   }),
-  routing: routerReducer
+  routing: routerReducer,
+  ui
 });

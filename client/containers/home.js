@@ -12,7 +12,8 @@ import Home from './../components/home';
 const mapStateToProps = (state) => {
   return {
     encounters: state.encounters,
-    players: state.players
+    players: state.players,
+    ui: state.ui
   }
 };
 
