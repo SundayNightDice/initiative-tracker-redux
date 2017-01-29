@@ -4,6 +4,8 @@ const defaultState = {
 
 const home = (state = defaultState, action) => {
   switch(action.type) {
+    case 'ADD_PLAYER':
+      return defaultState;
     case 'TOGGLE_ADD_PLAYER':
       return action.open ? { expandedOption: 'addPlayer' } : defaultState;
     default:

@@ -4,20 +4,32 @@ import classes from '../../data/classes';
 import races from '../../data/races';
 import Row from '../common/row';
 
-const renderStatInput = (field) =>
-  <input type="number" min="0" max="20" {...field.input} />
+const TextField = ({ label, name }) => (
+  <Row>
+    <label>{label}</label>
+    <Field type="text" component="input" name={name} />
+  </Row>
+);
+
+const renderStatInput = (field) => (
+  <input type="number" min="1" max="20" {...field.input} />
+);
+
+const OptionsList = ({ label, name, items }) => (
+  <Row>
+    <label>{label}</label>
+    <Field component="select" name={name}>
+      <option value="">Select...</option>
+      { items.map(i => <option value={i} key={i}>{i}</option>) }
+    </Field>
+  </Row>
+);
 
 const AddPlayer = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <Row>
-        <label>Name:</label>
-        <Field type="text" component="input" name="name" />
-      </Row>
-      <Row>
-        <label>HP:</label>
-        <Field type="number" component="input" name="hp" />
-      </Row>
+      <TextField name="name" label="Name:" />
+      <TextField name="hp" label="HP:" />
       <table>
         <thead>
           <tr>
@@ -44,20 +56,8 @@ const AddPlayer = (props) => {
         <label>Level:</label>
         <Field component={renderStatInput} name="level" />
       </Row>
-      <Row>
-        <label>Class:</label>
-        <Field component="select" name="class">
-          <option value="">Select...</option>
-          { classes.map(c => <option value={c} key={c}>{c}</option>) }
-        </Field>
-      </Row>
-      <Row>
-        <label>Race:</label>
-        <Field component="select" name="race">
-          <option value="">Select...</option>
-          { races.map(r => <option value={r} key={r}>{r}</option>) }
-        </Field>
-      </Row>
+      <OptionsList name="race" label="Race:" items={races} />
+      <OptionsList name="class" label="Class:" items={classes} />
       <button type="submit">Add</button>
     </form>
   );
