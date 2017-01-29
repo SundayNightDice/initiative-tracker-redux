@@ -1,7 +1,7 @@
 import React from 'react';
 import AddPlayer from './addPlayer';
-import HealthBar from './common/healthBar';
-import StatBlock from './common/statblock';
+import HealthBar from '../common/healthBar';
+import StatBlock from '../common/statblock';
 
 const Player = (props) => {
   const details = `${props.player.race} - Level ${props.player.level} ${props.player.class}`;

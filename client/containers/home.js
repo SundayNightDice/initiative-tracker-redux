@@ -7,7 +7,7 @@ import deleteEncounter from './../actions/deleteEncounter';
 import editEncounter from './../actions/editEncounter';
 import startEncounter from './../actions/startEncounter';
 
-import Home from './../components/home';
+import Home from './../components/home/home';
 
 const mapStateToProps = (state) => {
   return {

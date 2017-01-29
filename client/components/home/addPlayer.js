@@ -1,8 +1,8 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import classes from '../data/classes';
-import races from '../data/races';
-import Row from './common/row';
+import classes from '../../data/classes';
+import races from '../../data/races';
+import Row from '../common/row';
 
 const renderStatInput = (field) =>
   <input type="number" min="0" max="20" {...field.input} />

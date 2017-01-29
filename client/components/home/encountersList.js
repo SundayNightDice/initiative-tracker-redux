@@ -1,5 +1,5 @@
 import React from 'react';
-import EncounterStatus from './../models/encounterStatus';
+import EncounterStatus from '../../models/encounterStatus';
 
 const EncountersList = (props) => (
   <div className="encounters">
