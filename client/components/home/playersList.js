@@ -1,6 +1,7 @@
 import React from 'react';
 import AddPlayer from './addPlayer';
 import HealthBar from '../common/healthBar';
+import OptionsBar from './optionsBar';
 import StatBlock from '../common/statblock';
 
 const Player = (props) => {
@@ -20,15 +21,24 @@ const Player = (props) => {
   );
 };
 
-const PlayersList = (props) => (
-  <div className="players">
-    <h2>Players</h2>
-      <ul>
-        {props.players.map(p => <Player key={p[0]} playerId={p[0]} player={p[1]} onDeletePlayer={props.onDeletePlayer} />)}
-      </ul>
-      <AddPlayer
-        onSubmit={props.onAddPlayer} />
-  </div>
-);
+const PlayersList = (props) => {
+  const isShowingAddPlayerForm = props.ui.expandedOption === 'addPlayer';
+  return (
+    <div className="players">
+      <h2>Players</h2>
+        <OptionsBar>
+          <button onClick={() => props.onToggleAddPlayer(isShowingAddPlayerForm)}>Add Player</button>
+        </OptionsBar>
+        {
+          isShowingAddPlayerForm ?
+            <AddPlayer onSubmit={props.onAddPlayer} /> :
+              null
+        }
+        <ul>
+          {props.players.map(p => <Player key={p[0]} playerId={p[0]} player={p[1]} onDeletePlayer={props.onDeletePlayer} />)}
+        </ul>
+      </div>
+  );
+};
 
 export default PlayersList;

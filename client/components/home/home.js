@@ -8,7 +8,9 @@ const Home = (props) => {
       <PlayersList
         players={props.players.entrySeq()}
         onAddPlayer={props.onAddPlayer}
-        onDeletePlayer={props.onDeletePlayer} />
+        onDeletePlayer={props.onDeletePlayer}
+        onToggleAddPlayer={props.onToggleAddPlayer}
+        ui={props.ui} />
       <EncountersList
         encounters={props.encounters.entrySeq()}
         onAddEncounter={props.onAddEncounter}
