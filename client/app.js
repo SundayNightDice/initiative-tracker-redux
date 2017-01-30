@@ -16,7 +16,7 @@ import Settings from './containers/settings';
 import DevTools from './dev/DevTools';
 import { save, load } from './persistence/localStorage';
 
-import monstersLoaded from './actions/monstersLoaded';
+import monstersLoaded from './actions/initialization/monstersLoaded';
 import monsters from './data/monsters';
 
 import './styles/style.less';
