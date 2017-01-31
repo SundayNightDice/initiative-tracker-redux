@@ -5,6 +5,8 @@ import addPlayer from './../actions/addPlayer';
 import deletePlayer from './../actions/deletePlayer';
 import deleteEncounter from './../actions/deleteEncounter';
 import editEncounter from './../actions/editEncounter';
+import longRest from './../actions/resting/longRest';
+import shortRest from './../actions/resting/shortRest';
 import startEncounter from './../actions/startEncounter';
 import toggleAddPlayer from './../actions/toggleAddPlayer';
 
@@ -12,8 +14,10 @@ import Home from './../components/home/home';
 
 const mapStateToProps = (state) => {
   return {
+    classes: state.classes,
     encounters: state.encounters,
     players: state.players,
+    races: state.races,
     ui: state.ui.home
   }
 };
@@ -25,6 +29,8 @@ const mapDispatchToProps = (dispatch) => {
     onDeletePlayer: (id) => dispatch(deletePlayer(id)),
     onDeleteEncounter: (id) => dispatch(deleteEncounter(id)),
     onEditEncounter: (id) => dispatch(editEncounter(id)),
+    onLongRest: () => dispatch(longRest()),
+    onShortRest: () => dispatch(shortRest()),
     onStartEncounter: (id) => dispatch(startEncounter(id)),
     onToggleAddPlayer: (isOpen) => dispatch(toggleAddPlayer(isOpen))
   }

@@ -1,7 +1,5 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import classes from '../../data/classes';
-import races from '../../data/races';
 import Row from '../common/row';
 
 const TextField = ({ label, name }) => (
@@ -56,8 +54,8 @@ const AddPlayer = (props) => {
         <label>Level:</label>
         <Field component={renderStatInput} name="level" />
       </Row>
-      <OptionsList name="race" label="Race:" items={races} />
-      <OptionsList name="class" label="Class:" items={classes} />
+      <OptionsList name="race" label="Race:" items={props.races} />
+      <OptionsList name="class" label="Class:" items={props.classes} />
       <button type="submit">Add</button>
     </form>
   );

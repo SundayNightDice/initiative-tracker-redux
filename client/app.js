@@ -16,8 +16,7 @@ import Settings from './containers/settings';
 import DevTools from './dev/DevTools';
 import { save, load } from './persistence/localStorage';
 
-import monstersLoaded from './actions/initialization/monstersLoaded';
-import monsters from './data/monsters';
+import initialization from './actions/initialization';
 
 import './styles/style.less';
 
@@ -43,7 +42,7 @@ if (module.hot) {
   });
 }
 
-store.dispatch(monstersLoaded(monsters));
+store.dispatch(initialization());
 
 store.subscribe(() => {
   save(store.getState());

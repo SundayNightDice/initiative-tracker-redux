@@ -31,7 +31,10 @@ const PlayersList = (props) => {
         </OptionsBar>
         {
           isShowingAddPlayerForm ?
-            <AddPlayer onSubmit={props.onAddPlayer} /> :
+            <AddPlayer
+              onSubmit={props.onAddPlayer}
+              classes={props.classes}
+              races={props.races} /> :
               null
         }
         <ul>

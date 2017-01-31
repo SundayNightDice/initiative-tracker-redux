@@ -6,7 +6,9 @@ const Home = (props) => {
   return (
     <div id="contents">
       <PlayersList
+        classes={props.classes}
         players={props.players.entrySeq()}
+        races={props.races}
         onAddPlayer={props.onAddPlayer}
         onDeletePlayer={props.onDeletePlayer}
         onToggleAddPlayer={props.onToggleAddPlayer}
