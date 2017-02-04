@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import dealDamage from '../../actions/dealDamage';
-import dealHealing from '../../actions/dealHealing';
-import deathSave from '../../actions/deathSave';
-import endTurn from '../../actions/endTurn';
-import toggleCondition from '../../actions/toggleCondition';
+import dealDamage from '../../../actions/dealDamage';
+import dealHealing from '../../../actions/dealHealing';
+import deathSave from '../../../actions/deathSave';
+import endTurn from '../../../actions/endTurn';
+import toggleCondition from '../../../actions/toggleCondition';
 
 import EncounterTurns from './EncounterTurns';
-import { getDamageTargets, getHealingTargets } from '../../selectors/getTurnTargets';
+import { getDamageTargets, getHealingTargets } from '../../../selectors/getTurnTargets';
 
 const EncounterTurnsContainer = connect(
   (state, ownProps) => {

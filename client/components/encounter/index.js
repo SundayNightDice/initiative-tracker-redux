@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import EncounterSummary from './summary';
-import EncounterTurns from '../turn';
+import EncounterTurns from './turn';
 import Initiatives from './initiatives';
 import EncounterStatus from '../../models/encounterStatus';
 
