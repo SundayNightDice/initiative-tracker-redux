@@ -1,5 +1,6 @@
 import React from 'react';
 
+import DiceIcon from './diceIcon';
 import HealthBar from '../common/healthBar';
 import ShortRestForm from './shortRestForm';
 
@@ -9,6 +10,7 @@ const Player = (props) => (
       <span className="name">{props.player.name}</span>
       <span className="hp">{ `(${props.player.hp}/${props.player.maxHp} HP)` }</span>
       <HealthBar hp={props.player.hp} maxHp={props.player.maxHp} />
+      <DiceIcon hitDie={props.hitDie} />
       <span className="hd">{ `${props.player.hitDie} (d${props.hitDie}) Remaining` }</span>
       {
         props.player.hitDie > 0 ?
