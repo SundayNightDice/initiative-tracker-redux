@@ -5,8 +5,7 @@ import addPlayer from './../actions/addPlayer';
 import deletePlayer from './../actions/deletePlayer';
 import deleteEncounter from './../actions/deleteEncounter';
 import editEncounter from './../actions/editEncounter';
-import longRest from './../actions/resting/longRest';
-import shortRest from './../actions/resting/shortRest';
+import rest from './../actions/resting/rest';
 import startEncounter from './../actions/startEncounter';
 import toggleAddPlayer from './../actions/toggleAddPlayer';
 
@@ -29,8 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     onDeletePlayer: (id) => dispatch(deletePlayer(id)),
     onDeleteEncounter: (id) => dispatch(deleteEncounter(id)),
     onEditEncounter: (id) => dispatch(editEncounter(id)),
-    onLongRest: () => dispatch(longRest()),
-    onShortRest: () => dispatch(shortRest()),
+    onRest: () => dispatch(rest()),
     onStartEncounter: (id) => dispatch(startEncounter(id)),
     onToggleAddPlayer: (isOpen) => dispatch(toggleAddPlayer(isOpen))
   }

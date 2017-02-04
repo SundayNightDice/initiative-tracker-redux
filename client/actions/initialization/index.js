@@ -7,7 +7,6 @@ import races from '../../data/races';
 
 export default () => {
   return (dispatch, getState) => {
-    console.log('in');
     dispatch({
       type: 'INITIALIZING'
     });

@@ -28,6 +28,7 @@ const PlayersList = (props) => {
       <h2>Players</h2>
         <OptionsBar>
           <button onClick={() => props.onToggleAddPlayer(isShowingAddPlayerForm)}>Add Player</button>
+          <button onClick={props.onRest}>Rest</button>
         </OptionsBar>
         {
           isShowingAddPlayerForm ?

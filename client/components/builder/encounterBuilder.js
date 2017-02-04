@@ -25,6 +25,7 @@ const EncounterBuilder = (props) => {
   return (
     <div className="encounter-builder">
       <div className="builder">
+      <button className="back" onClick={props.onBack} />
         <Row>
           <label>Name: </label>
           <input type="text" value={props.name} onChange={props.onSetEncounterName} />

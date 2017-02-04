@@ -19,13 +19,14 @@ export default (playerData) => {
       playerId: uuid.v4(),
       player: new Player({
         name: playerData.name,
-        maxHp: playerData.hp,
-        hp: playerData.hp,
+        maxHp: Number(playerData.hp),
+        hp: Number(playerData.hp),
         attributes: attributes,
         modifiers: modifiers,
         level: playerData.level,
         class: playerData.class,
-        race: playerData.race
+        race: playerData.race,
+        hitDie: playerData.level
       })
     });
 

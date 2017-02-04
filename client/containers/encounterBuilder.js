@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
-import addEnemy from './../actions/addEnemy';
-import changeEnemy from './../actions/changeEnemy';
-import deleteEnemy from './../actions/deleteEnemy';
-import enemiesAdded from './../actions/enemiesAdded';
-import setEncounterName from './../actions/setEncounterName';
-import EncounterBuilder from './../components/builder/encounterBuilder';
+import addEnemy from '../actions/addEnemy'
+import onBack from '../actions/back';;
+import changeEnemy from '../actions/changeEnemy';
+import deleteEnemy from '../actions/deleteEnemy';
+import enemiesAdded from '../actions/enemiesAdded';
+import setEncounterName from '../actions/setEncounterName';
+import EncounterBuilder from '../components/builder/encounterBuilder';
 import { getEncounter, getMonsters, getSelectedMonster, getEnemiesAsMonsters } from './../selectors/getSelectedMonster';
 
 const mapStateToProps = (state, ownProps) => {
@@ -22,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    onBack: () => dispatch(onBack()),
     onSetEncounterName: (e) => dispatch(setEncounterName(ownProps.params.id, e.target.value)),
     onChangeEnemy: (data) => dispatch(changeEnemy(data)),
     onAddEnemy: (enemy) => dispatch(addEnemy(enemy, ownProps.params.id)),
