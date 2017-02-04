@@ -1,7 +1,7 @@
 import React from 'react';
-import Box from './common/box';
-import EncounterStatus from './../models/encounterStatus';
-import Status from './common/status';
+import Box from '../../common/box';
+import EncounterStatus from '../../../models/encounterStatus';
+import Status from '../../common/status';
 
 const EncounterSummary = (props) => (
   <Box>

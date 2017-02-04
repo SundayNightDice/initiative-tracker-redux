@@ -9,11 +9,11 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import rootReducer from './reducers/rootReducer';
 
 import App from './components/app';
-import Home from './containers/home';
-import Encounter from './containers/encounter';
-import EncounterBuilder from './containers/encounterBuilder';
+import Home from './components/home';
+import Encounter from './components/encounter';
+import EncounterBuilder from './components/builder';
 import Rest from './components/rest';
-import Settings from './containers/settings';
+import Settings from './components/settings';
 import DevTools from './dev/DevTools';
 import { save, load } from './persistence/localStorage';
 

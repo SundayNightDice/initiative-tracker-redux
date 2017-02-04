@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from './common/box';
+import Box from '../../common/box';
 
 const initiativeRoll = (props) => {
   return (
